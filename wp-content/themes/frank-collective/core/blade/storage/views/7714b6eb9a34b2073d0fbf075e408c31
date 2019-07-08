@@ -1,0 +1,28 @@
+<?php \Laravel\Section::start('content'); ?>
+<?php while ( have_posts() ) : the_post(); ?>
+<div class="root barba-container" data-namespace="default" data-page-id="Default" data-transition-in="default_in" data-transition-out="default_out" data-page-init="default_init">
+    <div class="main default-content">
+        <section class="general-content-block container">
+            <div class="grid">
+                <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
+                    <?php if(get_field('image')): ?>
+                        <div class="featured-image" >
+                            <?php echo  helper::image(get_field('image'), 'full') ; ?>
+                        </div>
+                    <?php endif; ?>
+                    <div data-big-header>
+                        <h2><?php echo  get_the_title() ; ?></h2>
+                    </div>
+                    <div data-appear-block>
+                        <?php echo  get_field('content') ; ?>
+                        <a href="/articles" class="link-u">Back to Articles</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <?php echo view('partials/cta/contact')->with(get_defined_vars())->render(); ?>
+</div>
+<?php endwhile ?>
+<?php \Laravel\Section::stop(); ?>
+<?php echo view('layouts/master')->with(get_defined_vars())->render(); ?>

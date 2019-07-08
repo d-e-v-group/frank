@@ -1,0 +1,86 @@
+<?php // /home/forge/frank-collective.approvemyviews.com/wordpress/wp-content/themes/frank-collective/views/work.blade.php ?>
+<?php /* Template Name: Work */ ?>
+<?php \Laravel\Section::start('content'); ?>
+<?php while ( have_posts() ) : the_post(); ?>
+<div class="main alt">
+    <div class="work-section">
+        <div class="container">
+            <div class="work-list-alt">
+                <div class="work">
+                    <div class="visual">
+                        <div class="bg-stretch">
+                            <span data-srcset="<?php echo  asset('images/img10.jpg') ; ?>, <?php echo  asset('images/img10.jpg@x2') ; ?> 2x"></span>
+                        </div>
+                        <div class="logo">
+                            <a href="#"><img src="<?php echo  asset('images/logo-ladder.png') ; ?>" alt="LADDER"></a>
+                        </div>
+                        <div class="v-align">
+                            <h2>Life is a workout.</h2>
+                        </div>
+                    </div>
+                    <div class="desc">
+                        <div class="grid">
+                            <div class="col-sm-4 col-md-3">
+                                <h3>Ladder</h3>
+                                <a href="#" class="link-u">View Case Study</a>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <h4>Services</h4>
+                                <div class="work-services">
+                                    <ul class="service-list">
+                                        <li>Brand Strategy</li>
+                                        <li>Brand Identity</li>
+                                    </ul>
+                                    <ul class="service-list">
+                                        <li>Brand Strategy</li>
+                                        <li>Brand Identity</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="work-img-list">
+                <div class="work-img">
+                    <img src="<?php echo  asset('images/img11.jpg') ; ?>" alt="">
+                </div>
+                <div class="work-img align-right">
+                    <img src="<?php echo  asset('images/img12.jpg') ; ?>" alt="">
+                </div>
+                <div class="work-img">
+                    <img src="<?php echo  asset('images/img13.jpg') ; ?>" alt="">
+                </div>
+                <div class="work-img align-right">
+                    <img src="<?php echo  asset('images/img14.jpg') ; ?>" alt="">
+                </div>
+                <div class="work-img align-center">
+                    <img src="<?php echo  asset('images/img12.jpg') ; ?>" alt="">
+                </div>
+                <div class="work-img align-right">
+                    <img src="<?php echo  asset('images/img13.jpg') ; ?>" alt="">
+                </div>
+                <div class="work-img align-center">
+                    <img src="<?php echo  asset('images/img11.jpg') ; ?>" alt="">
+                </div>
+                <div class="work-img">
+                    <img src="<?php echo  asset('images/img13.jpg') ; ?>" alt="">
+                </div>
+                <div class="work-img align-right">
+                    <img src="<?php echo  asset('images/img14.jpg') ; ?>" alt="">
+                </div>
+            </div>
+            <div class="full-btn">
+                <div class="grid">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <a href="#" class="btn btn-secondary">All Work</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php echo view('partials/cta/contact')->with(get_defined_vars())->render(); ?>
+<?php endwhile; ?>
+<?php \Laravel\Section::stop(); ?>
+<?php echo view('layouts/master')->with(get_defined_vars())->render(); ?>

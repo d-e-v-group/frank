@@ -1,0 +1,21 @@
+<section class="featured-image-section container <?php echo  $section['trigger_hide_background'] ? 'trigger-hide-background' : false ; ?>" id="<?php echo  $section['acf_fc_layout'] ; ?>-<?php echo  $section_index ; ?>" id="<?php echo  $section['acf_fc_layout'] ; ?>-<?php echo  $section_index ; ?>">
+    <div class="tbl" data-appear-fade-in>
+        <?php if($section['works']): ?>
+            <?php foreach((array) $section['works'] as $work): ?>
+                <div class="bg-stretch">
+                    <span data-srcset="<?php echo  helper::imageURL($work['image'], 'full') ; ?>"></span>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
+        <div class="inner">
+            <div class="grid">
+                <div class="col-sm-8 col-lg-4 col-sm-offset-2" data-appear-block>
+                    <?php if($section['title']): ?>
+                        <h3><?php echo  $section['title'] ; ?></h3>
+                    <?php endif; ?>
+                    <?php echo view('partials/link', ['button' => get_field('works_cta'), 'classes' => 'link-u'])->with(get_defined_vars())->render(); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

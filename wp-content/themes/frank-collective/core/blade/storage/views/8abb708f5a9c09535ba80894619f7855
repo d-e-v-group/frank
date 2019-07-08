@@ -1,0 +1,5 @@
+<div class="case-header-section size-<?php echo  $section['size'] ; ?> <?php echo  $section['padding_above'] ; ?>  <?php echo  $section['padding_below'] ; ?>" <?php echo  ($section['navigation_color'] === 'light') ? 'data-dark' : false ; ?> data-appear-text>
+    <div class="container">
+        <h2><?php echo  $section['header'] ; ?></h2>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<?php // /home/forge/frank-collective.approvemyviews.com/wordpress/wp-content/themes/frank-collective/index.php ?>
+<?php if( ! is_404() ): ?>
+
+<?php echo view('views/default')->with(get_defined_vars())->render(); ?>
+
+<?php else: ?>
+
+<?php echo view('views/404')->with(get_defined_vars())->render(); ?>
+
+<?php endif; ?>

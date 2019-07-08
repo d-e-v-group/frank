@@ -1,0 +1,15 @@
+<article class="case-media" <?php echo  ($section['navigation_color'] === 'light') ? 'data-dark' : false ; ?>  <?php echo  ($section_id) ? 'id="'.$section_id.'"' : false ; ?> <?php echo  ($section_id) ? 'data-nav-section="'.$section_id.'"' : false ; ?>>
+    <div class="container" data-appear-text>
+        <?php if($section['image']): ?>
+            <div class="img"><?php echo  helper::image($section['image'], 'full') ; ?></div>
+        <?php endif; ?>
+        <div class="body">
+            <?php if($section['header']): ?>
+                <div class="subtitle"><?php echo  $section['header'] ; ?></div>
+            <?php endif; ?>
+            <?php if(isset($section['content'])): ?>
+                <?php echo  $section['content'] ; ?>
+            <?php endif; ?>
+        </div>
+    </div>
+</article>

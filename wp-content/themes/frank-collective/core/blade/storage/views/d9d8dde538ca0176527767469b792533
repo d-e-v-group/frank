@@ -1,0 +1,70 @@
+<?php // /nas/content/live/frankcollectiv/wp-content/themes/frank-collective/views/about.blade.php ?>
+<?php /* Template Name: About */ ?>
+<?php \Laravel\Section::start('content'); ?>
+<?php while ( have_posts() ) : the_post(); ?>
+<div class="root barba-container" data-namespace="about" data-page-id="About" data-transition-in="about_in" data-transition-out="about_out" data-page-init="about_init">
+    <div class="default-content <?php echo  (get_field('hero_dynamic_background') !== 'none') ? ' has-dynamic-bg' : false ; ?>">
+        <?php if(get_field('hero_dynamic_background') !== 'none'): ?>
+            <div class="work-animated-background <?php echo  (get_field('hero_dynamic_background') !== 'none') ? ' dynamic-bg '.get_field('hero_dynamic_background') : false ; ?>" <?php echo  (get_field('hero_dynamic_background') !== 'none') ? ' style="background-color: #CBEEF4"' : false ; ?>></div>
+        <?php endif; ?>
+        <article class="page-article">
+            <div class="inner-wrap">
+                <div class="container">
+                    <div class="intro-block">
+                        <?php if(get_field('hero_header')): ?>
+                            <div data-big-header>
+                                <h1><?php echo  get_field('hero_header') ; ?></h1>
+                            </div>
+                        <?php endif; ?>
+                        <div class="grid">
+                            <?php if(get_field('hero_content')): ?>
+                            <div class="col-sm-8 col-lg-6">
+                                <div class="intro-txt" data-appear-text>
+                                    <?php echo  get_field('hero_content') ; ?>
+                                </div>
+                            </div>
+                            <?php endif; ?>
+                            <?php if(!empty(get_field('flexible_content_sections'))): ?>
+                                <?php
+                                    $sections = [];
+                                    foreach(get_field('flexible_content_sections') as $section){
+                                        $sections[] = ['section' => $section['acf_fc_layout'], 'label' => $section['menu_label']];
+                                    }
+                                ?>
+                                <?php if(count($sections) > 0): ?>
+                                    <div class="col-sm-3 col-sm-offset-1">
+                                        <nav class="page-nav" data-appear-group>
+                                            <?php if(get_field('hero_page_nav_title')): ?>
+                                                <h6 class="title" data-appear-group-item><?php echo  get_field('hero_page_nav_title') ; ?></h6>
+                                            <?php endif; ?>
+                                            <ul>
+                                            <?php foreach((array) $sections as $index => $item): ?>
+                                                <?php if($item['label'] !== ''): ?>
+                                                <li data-appear-group-item>
+                                                    <a href="#<?php echo  $item['section'] ; ?>-<?php echo  $index ; ?>"><?php echo  $item['label'] ; ?></a>
+                                                </li>
+                                                <?php endif; ?>
+                                            <?php endforeach; ?>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                <?php endif; ?>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <div class="about-content">
+            <?php if(!empty(get_field('flexible_content_sections'))): ?>
+                <?php foreach(get_field('flexible_content_sections') as $section_index => $section): ?>
+                    <?php echo view('components/about/' . $section['acf_fc_layout'], ['section_index' => $section_index])->with(get_defined_vars())->render(); ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
+    </div>
+    <?php echo view('partials/cta/getstarted')->with(get_defined_vars())->render(); ?>
+</div>
+<?php endwhile; ?>
+<?php \Laravel\Section::stop(); ?>
+<?php echo view('layouts/master')->with(get_defined_vars())->render(); ?>

@@ -1,0 +1,9 @@
+<?php if($section['image']): ?>
+<section class="lead-image <?php echo  $section['trigger_hide_background'] ? 'trigger-hide-background' : false ; ?>" id="<?php echo  $section['acf_fc_layout'] ; ?>-<?php echo  $section_index ; ?>">
+    <div class="img-full">
+        <div class="img" data-appear-fade-in>
+            <?php echo  helper::image($section['image'], 'full') ; ?>
+        </div>
+    </div>
+</section>
+<?php endif; ?>

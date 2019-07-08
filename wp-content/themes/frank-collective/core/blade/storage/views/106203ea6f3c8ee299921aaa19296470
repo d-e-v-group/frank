@@ -1,0 +1,73 @@
+<?php // /home/forge/frank-collective.approvemyviews.com/wordpress/wp-content/themes/frank-collective/views/articles.blade.php ?>
+<?php /* Template Name: Articles */ ?>
+<?php \Laravel\Section::start('content'); ?>
+<?php while ( have_posts() ) : the_post(); ?>
+<div class="root barba-container" data-namespace="articles" data-page-id="Articles" data-transition-in="articles_in" data-transition-out="articles_out" data-page-init="articles_init">
+    <div class="main default-content">
+        <div class="articles container">
+            <div class="grid">
+                <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+                    <div class="head" data-appear-block>
+                        <h1>Let's be frank.</h1>
+                        <p>A series of frank articles.</p>
+                    </div>
+
+                    <?php
+	                $currentPageNumber = isset($_GET['pageNumber']) ? $_GET['pageNumber'] : 1;
+                    $args = array(
+                        'post_type' => ['articles'],
+                        'post_status' => ['publish'],
+                        'orderby' => 'date',
+                        'order' => 'DESC',
+                        'posts_per_page' => 4,
+                        'paged' => $currentPageNumber
+                    );
+
+                    $query_articles = new WP_Query( $args );
+                    ?>
+                    <?php if($query_articles->have_posts()): ?>
+                        <div class="articles-list append-posts-from-load-more" data-load-more-list="articles" data-appear-block>
+                        <?php
+                        while ( $query_articles->have_posts() ) : $query_articles->the_post();
+                        ?>
+                            <div class="article-row">
+                                    <div class="img-holder">
+                                        <div class="img">
+                                            <?php echo  helper::image(get_field('image_thumb'), 'full') ; ?>
+                                        </div>
+                                    </div>
+                                    <div class="body">
+                                        <div class="left">
+                                            <h3><?php echo  get_the_title() ; ?></h3>
+                                            <p>This is a subheader preview of the article...</p>
+                                        </div>
+                                        <div class="right">
+                                            <a href="<?php echo  get_permalink() ; ?>" class="link-u">Read Article</a>
+                                        </div>
+                                    </div>
+                            </div>
+                        <?php endwhile; wp_reset_postdata(); ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if($query_articles->max_num_pages > $currentPageNumber): ?>
+                        <div class="full-btn">
+                            <div
+                                    data-appear-text
+                                    data-target=".append-posts-from-load-more .article-row"
+                                    data-append-to=".append-posts-from-load-more"
+                                    data-load-more=".btn-load-more-ajax a"
+                                    class="btn-load-more-ajax">
+                                <a href="<?php echo  get_permalink() ; ?>?pageNumber=<?php echo  $currentPageNumber + 1 ; ?>" class="btn btn-secondary">Load More</a>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php echo view('partials/cta/contact')->with(get_defined_vars())->render(); ?>
+</div>
+<?php endwhile; ?>
+<?php \Laravel\Section::stop(); ?>
+<?php echo view('layouts/master')->with(get_defined_vars())->render(); ?>

@@ -1,0 +1,32 @@
+<section class="our-team-section container <?php echo  $section['trigger_hide_background'] ? 'trigger-hide-background' : false ; ?>" id="<?php echo  $section['acf_fc_layout'] ; ?>-<?php echo  $section_index ; ?>" id="<?php echo  $section['acf_fc_layout'] ; ?>-<?php echo  $section_index ; ?>">
+    <div class="grid intro-row">
+        <?php if($section['title']): ?>
+        <div class="col-sm-6" data-med-header>
+            <h3><?php echo  $section['title'] ; ?></h3>
+        </div>
+        <?php endif; ?>
+        <?php if($section['text']): ?>
+        <div class="col-sm-6" data-appear-text>
+            <?php echo  $section['text'] ; ?>
+        </div>
+        <?php endif; ?>
+    </div>
+    <?php if($section['team']): ?>
+    <div class="team-list grid" data-appear-block>
+        <?php foreach((array) $section['team'] as $item): ?>
+        <div class="col-xs-6 col-sm-4 col-md-3">
+            <div class="avatar-wrap">
+                <span class="photo-placeholder">
+                    <span class="inner-content" style="background-image:url(<?php echo  Helper::imageUrl($item['photo'], 'full') ; ?>)"></span>
+                </span>
+            </div>
+            <strong class="name"><?php echo  $item['name'] ; ?></strong>
+            <span class="post"><?php echo  $item['position'] ; ?></span>
+        </div>
+        <?php endforeach; ?>
+    </div>
+    <?php endif; ?>
+    <div data-appear-text>
+        <?php echo view('partials/link', ['button' => $section['link'], 'classes' => 'link-u'])->with(get_defined_vars())->render(); ?>
+    </div>
+</section>

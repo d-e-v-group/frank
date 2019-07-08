@@ -1,0 +1,15 @@
+<?php // /Users/aaronpedersen/Documents/Dev/wp-frank-collective-live/wp-content/themes/frank-collective/single-work.php ?>
+<?php
+global $post;
+if (!post_password_required(get_the_ID())) :
+?>
+
+<?php echo view('views/case-study-layout')->with(get_defined_vars())->render(); ?>
+
+<?php
+else:
+?>
+    <?php echo view('views/case-study-protected-layout')->with(get_defined_vars())->render(); ?>
+<?php
+endif;
+?>

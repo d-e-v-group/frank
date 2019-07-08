@@ -1,0 +1,86 @@
+<footer id="footer">
+    <div class="container">
+        <div class="grid-flex">
+            <div class="col-xls-6 col-sm-3">
+	            <?php $args = [
+		            'theme_location' => 'footer_nav',
+		            'container' => false,
+		            'container_class' => false,
+		            'menu_class' => 'footer-nav',
+		            'menu_id' => false
+	            ]; ?>
+                <?php echo  wp_nav_menu($args) ; ?>
+            </div>
+            <?php if(get_field('sap_title', 'options') || get_field('sap_items', 'options')): ?>
+            <div class="col-xls-6 col-sm-3 col">
+                <?php if(get_field('sap_title', 'options')): ?>
+                <h5><?php echo  get_field('sap_title', 'options') ; ?></h5>
+                <?php endif; ?>
+                <?php if(get_field('sap_items', 'options')): ?>
+                <ul class="links">
+                    <?php foreach((array) get_field('sap_items', 'options') as $item): ?>
+                    <li>
+                        <?php if($item['type'] !== 'text'): ?>
+                        <a href="<?php echo  $item['link'] ; ?>" class="link-u <?php echo  $item['type'] === 'email' ? 'email' : false ; ?>" <?php echo  $item['type'] === 'link' ? 'target="_blank"' : false ; ?>>
+                        <?php endif; ?>
+                            <?php echo  $item['label'] ; ?>
+                        <?php if($item['type'] !== 'text'): ?>
+                        </a>
+                        <?php endif; ?>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
+                <?php endif; ?>
+            </div>
+            <?php endif; ?>
+            <?php if(get_field('footer_addresses', 'options')): ?>
+                <?php foreach((array) get_field('footer_addresses', 'options') as $address): ?>
+                    <div class="col-xs-6 col-sm-2 col">
+                        <?php if($address['title']): ?>
+                        <h5><?php echo  $address['title'] ; ?></h5>
+                        <?php endif; ?>
+                        <?php if($address['lines']): ?>
+                        <address>
+                            <?php if($address['google_map_link']): ?>
+                                <a href="<?php echo  $address['google_map_link'] ; ?>" target="_blank">
+                            <?php endif; ?>
+                            <?php foreach((array) $address['lines'] as $index => $line): ?>
+                                <?php if($index > 0): ?>
+                                    <br/>
+                                <?php endif; ?>
+                                <?php echo  $line['line'] ; ?>
+                            <?php endforeach; ?>
+                            <?php if($address['google_map_link']): ?>
+                                </a>
+                            <?php endif; ?>
+                        </address>
+                        <?php endif; ?>
+                        <?php if($address['phone']): ?>
+                            <a href="tel:<?php echo  $address['phone'] ; ?>"><?php echo  $address['phone'] ; ?></a>
+                        <?php endif; ?>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            <div class="col-xs-6 col-sm-1 col-lg-offset-1 col">
+                <?php $args = [
+                    'theme_location' => 'footer_links',
+                    'container' => false,
+                    'container_class' => false,
+                    'menu_class' => 'footer-links',
+                    'menu_id' => false
+                ]; ?>
+                <?php echo  wp_nav_menu($args) ; ?>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <a href="/" class="logo">
+                <?php echo view('partials/image', ['image' => get_field('footer_logo', 'options')])->with(get_defined_vars())->render(); ?>
+            </a>
+
+            <?php if(get_field('footer_copyright', 'options')): ?>
+            <div class="copyright"><?php echo  get_field('footer_copyright', 'options') ; ?></div>
+            <?php endif; ?>
+        </div>
+    </div>
+</footer>

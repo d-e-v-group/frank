@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'Messina Sans';
+    src: url('#{$font-path}/MessinaSans/MessinaSansWeb-Regular.eot');
+    src: url('#{$font-path}/MessinaSans/MessinaSansWeb-Regular.eot?#iefix') format('embedded-opentype'),
+        url('#{$font-path}/MessinaSans/MessinaSansWeb-Regular.woff2') format('woff2'),
+        url('#{$font-path}/MessinaSans/MessinaSansWeb-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Messina Sans';
+    src: url('#{$font-path}/MessinaSans/MessinaSansWeb-Black.eot');
+    src: url('#{$font-path}/MessinaSans/MessinaSansWeb-Black.eot?#iefix') format('embedded-opentype'),
+        url('#{$font-path}/MessinaSans/MessinaSansWeb-Black.woff2') format('woff2'),
+        url('#{$font-path}/MessinaSans/MessinaSansWeb-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Recife Display';
+    src: url('#{$font-path}/RecifeDisplay/RecifeDisplayWeb-Medium.eot');
+    src: url('#{$font-path}/RecifeDisplay/RecifeDisplayWeb-Medium.eot?#iefix') format('embedded-opentype'),
+        url('#{$font-path}/RecifeDisplay/RecifeDisplayWeb-Medium.woff2') format('woff2'),
+        url('#{$font-path}/RecifeDisplay/RecifeDisplayWeb-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Recife Display';
+    src: url('#{$font-path}/RecifeDisplay/RecifeDisplayWeb-MediumItalic.eot');
+    src: url('#{$font-path}/RecifeDisplay/RecifeDisplayWeb-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('#{$font-path}/RecifeDisplay/RecifeDisplayWeb-MediumItalic.woff2') format('woff2'),
+        url('#{$font-path}/RecifeDisplay/RecifeDisplayWeb-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+}

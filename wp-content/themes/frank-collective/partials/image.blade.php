@@ -1,0 +1,1 @@
+{{ Helper::image($image['image'], 'full', ['width' => (($image['image_width'] && (int)$image['image_width'] > 0) ? $image['image_width'] : '')]) }}

@@ -1,0 +1,72 @@
+// ---------------------------------------------------------===
+// Variables
+// ---------------------------------------------------------===
+
+// Colors
+$gray: #d8d8d8;
+$gray1: #a3a3a6;
+$light-gray: #eaeaed;
+$black: #1d1d1e;
+$white: #fff;
+$yellow: #fce200;
+$blue: #4fbcf0;
+$light-blue: #cbeef4;
+$red: #ff381a;
+
+$dir: '../..';
+$font-path: '#{$dir}/fonts';
+$image-path: '#{$dir}/images';
+
+$messina: 'Messina Sans', 'Arial', 'Helvetica', sans-serif;
+$recife: 'Recife Display', 'Arial', 'Helvetica', sans-serif;
+$base-font-sans-serif: $messina;
+$base-font-serif: $recife;
+
+// Body
+$base-text-color: $black !default;
+$base-background-color: $white !default;
+$font-size-base: 20px !default;
+$line-height-base: 1.41 !default;
+$base-font-family: $base-font-sans-serif !default;
+
+$vertical-rhythm: ($line-height-base * 1em);
+
+$base-min-width: 320px;
+
+// Liks
+$base-link-color: $black;
+
+// Buttons 
+$btn-color: $white !default;
+$btn-background: $black !default;
+$btn-padding: 0.4em 0.7em !default;
+$btn-font-size: inherit !default;
+
+// Forms
+$form-element-padding: 14px 18px !default;
+$form-element-border-color: $black!default;
+$form-element-focus-border-color: $blue !default;
+$form-border-radius: 5px !default;
+$placeholder-color: $gray1 !default;
+
+// Headers
+$h1-font-size: 72px !default;
+$h2-font-size: 48px !default;
+$h3-font-size: 38px !default;
+$h4-font-size: 28px !default;
+$h5-font-size: 16px !default;
+$h6-font-size: 16px !default;
+
+$headings-font-family: $recife;
+$headings-color: inherit !default;
+
+$easeAppearIn: cubic-bezier(.37,.01,0,.98); //cubic-bezier(.215,.61,.355,1);
+$animation-speed: 0.3s;
+
+
+// grid 
+$usegrid: true;
+$gutter-width: 20px;  // gutter for desktop greater than 768
+$gutter-width-mobile: 20px;  // gutter for mobiles
+$container-width: 1300px;
+$grid-count: 12;

@@ -1,0 +1,20 @@
+<?php if($section['header'] || $section['partners']): ?>
+<div class="case-partners" <?php echo  ($section_id) ? 'id="'.$section_id.'"' : false ; ?> <?php echo  ($section_id) ? 'data-nav-section="'.$section_id.'"' : false ; ?> <?php echo  ($section['navigation_color'] === 'light') ? 'data-dark' : false ; ?>>
+    <div class="container">
+        <?php if($section['header']): ?>
+            <span class="guide-txt"><div data-appear-text><?php echo  $section['header'] ; ?></div></span>
+        <?php endif; ?>
+        <?php if($section['partners']): ?>
+        <ul class="list" data-appear-block>
+            <?php foreach((array) $section['partners'] as $logo): ?>
+                <li>
+                    <a href="<?php echo  $logo['link'] ; ?>">
+                        <?php echo  Helper::image($logo['partner']['image'], 'full', ['width' => (($logo['partner']['image_width'] && (int)$logo['partner']['image_width'] > 0) ? $logo['partner']['image_width'] : '')]) ; ?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+        <?php endif; ?>
+    </div>
+</div>
+<?php endif; ?>

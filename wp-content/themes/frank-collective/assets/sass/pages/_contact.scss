@@ -1,0 +1,644 @@
+// ---------------------------------------------------------===
+// Contact Page styles
+// ---------------------------------------------------------===
+
+
+// contact section
+.contact-section {
+    margin-bottom: 160px;
+
+    @include media('<desktop') {
+        margin-bottom: 100px;
+    }
+
+    @include media('<tablet') {
+        padding-top: 71px;
+        margin-bottom: 118px;
+    }
+
+    .headline {
+        margin-bottom: 80px;
+
+        @include media('<tablet') {
+            margin-bottom: 34px;
+        }
+
+        h1 {
+            margin-bottom: 0;
+
+            @include media('<tablet') {
+                line-height: 1;
+            }
+        }
+    }
+}
+
+label {
+    display: inline-block;
+    vertical-align: top;
+}
+
+// contact form
+.contact-form {
+
+    .textarea-wrap {
+        margin-bottom: 58px;
+
+        @include media('<tablet') {
+            margin-bottom: 27px;
+        }
+
+        label {
+            margin-bottom: 23px;
+
+            @include media('<tablet') {
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    .input-group {
+        margin-bottom: 60px;
+
+        @include media('<tablet') {
+            margin-bottom: 27px;
+        }
+    }
+
+    label,
+    .label-margin-top {
+        text-transform: uppercase;
+        color: #8d8d90;
+        font-size: 16px;
+        font-weight: 400 !important;
+        letter-spacing: 1.78px;
+    }
+
+    textarea {
+        width: 100%;
+        height: 180px;
+        min-height: 180px;
+
+        @include media('<tablet') {
+            height: 164px;
+            min-height: 164px;
+        }
+    }
+
+    input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]) {
+        width: 100%;
+        border-width: 0 0 1px;
+        padding: 21px 0;
+
+        @include media('<tablet') {
+            padding: 7px 0 17px;
+        }
+    }
+
+    .submit-wrap {
+
+        input[type="submit"] {
+            width: 100%;
+        }
+    }
+
+    .error-txt {
+        display: none;
+        color: $red;
+        font-size: 20px;
+        line-height: 1.8;
+        margin: 1px 0 -8px;
+
+        @include media('<tablet') {
+            font-size: 16px;
+        }
+    }
+
+    .error {
+
+        textarea,
+        input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]) {
+            border-color: $red;
+        }
+
+        .error-txt {
+            display: block;
+        }
+    }
+}
+
+// offices section
+.offices-section {
+    margin-bottom: 71px;
+
+    @include media('<tablet') {
+        margin-bottom: 122px;
+    }
+
+    h3 {
+        margin-bottom: 26px;
+
+        @include media('<tablet') {
+            font-size: 48px;
+            margin-bottom: 51px;
+        }
+    }
+
+    h4 {
+        font-weight: 400;
+
+        @include media('<tablet') {
+            line-height: 1;
+            margin-bottom: 32px;
+            font-size: 28px;
+        }
+    }
+
+    address {
+        font-style: normal;
+
+        @include media('<tablet') {
+            line-height: 28px;
+            margin-bottom: 53px;
+        }
+
+        span {
+            display: block;
+        }
+    }
+
+    .row {
+        border-top: 1px solid $black;
+        padding-top: 38px;
+
+        @include media('<tablet') {
+            padding-top: 22px;
+        }
+
+        .img-holder {
+            @include media('>=desktop') {
+                margin-left: -34%;
+            }
+
+            @include media('<tablet') {
+                margin: 0 -20px;
+            }
+        }
+    }
+
+    .top-block {
+        margin-bottom: 60px;
+
+        @include media('<tablet') {
+            margin-bottom: 19px;
+        }
+    }
+}
+
+// articles container
+.articles {
+    padding-bottom: 92px;
+
+    @include media('<tablet') {
+        padding-top: 112px;
+        padding-bottom: 55px;
+    }
+
+    .head {
+        text-align: center;
+        margin-bottom: 80px;
+
+        @include media('<tablet') {
+            margin-bottom: 152px;
+            font-size: 20px;
+        }
+
+        h1 {
+            margin-bottom: 13px;
+
+            @include media('<tablet') {
+                margin-bottom: 11px;
+            }
+        }
+    }
+
+    .articles-list {
+    }
+
+    .article-row {
+        margin-bottom: 72px;
+
+        @include media('<desktop') {
+            margin-bottom: 50px;
+        }
+
+        @include media('<tablet') {
+            margin-bottom: 76px;
+        }
+
+        h2 {
+            margin-bottom: 26px;
+
+            @include media('<tablet') {
+                margin-bottom: 30px;
+            }
+        }
+
+        h3 {
+            max-width: 640px;
+            margin-bottom: 6px;
+        }
+
+        p {
+            margin-bottom: 0;
+
+            @include media('<tablet') {
+                display: none;
+            }
+        }
+
+        a {
+            display: inline-block;
+        }
+
+        .img-holder {
+            overflow: hidden;
+            margin-bottom: 33px;
+
+            @include media('<desktop') {
+                margin-bottom: 28px;
+            }
+
+            .img {
+
+                .img {
+                    min-width: 594px;
+                }
+            }
+        }
+
+        .body {
+            @include media('>=tablet') {
+                display: flex;
+            }
+
+            .left {
+                font-size: 14px;
+                line-height: 1.51;
+
+                @include media('>=tablet') {
+                    flex: 1;
+                }
+
+                @include media('<tablet') {
+                    min-height: 132px;
+                }
+            }
+
+            .right {
+                margin-top: 8px;
+
+                @include media('>=tablet') {
+                    margin-left: 20px;
+                }
+            }
+        }
+    }
+
+    .full-btn {
+        max-width: 640px;
+        margin: 0 auto;
+    }
+}
+
+// full button
+.full-btn {
+    text-align: center;
+
+    .btn {
+        display: block;
+
+        @include media('<tablet') {
+            padding: 15px;
+        }
+    }
+
+    .link-more {
+        text-decoration: underline;
+        font-size: 18px;
+    }
+}
+
+// career section
+.career-section {
+
+    @include media('<tablet') {
+        padding-top: 71px;
+    }
+
+    .intro-block {
+        margin-bottom: 153px;
+
+        @include media('<desktop') {
+            margin-bottom: 80px;
+        }
+
+        @include media('<tablet') {
+            margin-bottom: 116px;
+        }
+
+        .text-content {
+            line-height: 1.51;
+        }
+    }
+
+    .heading {
+        margin-bottom: 36px;
+
+        @include media('<tablet') {
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            margin: 0;
+
+            @include media('<tablet') {
+                line-height: 1;
+            }
+        }
+    }
+}
+
+// media container
+.media-container {
+    margin-bottom: 72px;
+
+    @include media('<tablet') {
+        margin-bottom: 108px;
+    }
+
+    .media-group {
+        margin-bottom: 65px;
+
+        @include media('<tablet') {
+            margin-bottom: 34px;
+        }
+    }
+
+    .top-row {
+        display: flex;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 60px;
+
+        @include media('<tablet') {
+            margin-bottom: 61px;
+            display: block;
+        }
+
+        h1 {
+            margin-bottom: 0;
+
+            @include media('<tablet') {
+                font-size: 48px;
+                padding-bottom: 19px;
+            }
+        }
+
+        h2 {
+            margin: 0;
+
+            @include media('<tablet') {
+                margin-bottom: 22px;
+            }
+        }
+
+        .filter {
+            display: block;
+            font-weight: 400;
+            font-size: 16px;
+
+            @include media('>=tablet') {
+                margin-bottom: -4px;
+            }
+
+            &.filter-active {
+
+                .close {
+                    display: inline-block;
+                }
+            }
+
+            .link-u {
+                font-size: 16px;
+                line-height: 1;
+                display: inline;
+            }
+
+            .close {
+                display: none;
+                vertical-align: middle;
+                width: 10px;
+                height: 10px;
+                position: relative;
+                margin-left: 6px;
+
+                &:hover {
+
+                    &:before,
+                    &:after {
+                        background: $red;
+                    }
+                }
+
+                &:before,
+                &:after {
+                    content: "";
+                    @include box-align(vhc);
+                    @include animate(background);
+                    width: 1px;
+                    height: 10px;
+                    background: #303031;
+                    transform: translate(-50%, -50%) rotate(45deg);
+                    margin-top: -1px;
+                }
+
+                &:after {
+                    transform: translate(-50%, -50%) rotate(-45deg);
+                }
+            }
+        }
+    }
+
+    .media {
+        margin-bottom: 40px;
+        position: relative;
+
+        @include media('<tablet') {
+            padding-bottom: 33px;
+            margin-bottom: 52px;
+        }
+
+        &:before {
+
+            @include media('<tablet') {
+                content: "";
+                background: #1d1d1e;
+                height: 1px;
+                left: 10px;
+                right: 10px;
+                position: absolute;
+                bottom: 0;
+            }
+        }
+
+        > [class*="col-"] {
+            display: flex;
+        }
+
+        .box {
+            background: $light-blue;
+            min-height: 180px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+
+            @include media('<tablet') {
+                min-height: 100px;
+                padding: 20px;
+            }
+
+            &.gray {
+                background: $light-gray;
+            }
+
+            .place {
+                font: 500 48px/1.13 $recife;
+
+                @include media('<tablet') {
+                    font-size: 36px;
+                }
+            }
+        }
+
+        .text-content {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            border-top: 1px solid $black;
+            padding-top: 18px;
+
+            @include media('<tablet') {
+                border: none;
+                padding-top: 16px;
+            }
+
+            > .grid-flex {
+                width: 100%;
+            }
+
+            .frame {
+                max-width: 640px;
+
+                @include media('<tablet') {
+                    max-width: none;
+                    width: 100%;
+                }
+            }
+
+            h5 {
+                color: #1d1d1e;
+                margin-bottom: 7px;
+                font-size: 14px;
+                font-weight: 900;
+            }
+
+            time,
+            span {
+                display: block;
+                font-size: 14px;
+                line-height: 1.71;
+                margin-bottom: 4px;
+
+                @include media('<tablet') {
+                    margin-bottom: 0;
+                }
+            }
+
+            .title {
+                display: block;
+                margin-bottom: 21px;
+                min-height: 72px;
+
+                @include media('<tablet') {
+                    margin-bottom: 3px;
+                    min-height: 1px;
+                    line-height: 1.17;
+                    margin-bottom: 52px;
+                }
+            }
+
+            h3 {
+                @include media('<tablet') {
+                    font-size: 48px;
+                    line-height: 1.05;
+                }
+            }
+        }
+
+        .logo-wrap {
+
+
+            img {
+                @include media('<tablet') {
+                    transform: scale(0.6);
+                }
+            }
+        }
+    }
+}
+
+// content image block
+.content-image-block {
+    padding: 113px 0 150px;
+
+    @include media('<tablet') {
+        padding: 0 0 65px;
+    }
+
+    .text-wrap {
+        line-height: 1.5;
+
+        @include media('<tablet') {
+            margin-bottom: 48px;
+        }
+
+        p {
+            margin-bottom: 37px;
+
+            @include media('<tablet') {
+                margin-bottom: 48px;
+            }
+        }
+    }
+
+    h3 {
+        margin-bottom: 18px;
+
+        @include media('<tablet') {
+            margin-bottom: 28px;
+        }
+    }
+}
+
+// press content
+.press-content {
+    margin-top: 64px;
+
+    @include media('<tablet') {
+        margin-bottom: 72px;
+    }
+}

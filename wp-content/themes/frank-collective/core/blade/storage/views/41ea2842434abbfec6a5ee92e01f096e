@@ -1,0 +1,12 @@
+<?php if($section['name'] || $section['quote']): ?>
+<blockquote class="case-quote" <?php echo  ($section_id) ? 'id="'.$section_id.'"' : false ; ?> <?php echo  ($section_id) ? 'data-nav-section="'.$section_id.'"' : false ; ?>>
+    <div class="container" data-appear-block>
+        <?php if($section['quote']): ?>
+            <q><?php echo  $section['quote'] ; ?></q>
+        <?php endif; ?>
+        <?php if($section['name']): ?>
+            <cite>– <?php echo  $section['name'] ; ?></cite>
+        <?php endif; ?>
+    </div>
+</blockquote>
+<?php endif; ?>

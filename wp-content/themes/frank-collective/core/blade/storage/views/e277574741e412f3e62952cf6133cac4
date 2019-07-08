@@ -1,0 +1,10 @@
+<?php if(isset($button)): ?>
+	<?php if($button['label'] !== '' || $button['internal_link'] || $button['external_link'] !== ''): ?>
+	<?php
+	$link = $button['type'] == 'internal'
+			? $button['internal_link']
+			: $button['external_link'];
+	?>
+	<a href="<?php echo  $link ; ?>" class="<?php echo  isset($classes) ? $classes : false ; ?>"><?php echo  $button['label'] ; ?></a>
+	<?php endif; ?>
+<?php endif; ?>

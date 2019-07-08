@@ -1,0 +1,3 @@
+<?php if(get_field('get_started_enable') && get_field('get_started_enable') !== 'none'): ?>
+    <?php echo view('partials/cta/'.get_field('get_started_enable'))->with(get_defined_vars())->render(); ?>
+<?php endif; ?>

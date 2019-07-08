@@ -1,0 +1,10 @@
+<?php \Laravel\Section::start('body-class'); ?> protected <?php \Laravel\Section::stop(); ?>
+<?php /* Template Name: Case Study Protected */ ?>
+<?php \Laravel\Section::start('content'); ?>
+    <div class='wrapper-protected__casestudy'>
+        <div class='wrapper-protected__form'>
+            <?php echo get_the_password_form(); ?>
+        </div>
+    </div>
+<?php \Laravel\Section::stop(); ?>
+<?php echo view('layouts/master')->with(get_defined_vars())->render(); ?>
