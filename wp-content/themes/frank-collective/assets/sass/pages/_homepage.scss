@@ -15,13 +15,9 @@
 	}
 
 	&-content {
-		padding: 30px 15px 55px;
+		padding: 0 15px 55px;
 		display: table-cell;
 		vertical-align: middle;
-
-		@include media('<tablet') {
-			padding: 30px 15px;
-		}
 
 		> .bg-stretch {
 			background-size: contain;
@@ -37,19 +33,9 @@
 		display: inline-block;
 		vertical-align: middle;
 
-		//&:hover {
-		//	.nav-link a {
-		//		color: $white;
-		//	}
-		//}
-
 		.nav-link {
-			font: 500 96px/1 $recife;
+			font: 500 60px/1 $recife;
 			margin: 0 0 10px;
-
-			@include media('<tablet') {
-				font-size: 72px;
-			}
 
 			&:hover {
 				a {
