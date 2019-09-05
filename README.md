@@ -20,7 +20,14 @@ Runbook for setting up a local dev environment for Frank's staging WordPress sit
 
 ---
 
-## Continue setting up your local environment w/MAMP
+## Install WordPress
+
+1. Download the latest version of [WordPress](https://wordpress.org/download/)
+2. Unzip it and move the folder into your `frank` project directory to replace the existing empty `wordpress` folder
+
+---
+
+## Back to MAMP
 
 1. Open MAMP and make sure the servers are on
 2. Create a new host by clicking the `+` from `Hosts` settings
