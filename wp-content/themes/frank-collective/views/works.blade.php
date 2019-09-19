@@ -22,21 +22,18 @@
                     <div class="work-wrap">
                         <div class="work-item position-{{ ($work_idx % 2 === 0) ? 'left' : 'right' }}" data-background-color="{{ (get_field('theme_color')) ? get_field('theme_color') : '#ffffff' }}">
                             <div class="work view-case-study ajax-load" data-position="{{ ($work_idx % 2 === 0) ? 'left' : 'right' }}" data-link="{{ get_permalink() }}" data-work-item data-appear-offset="0.2">
-                                <div class="img" data-image="{{ helper::imageURL(get_field('main_image'), 'full') }}">
-                                    <div class="bg-img" style='background-image: url({{ helper::imageURL(get_field('main_image'), 'full') }});'></div>
-                                </div>
                                 <div class="desc">
                                     <div class="work-cat">{{ get_field('brand_name') }}</div>
                                     @if(get_field('tagline') || get_field('tagline_short'))
                                         <h2>{{ (get_field('tagline_short')) ? get_field('tagline_short') : get_field('tagline') }}</h2>
                                     @endif
-				                    <?php
-				                    $term_obj_list = get_the_terms( get_the_ID(), 'service' );
-				                    ?>
+                                    <?php
+                                    $term_obj_list = get_the_terms( get_the_ID(), 'service' );
+                                    ?>
                                     @if(!empty($term_obj_list))
-					                    <?php
-					                    $services = array_chunk($term_obj_list, 3);
-					                    ?>
+                                        <?php
+                                        $services = array_chunk($term_obj_list, 3);
+                                        ?>
                                         <div class="work-services">
                                             <h6>What we did</h6>
                                             @foreach($services as $items)
@@ -49,6 +46,20 @@
                                         </div>
                                     @endif
                                 </div>
+
+                                @if(get_field('main_image') || get_field('hero_section_image') || get_field('featured_project_video'))
+                                    @if(get_field('featured_project_video'))
+                                        <div class="work-video-wrap ajax-preload-assets">
+                                            <video autoplay muted loop playsinline class="work-video">
+                                                <source src="{{ get_field('featured_project_video') }}" type="video/mp4">
+                                            </video>
+                                        </div>
+                                    @else
+                                        <div class="img" data-image="{{ helper::imageURL(get_field('main_image'), 'full') }}">
+                                            <div class="bg-img" style='background-image: url({{ helper::imageURL(get_field('main_image'), 'full') }});'></div>
+                                        </div>
+                                    @endif
+                                @endif
                             </div>
                         </div>
                     </div>

@@ -1,13 +1,13 @@
 {
-    "key": "group_5c818894cd082",
-    "title": "Style Options Field Groups",
+    "key": "group_5d82d22e3fbe0",
+    "title": "Single Work Video",
     "fields": [
         {
-            "key": "field_5c8188af0a1ba",
-            "label": "Case Study Loading Overlay",
-            "name": "case_study_loading_overlay",
-            "type": "color_picker",
-            "instructions": "",
+            "key": "field_5d82d242a27fa",
+            "label": "Featured Project Video",
+            "name": "featured_project_video",
+            "type": "file",
+            "instructions": "Use mp4 video",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -15,15 +15,19 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "#4fbcf0"
+            "return_format": "url",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
         }
     ],
     "location": [
         [
             {
-                "param": "options_page",
+                "param": "post_type",
                 "operator": "==",
-                "value": "acf-options-style-options"
+                "value": "work"
             }
         ]
     ],
@@ -35,5 +39,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1551993074
+    "modified": 1568906579
 }

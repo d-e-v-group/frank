@@ -81,13 +81,12 @@ frank.ani_works_init = function (root) {
 
 frank.ani_works_out = function (parent) {
     return new Promise(function(resolve, reject) {
-        var el = parent.find('.img'),
+        var el = parent.find('.img, .work-video-wrap'),
           offset = el.offset(),
           elOffsetTop = offset.top - $(document).scrollTop(),
           elOffsetLeft = offset.left - $(document).scrollLeft(),
           elWidth = el.width(),
           elHeight = el.height();
-
         var linker = $('<div/>')
           .addClass('work-temp')
           .css({

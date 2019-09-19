@@ -66,50 +66,8 @@
             "return_format": "url",
             "library": "all",
             "min_size": "",
-            "max_size": "",
+            "max_size": 50,
             "mime_types": ""
-        },
-        {
-            "key": "field_5c82d0b34a597",
-            "label": "Video Start Time",
-            "name": "video_start_time",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "collapsed": "",
-            "min": 0,
-            "max": 0,
-            "layout": "block",
-            "button_label": "Add Start Time",
-            "sub_fields": [
-                {
-                    "key": "field_5c82d0eb4a598",
-                    "label": "Time",
-                    "name": "time",
-                    "type": "number",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "sec",
-                    "min": "",
-                    "max": "",
-                    "step": 1
-                }
-            ]
         },
         {
             "key": "field_5c3d2b6e5635c",
@@ -239,5 +197,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1552077219
+    "modified": 1568916168
 }

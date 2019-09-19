@@ -597,7 +597,6 @@ frank.removeOverlay = function () {
 frank.initScrollTo = function () {
     var self = this;
     this.mainController.scrollTo(function(target) {
-
         TweenMax.to(window, 0.5, {
             scrollTo : {
                 y : target, // scroll position of the target along y axis
@@ -605,17 +604,14 @@ frank.initScrollTo = function () {
             },
             ease : Cubic.easeInOut
         });
-
     });
 
     $(document).on("click", "a[href^=\\#]", function(e) {
         var id = $(this).attr("href");
-
         if($(id).length > 0) {
             e.preventDefault();
             self.mainController.scrollTo(id);
         }
-
     });
 };
 
