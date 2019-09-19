@@ -21,12 +21,16 @@ class Yoast_Form {
 	public static $instance;
 
 	/**
+	 * The short name of the option to use for the current page.
+	 *
 	 * @var string
 	 * @since 2.0
 	 */
 	public $option_name;
 
 	/**
+	 * Option values for the WPSEO_Options.
+	 *
 	 * @var array
 	 * @since 2.0
 	 */
@@ -343,17 +347,17 @@ class Yoast_Form {
 	public function textinput( $var, $label, $attr = array() ) {
 		if ( ! is_array( $attr ) ) {
 			$attr = array(
-				'class' => $attr,
+				'class'    => $attr,
 				'disabled' => false,
 			);
 		}
 
-		$defaults     = array(
+		$defaults   = array(
 			'placeholder' => '',
 			'class'       => '',
 		);
-		$attr         = wp_parse_args( $attr, $defaults );
-		$val          = isset( $this->options[ $var ] ) ? $this->options[ $var ] : '';
+		$attr       = wp_parse_args( $attr, $defaults );
+		$val        = isset( $this->options[ $var ] ) ? $this->options[ $var ] : '';
 		$attributes = isset( $attr['autocomplete'] ) ? ' autocomplete="' . esc_attr( $attr['autocomplete'] ) . '"' : '';
 		if ( isset( $attr['disabled'] ) && $attr['disabled'] ) {
 			$attributes .= ' disabled';
@@ -366,7 +370,15 @@ class Yoast_Form {
 				'class' => 'textinput',
 			)
 		);
-		echo '<input' . $attributes . ' class="textinput ' . esc_attr( $attr['class'] ) . ' " placeholder="' . esc_attr( $attr['placeholder'] ) . '" type="text" id="', esc_attr( $var ), '" name="', esc_attr( $this->option_name ), '[', esc_attr( $var ), ']" value="', esc_attr( $val ), '"', disabled( $this->is_control_disabled( $var ), true, false ), '/>', '<br class="clear" />';
+
+		$has_input_error = Yoast_Input_Validation::yoast_form_control_has_error( $var );
+		$aria_attributes = Yoast_Input_Validation::get_the_aria_invalid_attribute( $var );
+
+		Yoast_Input_Validation::set_error_descriptions();
+		$aria_attributes .= Yoast_Input_Validation::get_the_aria_describedby_attribute( $var );
+
+		echo '<input' . $attributes . $aria_attributes . ' class="textinput ' . esc_attr( $attr['class'] ) . '" placeholder="' . esc_attr( $attr['placeholder'] ) . '" type="text" id="', esc_attr( $var ), '" name="', esc_attr( $this->option_name ), '[', esc_attr( $var ), ']" value="', esc_attr( $val ), '"', disabled( $this->is_control_disabled( $var ), true, false ), '/>', '<br class="clear" />';
+		echo Yoast_Input_Validation::get_the_error_description( $var );
 	}
 
 	/**

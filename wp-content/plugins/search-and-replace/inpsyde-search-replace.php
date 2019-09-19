@@ -7,11 +7,11 @@
  * Author:       Inpsyde GmbH
  * URI:          https://inpsyde.com
  * Contributors: s-hinse, derpixler, ChriCo, Bueltge, inpsyde
- * Version:      3.2.0
+ * Version:      3.2.1
  * Text Domain:  search-and-replace
  * Domain Path:  /languages
- * License:      GPLv3+
- * License URI:  license.txt
+ * License:      GPLv2+
+ * License URI:  LICENSE
  */
 
 use Inpsyde\SearchReplace\Database;
@@ -124,6 +124,6 @@ function search_replace_textdomain() {
 	return load_plugin_textdomain(
 		'search-and-replace',
 		false,
-		plugin_basename( __DIR__ ) . '/l10n/'
+		plugin_basename( __DIR__ ) . '/languages/'
 	);
 }

@@ -2,6 +2,7 @@
 
 namespace Inpsyde\SearchReplace\Database;
 
+use Exception;
 use Inpsyde\SearchReplace\Service;
 
 /**
@@ -259,7 +260,7 @@ class Replace {
 					continue;
 				}
 
-				if ( $update && ! empty( $where_sql ) ) {
+				if ( $update && ! empty( $where_sql ) && ! empty( $update_sql ) ) {
 					// If there are changes to make, run the query.
 					$result = $this->dbm->update( $table, $update_sql, $where_sql );
 
@@ -390,7 +391,7 @@ class Replace {
 				// @codingStandardsIgnoreLine
 				$data = serialize( $data );
 			}
-		} catch ( \Throwable $throwable ) {
+		} catch ( Exception $throwable ) {
 			if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
 				throw $throwable;
 			}

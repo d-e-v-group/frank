@@ -3,10 +3,10 @@
 * Plugin Name: Simple Custom Post Order
 * Plugin URI: https://wordpress.org/plugins-wp/simple-custom-post-order/
 * Description: Order Items (Posts, Pages, and Custom Post Types) using a Drag and Drop Sortable JavaScript.
-* Version: 2.4.3
+* Version: 2.4.5
 * Author: Colorlib
 * Author URI: https://colorlib.com/
-* Tested up to: 5.1
+* Tested up to: 5.2
 * Requires: 4.6 or higher
 * License: GPLv3 or later
 * License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -36,7 +36,7 @@
 
 define('SCPORDER_URL', plugins_url('', __FILE__));
 define('SCPORDER_DIR', plugin_dir_path(__FILE__));
-define('SCPORDER_VERSION', '2.4.3');
+define('SCPORDER_VERSION', '2.4.5');
 
 $scporder = new SCPO_Engine();
 
@@ -232,13 +232,13 @@ class SCPO_Engine {
                 // Here's the optimization
                 $wpdb->query("SET @row_number = 0;");
                 $wpdb->query("UPDATE $wpdb->posts as pt JOIN (
-                  SELECT ID, (@row_number:=@row_number + 1) AS rank
+                  SELECT ID, (@row_number:=@row_number + 1) AS `rank`
                   FROM $wpdb->posts
                   WHERE post_type = '$object' AND post_status IN ( 'publish', 'pending', 'draft', 'private', 'future' )
                   ORDER BY menu_order ASC
                 ) as pt2
                 ON pt.id = pt2.id
-                SET pt.menu_order = pt2.rank;");
+                SET pt.menu_order = pt2.`rank`;");
 
             }
         }
@@ -298,6 +298,8 @@ class SCPO_Engine {
                 $wpdb->update($wpdb->posts, array('menu_order' => $menu_order_arr[$position]), array('ID' => intval($id)));
             }
         }
+
+        do_action('scp_update_menu_order');
     }
 
     public function update_menu_order_tags() {
@@ -329,6 +331,8 @@ class SCPO_Engine {
                 $wpdb->update($wpdb->terms, array('term_order' => $menu_order_arr[$position]), array('term_id' => intval($id)));
             }
         }
+
+        do_action('scp_update_menu_order_tags');
     }
 
     public function update_options() {
@@ -512,7 +516,12 @@ class SCPO_Engine {
         if (!isset($args['taxonomy']))
             return $orderby;
 
-        $taxonomy = $args['taxonomy'];
+        if(is_array($args['taxonomy'])){
+            $taxonomy = $args['taxonomy'][0];
+        } else {
+            $taxonomy = $args['taxonomy'];
+        }
+
         if (!in_array($taxonomy, $tags))
             return $orderby;
 
