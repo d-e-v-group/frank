@@ -32,11 +32,11 @@ You need to have node, npm, and gulp installed globally before moving on.
 3. Enter the name of the directory where you created for Frank's local instance - `frank-local`
 4. Choose the document root (the Frank repo) by clicking the folder icon that is circled in red. `Desktop/localhost/frank-local/frank`
 5. Check the box to `Create a database`
-6. Enter the database name `frankdb` and hit `Create Host`. *It's important to use the database name `frankdb` so it matches what is in the Github repo.*
+6. Enter the database name (if you want to clone staging then use `wp_fcollectivedev`. If you want to clone production, then use `wp_frankcollectiv`) and hit `Create Host`.
 7. Navigate to the `Databases` tab
-8. You should see your newly created `frankdb` database checked
+8. You should see your newly created database checked
 9. Click the `phpMyAdmin` icon to open phpMyAdmin in your browser window
-10. You'll see a list on the left of the page with your databases. You should see `frankdb`. When you click the `+` to expand, you'll notice a message `No tables found in database.` Don't worry, we'll add this next!
+10. You'll see a list on the left of the page with your databases. You should see the database you just created. When you click the `+` to expand, you'll notice a message `No tables found in database.` Don't worry, we'll add this next!
 
 ---
 
@@ -64,11 +64,11 @@ We first need to get the database from Frank's staging site in order to import i
 - Open MAMP application
 - Select `frank-local` host
 - Click on `Databases` tab
-- Make sure you see `frankdb` selected
+- Make sure you see `wp_fcollectivedev` (or `wp_frankcollectiv`) selected
 - Click the phpMyAdmin logo
-3. In phpMyAdmin, select your database from the left side `frankdb`
+3. In phpMyAdmin, select your database from the left side `wp_fcollectivedev` (or `wp_frankcollectiv`)
 4. Click on the `Import` tab.
-- **Make sure you are now in your local phpMyAdmin, NOT Frank's staging site phpMyAdmin. Look in the URL to ensure you see `localhost/phpMyAdmin`**
+- **Make sure you are now in your local phpMyAdmin. Look in the URL to ensure you see `localhost/phpMyAdmin`**
 5. `Choose File` to select the compressed sql file you just exported
 6. Hit `Go`
 7. You should have a `success` message!
@@ -77,11 +77,16 @@ We first need to get the database from Frank's staging site in order to import i
 
 ## Test it out
 
-1. Now go to the MAMP app
-2. In the `General` tab, select your host `frank-local`
-3. Hit `Save` to restart the servers
-3. Click the arrow next to `Name` to open your site in a browser window.
-4. You should now see your local instance of Frank's staging site in a browser window!
+1. Open your wp-config.php file
+2. Make sure the database name matches your phpMyAdmin database
+```
+define( 'DB_NAME', 'wp_fcollectivedev' );
+```
+3. Now go to the MAMP app
+4. In the `General` tab, select your host `frank-local`
+5. Hit `Save` to restart the servers
+6. Click the arrow next to `Name` to open your site in a browser window.
+7. You should now see your local instance of Frank's staging site in a browser window!
 
 ---
 
@@ -98,18 +103,16 @@ Here are the steps:
 3. Click the `Export` tab
 4. Select `Custom` export method
 5. Under `Tables`, de-select all `Structure`. The reason for this is that you already have the database tables (structure) setup on your local and now you just want to replace the data itself.
-6. Under `Output`, click the box that says `Rename exported databases/tables/columns`
-7. A pop-up window will appear. Where it says `Select database`, make sure `wp_fcollectivedev` is selected. Next to it, enter the name of your local database name `frankdb`.
-8. Save & Close
-9. Go to `Data creation options` section
-10. Locate `Function to use when dumping data:` and select from the drop-down `REPLACE`
-11. Hit `Go` to download the sql file
+6. Save & Close
+7. Go to `Data creation options` section
+8. Locate `Function to use when dumping data:` and select from the drop-down `REPLACE`
+9. Hit `Go` to download the sql file
 - **Close Frank staging site's phpMyAdmin window to ensure you do not get it mixed up with your local!**
-12. Zip the sql file
-13. In your local phpMyAdmin, select your database `frankdb` and go to the `Import` tab
-14. Upload the zipped sql file that you just exported
-15. You should receive a `Success` message
-16. Go to your local browser and do a hard refresh to see the updated content
+10. Zip the sql file
+11. In your local phpMyAdmin, select your database `frankdb` and go to the `Import` tab
+12. Upload the zipped sql file that you just exported
+13. You should receive a `Success` message
+14. Go to your local browser and do a hard refresh to see the updated content
 
 ### Git Flow
 
