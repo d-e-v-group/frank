@@ -5,13 +5,13 @@
 .work-section {
     padding-bottom: 70px;
 
-    @include media('<tablet') {
+    @include media('<=tablet') {
         padding-bottom: 0;
     }
 
     .full-btn {
         .btn-wrap {
-            @include media('>=tablet') {
+            @include media('>tablet') {
                 width: 50%;
                 margin-left: 300px;
             }
@@ -36,7 +36,7 @@
 .work-list {
     padding-bottom: 55px;
 
-    @include media('<tablet') {
+    @include media('<=tablet') {
         padding-bottom: 20px;
     }
 
@@ -52,23 +52,24 @@
 
     .work-item{
 
-    &.hidden{
-      display: none;
-    }
+        &.hidden{
+          display: none;
+        }
         //margin-bottom: 30px;
 
-        @include media('<tablet') {
+        @include media('<=tablet') {
             height: auto !important;
         }
     }
     .work {
         display: flex;
 
-        @include media('<tablet') {
-            display: block;
+        @include media('<=tablet') {
             position: relative;
+            flex-flow: column;
         }
-        @include media('>=tablet') {
+
+        @include media('>tablet') {
             transition: transform 1s ease;
             transform: scale(0.75);
             transform-origin: 100% 50%;
@@ -88,7 +89,7 @@
             }
         }
         &[data-position="left"]{
-            @include media('>=tablet') {
+            @include media('>tablet') {
                 transform-origin: 0 50%;
             }
         }
@@ -98,7 +99,7 @@
             padding: 51px 20px 13px 0;
             order: 0;
 
-            @include media('>=tablet') {
+            @include media('>tablet') {
                 display: flex;
                 flex-direction: column;
             }
@@ -107,16 +108,17 @@
                 width: 300px;
             }
 
-            @include media('<tablet') {
+            @include media('<=tablet') {
                 width: 100%;
                 padding: 0;
                 margin: 0 0 20px;
+                order: 2;
             }
 
             .logo {
                 margin: 0 0 25px;
 
-                @include media('<tablet') {
+                @include media('<=tablet') {
                     position: absolute;
                     top: 0;
                     left: 0;
@@ -130,7 +132,7 @@
             .work-cat {
                 margin-bottom: 19px;
 
-                @include media('<tablet') {
+                @include media('<=tablet') {
                     font-size: 20px;
                     margin-bottom: 12px;
                 }
@@ -140,11 +142,9 @@
                 cursor: pointer;
                 margin-bottom: 23px;
 
-                @include media('<tablet') {
+                @include media('<=tablet') {
                     margin-bottom: 40px;
-                    max-width: 270px;
-                    font-size: 48px;
-                    line-height: 1.05;
+                    max-width: 100%;
                 }
             }
 
@@ -161,19 +161,19 @@
                 font-size: 14px;
                 margin-bottom: 14px;
 
-                @include media('<tablet') {
+                @include media('<=tablet') {
                     margin-bottom: 8px;
                     width: 100%;
                 }
             }
 
             .work-services {
-                @include media('>=tablet') {
+                @include media('>tablet') {
                     margin-top: auto;
                     margin-bottom: 29px;
                 }
 
-                @include media('<tablet') {
+                @include media('<=tablet') {
                     max-width: 400px;
                     display: flex;
                     flex-wrap: wrap;
@@ -185,7 +185,7 @@
                 font-size: 14px;
                 padding-right: 10px;
 
-                @include media('<tablet') {
+                @include media('<=tablet') {
                     font-size: 12px;
                     width: 50%;
                 }
@@ -193,7 +193,7 @@
                 li {
                     margin-bottom: 3px;
 
-                    @include media('<tablet') {
+                    @include media('<=tablet') {
                         margin-bottom: 0;
                     }
                 }
@@ -207,6 +207,12 @@
             padding-top: 52.308%;
             height: 0;
             overflow: hidden;
+
+            @include media('<=tablet') {
+                padding-top: 70.308%;
+                order: 1;
+                margin: 0 0 34px;
+            }
 
             .work-video {
                 position: absolute;
@@ -224,8 +230,9 @@
             cursor: pointer;
             @include aspect-ratio-const(970, 580);
 
-            @include media('<tablet') {
+            @include media('<=tablet') {
                 margin: 0 0 34px;
+                order: 1;
             }
 
             &:before {
