@@ -55,7 +55,6 @@
         &.hidden{
           display: none;
         }
-        //margin-bottom: 30px;
 
         @include media('<=tablet') {
             height: auto !important;
