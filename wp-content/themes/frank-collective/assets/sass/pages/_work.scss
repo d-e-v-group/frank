@@ -69,27 +69,22 @@
         }
 
         @include media('>tablet') {
-            transition: transform 1s ease;
-            transform: scale(0.75);
-            transform-origin: 100% 50%;
-            will-change: opacity, transform;
-            .desc{
-                will-change: opacity, transform;
+            will-change: opacity;
+            .desc,
+            .work-video-wrap{
+                will-change: opacity;
                 opacity: 0;
-                transform: translateX(100px);
-                transition: opacity 1s ease, transform 1s ease;
+                transition: opacity 1s ease;
             }
             &.is-appeared{
-                transform: scale(1);
-                .desc {
+                .desc,
+                .work-video-wrap {
                     opacity: 1;
-                    transform: translateX(0px);
                 }
             }
         }
         &[data-position="left"]{
             @include media('>tablet') {
-                transform-origin: 0 50%;
             }
         }
 
