@@ -50,7 +50,6 @@
 			&:hover {
 				a {
 					color: $blue;
-                    //transform: translateX(20px) !important;
 				}
 
 				.bg-stretch {
@@ -64,7 +63,6 @@
 				display: block;
 				color: $black;
                 will-change: transform;
-				//transition: color 0.15s ease-out, transform 0.15s ease-out;
 				transition: color 0.15s ease-out;
 				&:focus,
 				&:hover {
