@@ -40,22 +40,24 @@ frank.ani_works_init = function (root) {
             self.pages['works'].works.each(function () {
                 workHeight = Math.max(workHeight, $(this).outerHeight())
             });
-            self.pages['works'].works.css({
-                height: workHeight
-            });
+            // self.pages['works'].works.css({
+            //     height: workHeight
+            // });
+
 
             var
               workSection = root.find('.work-section'),
               workSectionTopPostion = workSection.position().top,
               spacerOriginal = (self.cache.clientHeight - workHeight) / 2,
+              spacerOriginalFirst = (self.cache.clientHeight - workHeight) / 3,
               spacerOriginalScaled = (self.cache.clientHeight - workHeight * 0.75) / 2,
               workPartialHeight = (self.cache.clientHeight - workHeight * 0.75) / 2,
               workSectionAdjust = Math.ceil(spacerOriginalScaled - spacerOriginal);
 
             self.pages['works'].works.each(function (index) {
                 var
-                  paddingTop = Math.max((index === 0) ? spacerOriginal : spacerOriginal / 2 - workSectionAdjust, (index === 0) ? 60 : 30),
-                  paddingBottom = Math.max(spacerOriginal / 2 - workSectionAdjust, 30);
+                  paddingTop = Math.max((index === 0) ? spacerOriginalFirst : spacerOriginal / 2.35 - workSectionAdjust, (index === 0) ? 60 : 30),
+                  paddingBottom = Math.max(spacerOriginal / 2.35 - workSectionAdjust, 30);
 
                 $(this).parents('.work-wrap').css({
                     'padding-top': paddingTop,
