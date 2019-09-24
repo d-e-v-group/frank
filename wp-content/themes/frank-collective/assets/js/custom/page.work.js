@@ -40,6 +40,7 @@ frank.ani_works_init = function (root) {
             self.pages['works'].works.each(function () {
                 workHeight = Math.max(workHeight, $(this).outerHeight())
             });
+            // artifacts sticking (height too large) when resizing browser up/down in size
             // self.pages['works'].works.css({
             //     height: workHeight
             // });
