@@ -49,13 +49,13 @@
 
                                 @if(get_field('main_image') || get_field('hero_section_image') || get_field('featured_project_video'))
                                     @if(get_field('featured_project_video'))
-                                        <div class="work-video-wrap ajax-preload-assets">
+                                        <div class="featured-project work-video-wrap ajax-preload-assets">
                                             <video autoplay muted loop playsinline class="work-video">
                                                 <source src="{{ get_field('featured_project_video') }}" type="video/mp4">
                                             </video>
                                         </div>
                                     @else
-                                        <div class="img" data-image="{{ helper::imageURL(get_field('main_image'), 'full') }}">
+                                        <div class="featured-project img" data-image="{{ helper::imageURL(get_field('main_image'), 'full') }}">
                                             <div class="bg-img" style='background-image: url({{ helper::imageURL(get_field('main_image'), 'full') }});'></div>
                                         </div>
                                     @endif
