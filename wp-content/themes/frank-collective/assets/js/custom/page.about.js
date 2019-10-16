@@ -1,4 +1,5 @@
 frank.ani_about_init = function (root) {
+
     var self = this;
     this.pages['about'] = {
         root: root,
