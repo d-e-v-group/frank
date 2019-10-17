@@ -1,30 +1,52 @@
 @mixin aboutLargeHeaderText {
   font-size: 220px;
-  line-height: 1;
+  line-height: 0.9;
   font-family: $recife;
+  @include media('<tablet') {
+    font-size: 110px;
+  }    
 }
 
 @mixin aboutMediumHeaderText {
   font-size: 120px;
   font-family: $recife;
+  line-height: 1;
+  @include media('<tablet') {
+    font-size: 60px;
+  }  
 }
 
 @mixin aboutBodyText {
   font-size: 26px;
+  @include media('<tablet') {
+    font-size: 18px;
+  }    
 }
 
 @keyframes bounce-2 {
   0%   { transform: translateY(0); }
-  50%  { transform: translateY(-100px); }
+  50%  { transform: translateY(-30px); }
   100% { transform: translateY(0); }
 }
 
 .about-v2-page {
-  .about-section .container {
+  .about-section {
+    overflow: hidden;
+  } 
+  .about-section-wrapper {
     min-height: 100vh;
     display: flex;
     align-items: center;
     padding: 100px 0;
+    @include media('<tablet') {
+      display: block;
+      position: relative;
+      min-height: 0;
+      padding: 60px 0;
+      .about-section__title {
+        margin-bottom: 40px;
+      }
+    }
   }
 
   #about-section-1 {
@@ -54,11 +76,17 @@
           font-size: 62px;
           line-height: 1;
           margin-bottom: 36px;
+          @include media('<tablet') {
+            font-size: 28px;
+          }            
         }
         &__text {
           max-width: 800px;
           margin: 0 auto;          
           font-size: 28px;
+          @include media('<tablet') {
+            font-size: 18px;
+          }             
         }
       } 
     }
@@ -78,20 +106,20 @@
     }
     .last {
       position: relative;
-      background: rgba(255,255,0,0.3);
       @mixin wordArrows {
         &:before,
         &:after {
           content: '';
           width: 30px;
           height: 60px;
-          background: blue;
           position: absolute;          
           animation-name: bounce-2;
           animation-timing-function: ease; 
           animation-duration: 2s;
-          animation-iteration-count: infinite;
-  
+          animation-iteration-count: infinite;  
+          background-image: url('../../images/about-arrow.svg');
+          background-size: contain;
+          background-repeat: no-repeat;
         }
         &:before {
           top: -30px;
@@ -110,14 +138,32 @@
       span:nth-of-type(1) {
         // background: pink;
         left: 0;
+        &:before {
+          
+        }
+        &:after {
+          
+        }          
       }
       span:nth-of-type(2) {
         // background: yellowgreen;
         left: 50%;
+        &:before {
+          
+        }
+        &:after {
+          transform: rotate(180deg);
+        }          
       }
       span:nth-of-type(3) {
         // background: orange;
         right: 0;
+        &:before {
+          
+        }
+        &:after {
+          
+        }          
       }
     }  
   }
@@ -128,6 +174,10 @@
     .about-section {
       &__title {
         @include aboutMediumHeaderText;
+        margin-bottom: 120px;
+        @include media('<tablet') {
+          margin-bottom: 40px;
+        }           
       }
       &__text {
         @include aboutBodyText;
@@ -139,6 +189,7 @@
   #about-section-5 {
     background-color: $blue;
     color: white;
+    position: relative;
     .about-section {
       &__title {
         @include aboutLargeHeaderText;
@@ -146,6 +197,74 @@
       &__text {
         @include aboutBodyText;
       }
+    }
+    #change-slider {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      transition: all .5s ease-out 1s;
+      transform: translateX(0);
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }    
+    &.animate {
+      #change-slider {
+       transform: translateX(-100vw);
+      }
+    }
+  }
+  #about-section-6 {
+    background-color: black;
+    color: white;
+    text-align: center;
+    .wwd-section-wrapper {
+      padding: 100px 0;
+    }
+    .about-section {
+      &__title {
+        @include aboutMediumHeaderText;
+        max-width: 800px;
+        margin: 0 auto;
+        margin-bottom: 40px;         
+      }
+      &__text {
+        @include aboutBodyText;
+        max-width: 800px;
+        margin: 0 auto;         
+      }
+    }    
+  }
+  .wwd-capabilities {
+    padding-top: 100px;
+    .capability {
+      border-top: 2px solid white;
+      margin-bottom: 50px;
+      padding: 20px 0;
+      display: flex;
+      flex-wrap: wrap;
+      text-align: left;
+      .title {
+        width: 30%;
+        font-weight: bold;
+      }
+      .text {
+        width: 70%;
+      }
+    }
+  }
+  .clients-section {
+    background: black;
+    h3 {
+      font-family: $base-font-sans-serif;
+      font-weight: normal;
+      font-size: 1em;
+      color: rgba(255,255,255,0.7);
+      text-transform: uppercase;
+    }
   }
 }

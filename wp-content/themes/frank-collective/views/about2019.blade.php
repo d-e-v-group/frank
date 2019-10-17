@@ -10,21 +10,23 @@
         
         <section id="about-section-1" class="about-section">
             <div class="container">
-                <div class="col-md-8 about-section__title">
-                    <?php if (get_field('section_1_title')): ?>
-                        <?php the_field('section_1_title'); ?>
-                    <?php endif; ?>
-                </div>
-        
-                <div class="col-md-4 about-section__text">
-                    <?php if (get_field('section_1_text')): ?>
-                        <?php the_field('section_1_text'); ?>
-                    <?php endif; ?>
+                <div class="row about-section-wrapper">
+                    <div class="col-md-8 col-sm-12 about-section__title">
+                        <?php if (get_field('section_1_title')): ?>
+                            <?php the_field('section_1_title'); ?>
+                        <?php endif; ?>
+                    </div>
+            
+                    <div class="col-md-4 col-sm-12 about-section__text">
+                        <?php if (get_field('section_1_text')): ?>
+                            <?php the_field('section_1_text'); ?>
+                        <?php endif; ?>
+                    </div>
                 </div>
             </div>
         </section>
         <section id="about-section-2" class="about-section">
-            <div class="container">
+            <div class="container about-section-wrapper">
                 <div class="col-md-12">
                     <div class="about-section__title">
                         <?php if (get_field('section_2_title')): ?>
@@ -43,51 +45,117 @@
 
         <section id="about-section-3" class="about-section">
             <div class="container">
-                <div class="col-md-7 about-section__title">
-                    <?php if (get_field('section_3_title')): ?>
-                        <?php the_field('section_3_title'); ?>
-                    <?php endif; ?>
-                </div>
-        
-                <div class="col-md-5 about-section__text">
-                    <?php if (get_field('section_3_text')): ?>
-                        <?php the_field('section_3_text'); ?>
-                    <?php endif; ?>
+                <div class="row about-section-wrapper">
+                    <div class="col-md-7 about-section__title">
+                        <?php if (get_field('section_3_title')): ?>
+                            <?php the_field('section_3_title'); ?>
+                        <?php endif; ?>
+                    </div>
+            
+                    <div class="col-md-5 about-section__text">
+                        <?php if (get_field('section_3_text')): ?>
+                            <?php the_field('section_3_text'); ?>
+                        <?php endif; ?>
+                    </div>
                 </div>
             </div>
         </section>
+
         <section id="about-section-4" class="about-section">
             <div class="container">
-                <div class="col-md-7">
+                <div class="row about-section-wrapper">
+                    <div class="col-md-7">
+                        <div class="about-section__title">
+                            <?php if (get_field('section_4_title')): ?>
+                                <?php the_field('section_4_title'); ?>
+                            <?php endif; ?>
+                        </div>
+                
+                        <div class="about-section__text">
+                            <?php if (get_field('section_4_text')): ?>
+                                <?php the_field('section_4_text'); ?>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about-section-5" class="about-section">
+            <div id="change-slider">
+                <div class="container">
+                    <h1>YOU NEED TO CHANGE.</h1>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row about-section-wrapper">
+                    <div class="col-md-8 about-section__title">
+                        <?php if (get_field('section_5_title')): ?>
+                            <?php the_field('section_5_title'); ?>
+                        <?php endif; ?>
+                    </div>
+            
+                    <div class="col-md-4 about-section__text" >
+                        <?php if (get_field('section_5_text')): ?>
+                            <?php the_field('section_5_text'); ?>
+                        <?php endif; ?>       
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about-section-6" class="about-section">
+            <div class="wwd-section-wrapper">
+                <div class="wrap">
                     <div class="about-section__title">
-                        <?php if (get_field('section_4_title')): ?>
-                            <?php the_field('section_4_title'); ?>
+                        <?php if (get_field('section_6_title')): ?>
+                            <?php the_field('section_6_title'); ?>
                         <?php endif; ?>
                     </div>
             
                     <div class="about-section__text">
-                        <?php if (get_field('section_4_text')): ?>
-                            <?php the_field('section_4_text'); ?>
+                        <?php if (get_field('section_6_text')): ?>
+                            <?php the_field('section_6_text'); ?>
                         <?php endif; ?>
+                    </div>           
+                </div>
+                <div class="container wwd-capabilities">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="capability">
+                                <div class="title">Strategy</div>
+                                <div class="text">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ullam soluta exercitationem est laboriosam nostrum dolorem assumenda id et earum odit in minus tempora magni animi, asperiores deleniti. Error, sapiente?
+                                </div>
+                            </div>
+                            <div class="capability">
+                                <div class="title">Strategy</div>
+                                <div class="text">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ullam soluta exercitationem est laboriosam nostrum dolorem assumenda id et earum odit in minus tempora magni animi, asperiores deleniti. Error, sapiente?
+                                </div>
+                            </div>                    
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="capability">
+                                <div class="title">Strategy</div>
+                                <div class="text">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ullam soluta exercitationem est laboriosam nostrum dolorem assumenda id et earum odit in minus tempora magni animi, asperiores deleniti. Error, sapiente?
+                                </div>
+                            </div>
+                            <div class="capability">
+                                <div class="title">Strategy</div>
+                                <div class="text">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ullam soluta exercitationem est laboriosam nostrum dolorem assumenda id et earum odit in minus tempora magni animi, asperiores deleniti. Error, sapiente?
+                                </div>
+                            </div>                    
+                        </div>
                     </div>
                 </div>
+                
             </div>
-        </section>
-        <section id="about-section-5" class="about-section">
-            <div class="container">
-                <div class="col-md-7 about-section__title">
-                    <?php if (get_field('section_5_title')): ?>
-                        <?php the_field('section_5_title'); ?>
-                    <?php endif; ?>
-                </div>
-        
-                <div class="col-md-6">
-                    <?php if (get_field('section_5_text')): ?>
-                        <?php the_field('section_5_text'); ?>
-                    <?php endif; ?>       
-                </div> 
-            </div>
-        </section>
+        </section>        
                       
         <article class="page-about">
         </article>
@@ -114,14 +182,13 @@
 
         var scrollSection = new ScrollMagic.Scene({
             triggerElement: jQuery('#about-section-5'),
-            triggerHook: 'onEnter',
-            duration: 300,
-            
+            triggerHook: 'onEnter',            
         })
-        .setClassToggle("#about-section-5", "active") // add class toggle
+        .on("enter", function (event) {
+            jQuery('#about-section-5').addClass('animate');
+        })
         .addTo(controller);
 
-        console.log(scrollSection);
         
     })
 </script>

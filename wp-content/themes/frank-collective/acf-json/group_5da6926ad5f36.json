@@ -209,6 +209,44 @@
             "new_lines": "wpautop"
         },
         {
+            "key": "field_5da8b5bb106e0",
+            "label": "Section 6 Title",
+            "name": "section_6_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5da8b5c7106e1",
+            "label": "Section 6 Text",
+            "name": "section_6_text",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": "wpautop"
+        },
+        {
             "key": "field_5da6a6dcf39a5",
             "label": "What We Do Sections",
             "name": "what_we_do_sections",
@@ -2021,5 +2059,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1571335264
+    "modified": 1571337697
 }
