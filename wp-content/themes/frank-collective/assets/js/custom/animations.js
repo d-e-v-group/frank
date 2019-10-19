@@ -63,9 +63,12 @@ frank.animations.init = function () {
 
 };
 frank.animations.initScrollNavDark = function () {
+    console.log('initSrollNavDark');
     var progressNav = $('[data-nav-dark]'),
       navSections = $('[data-dark]');
+      console.log(progressNav, navSections)
     if (progressNav.length && navSections.length){
+        console.log('have it all');
         this.navDark = {
             nav: progressNav,
             navItems: progressNav.find('li:not(.page-title)'),
@@ -73,10 +76,12 @@ frank.animations.initScrollNavDark = function () {
         };
         this.calcScrollNavDark();
     } else {
+        console.log('adding dark');
         progressNav.addClass('dark')
     }
 
     if(progressNav.length){
+        console.log('progress nav');
         this.navCase = {
             nav: progressNav,
             trigger: progressNav.next()
@@ -190,15 +195,19 @@ frank.animations.update = function() {
     }
 
     if(typeof frank.animations.navDark !== 'undefined'){
+        console.log(' we got nav dark in UPDATE')
         if(typeof frank.animations.navDark.sections !== 'undefined'){
             for(var i = 0; i < frank.animations.navDark.sections.length; i++){
+                console.log('got sections');
                 if(scrollTop >= frank.animations.navDark.sectionsBox[i].top && scrollTop <= frank.animations.navDark.sectionsBox[i].bottom){ // +30
                     frank.animations.navDark.nav.removeClass('dark')
+                    console.log('are we here?');
                     if(frank.animations.navDark.nav.data('navDark') === 'main'){
                         frank.animations.navDark.nav.addClass('light-main')
                     }
                     break;
                 } else {
+                    console.log('are we starting here?');
                     frank.animations.navDark.nav.addClass('dark')
                     if(frank.animations.navDark.nav.data('navDark') === 'main'){
                         frank.animations.navDark.nav.removeClass('light-main')
