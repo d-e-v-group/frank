@@ -158,32 +158,32 @@
                 $it = 1;
                 ?>
                 
-                <div class="container wwd-capabilities">
-                    <div class="row">
-                        <?php while( have_rows('what_we_do_sections') ): the_row(); 
-                            $wwd_title = get_sub_field('this_is_a_text_field');
-                            $wwd_text = get_sub_field('this_is_a_textarea_field');
-                            ?>
-                            
-                                <?php 
-                                    if ($it == 1 || ($it == round($count / 2)+1)) {
-                                        echo '<div class="col-md-6">';
-                                    }            
-                                ?>
-                                <div class="capability ">
-                                    <div class="title"><?php echo $wwd_title; ?></div>
-                                    <div class="text"><?php echo $wwd_text; ?></div>
-                                </div>
-                                <?php 
-                                    if ($it == round($count / 2) || ($it == $count))  {
-                                        echo '</div>';
-                                    }                                
-                                ?>
-                        <?php 
-                        $it++;
-                        endwhile; 
+                <div class="container">
+                    <div class="wwd-capabilities">
+                    <?php while( have_rows('what_we_do_sections') ): the_row(); 
+                        $wwd_title = get_sub_field('this_is_a_text_field');
+                        $wwd_text = get_sub_field('this_is_a_textarea_field');
                         ?>
-                    </div>
+                        
+                            <?php 
+                                if ($it == 1 || ($it == round($count / 2)+1)) {
+                                    echo '<div class="wwd-col">';
+                                }            
+                            ?>
+                            <div class="capability ">
+                                <div class="title"><?php echo $wwd_title; ?></div>
+                                <div class="text"><?php echo $wwd_text; ?></div>
+                            </div>
+                            <?php 
+                                if ($it == round($count / 2) || ($it == $count))  {
+                                    echo '</div>';
+                                }                                
+                            ?>
+                    <?php 
+                    $it++;
+                    endwhile; 
+                    ?>
+                </div>
                 </div>
                 <?php endif; ?>
             </div>
@@ -206,6 +206,7 @@
 <script>
     jQuery(document).ready(function(){
         // jQuery('#header > .container').addClass('light-main');
+        var wh = jQuery(window).height();
 
         jQuery('#about-section-3 .about-section__title p').html(function(){	
             var text= jQuery(this).text().split(' ');
@@ -217,7 +218,7 @@
         var section4 = new ScrollMagic.Scene({
             triggerElement: jQuery('#about-section-4'),
             triggerHook: 'onEnter',
-            offset: '80%'            
+            offset: wh * 0.5
         })
         .on("enter", function (event) {
             jQuery('#about-section-4').addClass('animate');
@@ -226,7 +227,8 @@
 
         var section5 = new ScrollMagic.Scene({
             triggerElement: jQuery('#about-section-5'),
-            triggerHook: 'onEnter',            
+            triggerHook: 'onEnter',
+            offset: wh * 0.5
         })
         .on("enter", function (event) {
             jQuery('#about-section-5').addClass('animate');
