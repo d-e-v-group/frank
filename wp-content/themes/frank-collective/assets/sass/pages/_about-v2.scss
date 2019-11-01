@@ -221,7 +221,6 @@ svg path {
         }
         strong + strong {
          left: -15px;
-         left: 6px;
          @include media('<desktop') {
            left: -6px;
          }         
