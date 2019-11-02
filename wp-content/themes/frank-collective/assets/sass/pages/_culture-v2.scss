@@ -1,0 +1,88 @@
+$imgH: 300px;
+$imgArea: 400px;
+
+.culture-wrap {
+  #culture-main {
+    position: relative;
+    background-color: $black;
+    color: white;
+    text-align: center;
+    padding: 180px 40px 300px;
+    .culture-message {
+      position: relative;
+      z-index: 10;
+    }
+    h1 {
+      max-width: 970px;
+      margin: 0 auto;
+      margin-bottom: 194px;
+      font-size: 92px;
+      letter-spacing: 0.02em;
+    }
+    p {
+      max-width: 550px;
+      margin: 0 auto;
+      margin-bottom: 115px;
+    }
+    h3 {
+      max-width: 640px;
+      margin: 0 auto;
+      margin-bottom: 50px;
+    }
+    .jobs-link {
+      color: $white;
+    }
+    .culture-image {
+      position: absolute;
+      z-index: 1;
+      img {
+        max-height: 300px;
+        width: auto;
+      }
+      &.img-1 {
+        top: $imgArea * 0.5;
+        left: 0;
+      }
+      &.img-2 {
+        top: $imgArea * 0.7;
+        right: 0;
+      }    
+      &.img-3 {
+        top: $imgArea * 1.5;;
+        left: 0;
+      }
+      &.img-4 {
+        top: $imgArea * 1.7;;
+        right: 0;
+      } 
+      &.img-5 {
+        top: $imgArea * 2.5;;
+        left: 0;
+      }
+      &.img-6 {
+        top: $imgArea * 2.7;;
+        right: 0;
+      }    
+      &.img-7 {
+        top: $imgArea * 3.5;;
+        left: 0;
+      }
+      &.img-8 {
+        top: $imgArea * 3.7;;
+        right: 0;
+      } 
+      &.img-9 {
+        top: $imgArea * 4.5;;
+        left: 0;
+      }
+      &.img-10 {
+        top: $imgArea * 4.7;;
+        right: 0;
+      }    
+      &.img-11 {
+        top: $imgArea * 5.5;;
+        left: 0;
+      }           
+    }
+  }
+}

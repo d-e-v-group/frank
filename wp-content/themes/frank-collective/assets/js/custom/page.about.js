@@ -26,7 +26,6 @@ frank.ani_about_init = function (root) {
 };
 
 frank.ani_about_in = function (root) {
-    console.log('ANI JAM');
     var self = this;
     self.animations.initScrollNav();
     self.animations.initScrollNavDark();
