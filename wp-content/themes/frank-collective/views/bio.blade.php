@@ -8,7 +8,7 @@
                 <div class="grid-flex heading-row">
                     <div class="col-sm-4 col-md-3">
                         <div class="back-link bio-content-left">
-                            <a href="/culture/#our-people" data-team-id="{{ get_the_ID() }}"><i class="icon-left-arrow"></i> Back to People</a>
+                            <a href="/team" data-team-id="{{ get_the_ID() }}"><i class="icon-left-arrow"></i> Back to People</a>
                         </div>
                     </div>
                     <div class="col-sm-8 col-md-6">
