@@ -46,7 +46,19 @@
             data-frame-three="<?php echo get_template_directory_uri() . '/assets/culture-page/3/MikeJiffy1.mp4' ?>">
             <img class="img-holder" style="display:none; position: absolute;  left: 0; top: 0; height: 100%; width: 100%; object-fit: cover;" src="">
             <video class="vid-holder" style="display:none; position: absolute; left: 0; top: 0; height: 100%; width: 100%; object-fit: cover;" src="" playsinline muted > 
-          </div>                    
+          </div>       
+
+
+
+          <div data-tilt style="height: 300px; width: 392px;" class="culture-image culture-looper img-3" 
+            data-frame-one="<?php echo get_template_directory_uri() . '/assets/culture-page/3/AnnieSophieTeaching.png' ?>" 
+            data-frame-two="<?php echo get_template_directory_uri() . '/assets/culture-page/3/Jay-Phone.mp4' ?>" 
+            data-frame-three="<?php echo get_template_directory_uri() . '/assets/culture-page/3/MikeJiffy1.mp4' ?>">
+            <img class="img-holder" style="display:none; position: absolute;  left: 0; top: 0; height: 100%; width: 100%; object-fit: cover;" src="">
+            <video class="vid-holder" style="display:none; position: absolute; left: 0; top: 0; height: 100%; width: 100%; object-fit: cover;" src="" playsinline muted > 
+          </div>       
+          
+                                 
 
         </div>
       </section>
