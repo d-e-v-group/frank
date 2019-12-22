@@ -18,14 +18,13 @@
  * @package WordPress
  */
 
-define('WP_SITEURL', 'http://localhost:8888/fc/frank/wordpress');
-define('WP_HOME',    'http://localhost:8888/fc/frank');
-define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . '/fc/frank/wp-content');
-define('WP_CONTENT_URL', 'http://localhost:8888/fc/frank/wp-content');
+
+define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . '/frank/wp-content');
+define('WP_CONTENT_URL', 'http://localhost:8888/frank/wp-content');
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'fc_frank_2019' );
+define( 'DB_NAME', 'wp_frankcollectiv' );
 
 /** MySQL database username */
 define( 'DB_USER', 'root' );
@@ -41,6 +40,9 @@ define( 'DB_CHARSET', 'utf8' );
 
 /** The Database Collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
+
+define('WP_SITEURL', 'http://localhost:8888/frank/wordpress');
+define('WP_HOME',    'http://localhost:8888/frank');
 
 /**#@+
  * Authentication Unique Keys and Salts.
