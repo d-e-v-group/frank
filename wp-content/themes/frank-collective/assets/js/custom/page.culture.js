@@ -57,6 +57,7 @@ frank.ani_culture_in = function (root) {
     self.initUI();
 };
 
+/*
 frank.ani_bio_init = function (root) {
     var self = this;
     this.pages['bio'] = {
@@ -87,3 +88,4 @@ frank.ani_bio_in = function (root) {
     ;
     self.initUI();
 };
+*/

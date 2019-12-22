@@ -35,6 +35,7 @@ elixir(function(mix)
         'plugins/TweenMax.min.js',
         'plugins/ScrollMagic.min.js',
         'plugins/jquery.ScrollMagic.js',
+        'plugins/tilt.js',
         'plugins/animation.gsap.js',
         'plugins'
     ], 'assets/compiled/js/vendor.js');
