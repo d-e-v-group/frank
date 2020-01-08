@@ -1,21 +1,17 @@
 // ---------------------------------------------------------===
 // work styles
 // ---------------------------------------------------------===
-
 .work-section {
     padding-bottom: 70px;
-
     @include media('<=tablet') {
         padding-bottom: 0;
     }
-
     .full-btn {
         .btn-wrap {
             @include media('>tablet') {
                 width: 50%;
                 margin-left: 30%;
             }
-
             @include media('>=desktop') {
                 margin-left: 330px;
             }
@@ -23,7 +19,7 @@
     }
 }
 
-.work-animated-background{
+.work-animated-background {
     position: fixed;
     left: 0;
     top: 0;
@@ -35,100 +31,84 @@
 
 .work-list {
     padding-bottom: 55px;
-
+    display: flex;
+    flex-wrap: wrap;
     @include media('<=tablet') {
         padding-bottom: 20px;
     }
-
-    .work-wrap{
+    .work-wrap {
         position: relative;
         display: flex;
+        width: 50%;
         flex-direction: column;
         justify-content: center;
-
-        & + .work-wrap{
-        }
+        &+.work-wrap {}
     }
-
-    .work-item{
-
-        &.hidden{
-          display: none;
+    .work-item {
+        &.hidden {
+            display: none;
         }
-
         @include media('<=tablet') {
             height: auto !important;
         }
     }
     .work {
-        display: flex;
+        // display: flex;
         padding-top: 20px;
-
         @include media('<desktop') {
-            align-items: center;
+            // align-items: center;
         }
-
         @include media('<=tablet') {
             position: relative;
-            flex-flow: column;
+            // flex-flow: column;
             padding-top: 0;
         }
-
         @include media('>tablet') {
             will-change: opacity;
             .desc,
-            .work-video-wrap{
+            .work-video-wrap {
                 will-change: opacity;
                 opacity: 0;
                 transition: opacity 1s ease;
             }
-            &.is-appeared{
+            &.is-appeared {
                 .desc,
                 .work-video-wrap {
                     opacity: 1;
                 }
             }
         }
-        &[data-position="left"]{
-            @include media('>tablet') {
-            }
+        &[data-position="left"] {
+            @include media('>tablet') {}
         }
-
         .desc {
-            width: 330px;
-            padding: 51px 20px 13px 0;
+            // width: 330px;
+            // padding: 51px 20px 13px 0;
             order: 0;
-
             @include media('>tablet') {
                 display: flex;
                 flex-direction: column;
             }
-
             @include media('<desktop') {
                 width: auto;
                 flex: 0 1 30%;
                 padding: 0 1.5rem 0 0;
-
                 h2 {
                     font-size: 32px;
                 }
             }
-
             @include media('<=tablet') {
                 width: 100%;
                 max-width: 100%;
                 padding: 0;
                 margin: 0 0 20px;
                 order: 2;
-
                 h2 {
                     font-size: 48px;
                 }
             }
-
             .logo {
                 margin: 0 0 25px;
-
                 @include media('<=tablet') {
                     position: absolute;
                     top: 0;
@@ -139,78 +119,81 @@
                     align-items: flex-end;
                 }
             }
-
-            .work-cat {
-                margin-bottom: 19px;
-
+            h5 {
+                color: $black;
+                margin: 0;
+                &.work-cat {
+                    font-weight: 800;
+                }
                 @include media('<=tablet') {
                     font-size: 20px;
                     margin-bottom: 12px;
                 }
             }
-
             h2 {
                 cursor: pointer;
                 margin-bottom: 23px;
-
                 @include media('<=tablet') {
                     margin-bottom: 40px;
                     max-width: 100%;
                 }
             }
-
             .link-hold {
                 margin: 0 0 65px;
-
                 @include media('<widescreen') {
                     margin: 0 0 20px;
                 }
             }
-
             h6 {
                 font-weight: 900;
                 font-size: 14px;
                 margin-bottom: 14px;
-
                 @include media('<=tablet') {
                     margin-bottom: 8px;
                     width: 100%;
                 }
             }
-
             .work-services {
                 @include media('>tablet') {
                     margin-top: auto;
                     margin-bottom: 29px;
                 }
-
                 @include media('<=tablet') {
                     max-width: 400px;
                     display: flex;
                     flex-wrap: wrap;
                 }
             }
-
             .service-list {
                 @extend %listreset;
                 font-size: 14px;
                 padding-right: 10px;
-
+                margin-top: 10px;
+                font-size: 13px;
                 @include media('<=tablet') {
                     font-size: 12px;
                     width: 50%;
                 }
-
                 li {
-                    margin-bottom: 3px;
-
+                    text-transform: uppercase;
+                    color: $gray1;
+                    display: inline;
+                    &:after {
+                        content: '|';
+                        padding-right: 5px;
+                        padding-left: 5px;
+                    }
+                    &:last-child {
+                        &:after {
+                            content: unset;
+                        }
+                    }
                     @include media('<=tablet') {
                         margin-bottom: 0;
                     }
                 }
             }
         }
-
         .work-video-wrap {
             position: relative;
             width: 100%;
@@ -220,13 +203,12 @@
             height: 0;
             overflow: hidden;
             flex: 1;
-
+            margin-bottom: 20px;
             @include media('<=tablet') {
                 padding-top: 70.308%;
                 order: 1;
                 margin: 0 0 34px;
             }
-
             .work-video {
                 position: absolute;
                 top: 0;
@@ -235,19 +217,16 @@
                 height: auto;
             }
         }
-
         .img {
             position: relative;
             flex: 1;
             order: 1;
             cursor: pointer;
             @include aspect-ratio-const(970, 580);
-
             @include media('<=tablet') {
                 margin: 0 0 34px;
                 order: 1;
             }
-
             &:before {
                 padding-top: 69.793814%;
             }
@@ -255,7 +234,7 @@
     }
 }
 
-.work-overlay{
+.work-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -267,7 +246,7 @@
     will-change: transform;
 }
 
-.work-temp{
+.work-temp {
     position: fixed;
     top: 0;
     left: 0;
@@ -282,11 +261,9 @@
 .work-list-alt {
     .work {
         margin: 0 0 68px;
-
         @include media('<tablet') {
             margin: 0 0 40px;
         }
-
         .visual {
             position: relative;
             height: 580px;
@@ -295,67 +272,53 @@
             table-layout: fixed;
             width: 100%;
             margin: 0 0 22px;
-
             @include media('<desktop') {
                 height: 400px;
             }
-
             .v-align {
                 display: table-footer-group;
                 height: 1%;
             }
-
             .bg-stretch {
                 z-index: -1;
             }
-
             h2 {
                 width: 600px;
                 margin: 0;
                 font-size: 110px;
-
                 @include media('<desktop') {
                     font-size: 70px;
                     width: auto;
                 }
-
                 @include media('<tablet') {
                     font-size: 45px;
                 }
             }
         }
-
         .desc {
-
             h3 {
                 font-weight: 400;
                 margin: 0 0 5px;
                 line-height: 1;
             }
-
             h4 {
                 margin: 0;
             }
-
             .work-services {
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: space-between;
-
                 @include media('<tablet') {
                     max-width: 400px;
                 }
             }
-
             .link-u {
                 display: inline-block;
                 vertical-align: top;
-
                 @include media('<tablet') {
                     margin: 0 0 15px;
                 }
             }
-
             .service-list {
                 @extend %listreset;
             }
@@ -366,17 +329,14 @@
 .work-img-list {
     .work-img {
         margin: 0 0 30px;
-
         &.align-right {
             text-align: right;
         }
-
         &.align-center {
             text-align: center;
         }
     }
 }
-
 
 .banner {
     position: relative;
@@ -384,14 +344,11 @@
     min-height: 640px;
     transform: translateZ(0);
     backface-visibility: hidden;
-
     @include media('<widescreen') {
         min-height: 500px;
     }
-
     &.sm {
         min-height: 500px;
-
         @include media('<tablet') {
             min-height: 300px;
         }
@@ -404,48 +361,37 @@
 
 .case-study-intro {
     padding: 31px 0 70px;
-
     @include media('<tablet') {
         padding: 30px 0 50px;
     }
-
     &.bg-yellow {
         margin: 0 0 122px;
-
         @include media('<desktop') {
             margin: 0 0 75px;
         }
-
         @include media('<tablet') {
             margin: 0 0 72px;
         }
     }
-
-    .tag-line{
+    .tag-line {
         max-width: 550px;
     }
-
     h1 {
         margin: 0 0 40px;
-
         @include media('<tablet') {
             margin: 0 0 22px;
         }
     }
-
     h3 {
         line-height: 1.1;
         font-weight: 400;
-
         @include media('<tablet') {
             margin: 0 0 32px;
         }
     }
-
     h4 {
         margin: 0;
     }
-
     p {
         @include media('<tablet') {
             margin: 0 0 26px;
@@ -466,54 +412,43 @@
 .case-study-content {
     .row {
         margin: 0 0 130px;
-
         @include media('<desktop') {
             margin: 0 0 80px;
         }
-
         @include media('<tablet') {
             margin: 0 0 40px;
         }
     }
-
     .title-col {
         @include media('<tablet') {
             margin-bottom: 27px;
         }
     }
-
     h2 {
         margin: 0 0 65px;
-
         @include media('<desktop') {
             margin: 0 0 40px;
         }
-
         @include media('<tablet') {
             margin: 0 0 48px;
             font-size: 48px;
         }
     }
-
     h3 {
         margin: 0;
         line-height: 1.1;
         margin: 0 0 8px;
         font-weight: 400;
     }
-
     .text-row {
         margin-bottom: 25px;
-
         @include media('<tablet') {
             margin-bottom: 35px;
         }
     }
-
     .img-hold {
         text-align: center;
         margin: 0 0 55px;
-
         @include media('<tablet') {
             margin: 0 0 30px;
         }
@@ -524,37 +459,30 @@
     padding: 50px 0;
     background: $light-blue;
     margin: 0 0 125px;
-
     @include media('<desktop') {
         margin: 0 0 80px;
     }
-
     @include media('<tablet') {
         padding: 43px 30px 34px;
         margin: 0 0 74px;
     }
-
     blockquote {
         margin: 0;
-
         q {
             font-size: 32px;
             line-height: 1.125;
             display: block;
             margin: 0 0 20px;
-
             @include media('<tablet') {
                 font-size: 24px;
                 line-height: 1.167;
                 margin: 0 0 3px;
             }
         }
-
         cite {
             display: block;
             font-style: normal;
             font-size: 20px;
-
             @include media('<tablet') {
                 font-size: 16px;
             }
@@ -565,44 +493,37 @@
 .link-to-back {
     text-align: center;
     margin: -50px 0 28px;
-
     @include media('<tablet') {
         margin: 0 0 15px;
     }
 }
 
 .media {
-
     h5 {
         margin: 0;
-
         @include media('<tablet') {
             font-size: 12px;
         }
     }
-
     h6 {
         font-size: 14px;
     }
-
     .title-col {
         @include media('<tablet') {
             margin-bottom: 16px;
         }
     }
-
     .dl {
         display: flex;
         margin: 0 -10px;
         flex-wrap: wrap;
-
-        .dt, .dd {
+        .dt,
+        .dd {
             flex: 1 0 50%;
             width: 50%;
             padding: 0 10px;
             font-size: 14px;
             font-weight: 400;
-
             @include media('<tablet') {
                 font-size: 12px;
             }
@@ -612,42 +533,33 @@
 
 .filter-drop {
     padding: 0 0 61px;
-
     @include media('<desktop') {
         font-size: 16px;
     }
-
     @include media('<tablet') {
         padding: 0 0 36px;
         font-size: 14px;
     }
-
     .col {
         @include media('<tablet') {
             margin: 0 0 40px;
         }
     }
-
     h5 {
         margin-bottom: 17px;
         text-transform: uppercase;
         letter-spacing: 1.8px;
-
         @include media('<tablet') {
             margin-bottom: 12px;
         }
     }
-
     .filter-list {
         @extend %listreset;
-
         @include media('>=tablet') {
             column-count: 2;
         }
-
         li {
             margin-bottom: 8px;
-
             @include media('<tablet') {
                 margin-bottom: 12px;
             }
@@ -658,14 +570,12 @@
 [data-filter-val] {
     position: relative;
     text-decoration: none;
-
     &:focus {
         text-decoration: none;
     }
-
-    &.active, &:hover {
+    &.active,
+    &:hover {
         text-decoration: none;
-
         &:after {
             content: "";
             position: absolute;
@@ -680,27 +590,73 @@
 
 .works-all {
     margin-bottom: 71px;
-
+    display: flex;
+    flex-wrap: wrap;
+    .col-sm-4 {
+        float: none !important;
+    }
     .img-box {
         position: relative;
         width: 100%;
         @include aspect-ratio(310, 180);
-
         &:before {
             @include media('<tablet') {
                 padding-top: 69.612903%;
             }
         }
-
         .inner-content {
             background-size: cover;
             background-position: 50% 50%;
         }
     }
-  .work-item {
-
-    &.hidden {
-      display: none;
+    .work-item {
+        &.hidden {
+            display: none;
+        }
+        &.media {
+            .text-content {
+                border-top: 0;
+                h4 {
+                    margin: 0;
+                }
+                h5 {
+                    font-weight: 400;
+                    font-size: 20px;
+                }
+                .service-list {
+                    @extend %listreset;
+                    font-size: 14px;
+                    padding-right: 10px;
+                    margin-top: 10px;
+                    font-size: 13px;
+                    @include media('<=tablet') {
+                        font-size: 12px;
+                        width: 50%;
+                    }
+                    li {
+                        text-transform: uppercase;
+                        color: $gray1;
+                        display: inline;
+                        &:after {
+                            content: '|';
+                            padding-right: 5px;
+                            padding-left: 5px;
+                        }
+                        &:last-child {
+                            &:after {
+                                content: unset;
+                            }
+                        }
+                        @include media('<=tablet') {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+        h4 {
+            font-size: 20px;
+            font-weight: bold;
+        }
     }
-  }
 }

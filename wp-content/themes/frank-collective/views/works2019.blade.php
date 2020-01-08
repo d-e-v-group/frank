@@ -19,33 +19,9 @@
                     $team = new WP_Query( $options );
                     while( $team->have_posts() ) : $team->the_post();
                     ?>
-                    <div class="work-wrap">
+                    <div class="work-wrap col-md-6">
                         <div class="work-item position-{{ ($work_idx % 2 === 0) ? 'left' : 'right' }}" data-background-color="{{ (get_field('theme_color')) ? get_field('theme_color') : '#ffffff' }}">
                             <div class="work view-case-study ajax-load" data-position="{{ ($work_idx % 2 === 0) ? 'left' : 'right' }}" data-link="{{ get_permalink() }}" data-work-item data-appear-offset="0.2">
-                                <div class="desc">
-                                    <div class="work-cat">{{ get_field('brand_name') }}</div>
-                                    @if(get_field('tagline') || get_field('tagline_short'))
-                                        <h2>{{ (get_field('tagline_short')) ? get_field('tagline_short') : get_field('tagline') }}</h2>
-                                    @endif
-                                    <?php
-                                    $term_obj_list = get_the_terms( get_the_ID(), 'service' );
-                                    ?>
-                                    @if(!empty($term_obj_list))
-                                        <?php
-                                        $services = array_chunk($term_obj_list, 3);
-                                        ?>
-                                        <div class="work-services">
-                                            <h6>What we did</h6>
-                                            @foreach($services as $items)
-                                                <ul class="service-list">
-                                                    @foreach($items as $item)
-                                                        <li>{{ $item->name }}</li>
-                                                    @endforeach
-                                                </ul>
-                                            @endforeach
-                                        </div>
-                                    @endif
-                                </div>
 
                                 @if(get_field('main_image') || get_field('hero_section_image') || get_field('featured_project_video'))
                                     @if(get_field('featured_project_video'))
@@ -60,6 +36,28 @@
                                         </div>
                                     @endif
                                 @endif
+                                <div class="desc">
+                                    <h5 class="work-cat">{{ get_field('brand_name') }}</h5>
+                                    @if(get_field('tagline') || get_field('tagline_short'))
+                                        <h5>{{ (get_field('tagline_short')) ? get_field('tagline_short') : get_field('tagline') }}</h5>
+                                    @endif
+                                    <?php
+                                    $term_obj_list = get_the_terms( get_the_ID(), 'service' );
+                                    ?>
+                                    @if(!empty($term_obj_list))
+                                        <?php
+                                        $services = array_chunk($term_obj_list, 3);
+                                        ?>
+                                        <ul class="service-list">
+                                        @foreach($services as $items)
+                                            @foreach($items as $item)
+                                                <li>{{ $item->name }}</li>
+                                            @endforeach
+                                        @endforeach
+                                        </ul>
+                                    @endif
+                                </div>
+
                             </div>
                         </div>
                     </div>
