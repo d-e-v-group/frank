@@ -39,7 +39,7 @@
                         </div>
                     </div>
                     
-                        <div class="works-list">
+                        <div class="work-list">
                             <?php
                             $options = array(
                                 'post_type' => 'work',
@@ -50,9 +50,9 @@
                             $team = new WP_Query( $options );
                             while( $team->have_posts() ) : $team->the_post();
                             ?>
-                            <div class="work-wrap col-md-6">
-                        <div class="work-item position-{{ ($work_idx % 2 === 0) ? 'left' : 'right' }}" data-background-color="{{ (get_field('theme_color')) ? get_field('theme_color') : '#ffffff' }}">
-                            <div class="work view-case-study ajax-load" data-position="{{ ($work_idx % 2 === 0) ? 'left' : 'right' }}" data-link="{{ get_permalink() }}" data-work-item data-appear-offset="0.2">
+                        <div class="work-wrap col-md-6">
+                            <div class="work-item position-{{ ($work_idx % 2 === 0) ? 'left' : 'right' }}" data-background-color="{{ (get_field('theme_color')) ? get_field('theme_color') : '#ffffff' }}">
+                                <div class="work view-case-study ajax-load" data-position="{{ ($work_idx % 2 === 0) ? 'left' : 'right' }}" data-link="{{ get_permalink() }}" data-work-item data-appear-offset="0.2">
 
                                 @if(get_field('main_image') || get_field('hero_section_image') || get_field('featured_project_video'))
                                     @if(get_field('featured_project_video'))
@@ -97,7 +97,7 @@
                     endwhile;
                     wp_reset_postdata();
                     ?>
-                    </div>
+                </div>
                             
                         
                         
