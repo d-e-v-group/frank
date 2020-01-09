@@ -42,7 +42,9 @@
         width: 50%;
         flex-direction: column;
         justify-content: center;
-        &+.work-wrap {}
+        @include media('<=tablet') {
+            width: 100%;
+        }
     }
     .work-item {
         &.hidden {
