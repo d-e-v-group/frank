@@ -202,13 +202,12 @@
             width: 100%;
             max-width: 970px;
             min-width: 510px;
-            padding-top: 52.308%;
+            padding-top: 69.908%;
             height: 0;
             overflow: hidden;
             flex: 1;
             margin-bottom: 20px;
             @include media('<=tablet') {
-                padding-top: 70.308%;
                 order: 1;
                 margin: 0 0 34px;
             }
