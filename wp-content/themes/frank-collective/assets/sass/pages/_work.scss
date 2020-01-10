@@ -169,8 +169,6 @@
             }
             .service-list {
                 @extend %listreset;
-                font-size: 14px;
-                padding-right: 10px;
                 margin-top: 10px;
                 font-size: 13px;
                 @include media('<=tablet') {

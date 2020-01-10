@@ -4,29 +4,35 @@
 <?php while ( have_posts() ) : the_post(); ?>
 <div class="root" data-page-id="Culture" data-namespace="team" data-transition-in="team_in" data-transition-out="team_out" data-page-init="team_init">
     <!-- <div class="work-animated-background" style="background-color: #CBEEF4"></div> -->
-    <section class="team-section culture--a" id="our-people">
+    <section class="team-section main" id="our-people">
         <div class="container">
             <div class="intro">
                 @if(get_field('team_header'))
-                <div data-med-header>
-                    <h2>{{ get_field('team_header') }}</h2>
-                </div>
+                    <div data-med-header>
+                        <h2>{{ get_field('team_header') }}
+                        @if(get_field('team_header_line_two'))
+                        <span>
+                            {{ get_field('team_header_line_two') }}
+                        </span>
+                        @endif
+                        </h2>
+                    </div>
                 @endif
                 @if(get_field('team_subheader') || get_field('team_text'))
-                <div class="grid">
                     @if(get_field('team_subheader'))
-                    <div class="col-sm-3">
+                    <div class="subheader">
                         <h4 data-appear-text>{{ get_field('team_subheader') }}</h4>
                     </div>
                     @endif
                     @if(get_field('team_text'))
-                    <div class="col-sm-6" data-appear-block>
+                    <div data-appear-block>
                         {{ get_field('team_text') }}
                     </div>
                     @endif
-                </div>
+                
                 @endif
             </div>
+            
             <div class="team-list">
                 @if(get_field('team_top'))
                 <div class="grid grid-flex" data-appear-block>

@@ -39,20 +39,20 @@
                         </div>
                     </div>
                     
-                    <div class="work-list">
-                        <?php
-                        $options = array(
-                            'post_type' => 'work',
-                            'orderby' => 'post__in',
-                            'post__in' => get_field('works', 8931)
-                        );
-                        $work_idx = 0;
-                        $team = new WP_Query( $options );
-                        while( $team->have_posts() ) : $team->the_post();
-                        ?>
+                        <div class="work-list">
+                            <?php
+                            $options = array(
+                                'post_type' => 'work',
+                                'orderby' => 'post__in',
+                                'post__in' => get_field('works', 8931)
+                            );
+                            $work_idx = 0;
+                            $team = new WP_Query( $options );
+                            while( $team->have_posts() ) : $team->the_post();
+                            ?>
                         <div class="work-wrap col-md-6">
                             <div class="work-item position-{{ ($work_idx % 2 === 0) ? 'left' : 'right' }}" data-background-color="{{ (get_field('theme_color')) ? get_field('theme_color') : '#ffffff' }}">
-                                <div class="work view-case-study ajax-load" data-position="{{ ($work_idx % 2 === 0) ? 'left' : 'right' }}" data-link="{{ get_permalink() }}" data-work-item data-appear-block>
+                                <div class="work view-case-study ajax-load" data-position="{{ ($work_idx % 2 === 0) ? 'left' : 'right' }}" data-link="{{ get_permalink() }}" data-work-item data-appear-offset="0.2">
 
                                 @if(get_field('main_image') || get_field('hero_section_image') || get_field('featured_project_video'))
                                     @if(get_field('featured_project_video'))
@@ -98,69 +98,83 @@
                     wp_reset_postdata();
                     ?>
                 </div>
+                            
+                        
+                        
+                    
 
-                <!-- ALL WORKS -->
-                <?php
-                $args = array(
-                    'post_type' => ['work'],
-                    'post_status' => ['publish'],
-                    'orderby' => 'menu_order',
-                    'order' => 'ASC',
-                    'posts_per_page' => 20,
-                    'has_password' => false,
-                );
-                $postIndex = 0;
-                $query_works = new WP_Query( $args );
-                ?>
-                @if($query_works->have_posts())
-                    <div class="media-group works-all" data-load-more-list="work" data-filter-works-list>
-                        <?php
+                    <!-- ALL WORKS -->
+                    <?php
+                    $args = array(
+                        'post_type' => ['work'],
+                        'post_status' => ['publish'],
+                        'orderby' => 'menu_order',
+                        'order' => 'ASC',
+                        'posts_per_page' => 21,
+                        'has_password' => false,
+                    );
+                    $postIndex = 0;
+                    $query_works = new WP_Query( $args );
+                    ?>
+                    @if($query_works->have_posts())
+
+                    
+
+                        <div class="media-group works-all" data-load-more-list="work" data-filter-works-list>
+                            <?php
                             while ( $query_works->have_posts() ) : $query_works->the_post();
-                        ?>
-                        <div class="col-sm-4">
-                            <div data-link="{{ get_permalink() }}" class="media grid-flex work-item ajax-load" data-appear-block data-row-index="{{ $postIndex }}">
-                                
-                                <div class="col-sm-12">
-                                    <?php $image = get_field('thumbnail_image') ? get_field('thumbnail_image') : get_field('main_image') ?>
-                                    <?php $case_image = get_field('hero_section_image') ? get_field('hero_section_image') : get_field('main_image') ?>
-                                    <div class="img-box" data-image="{{ helper::imageURL($case_image, 'full') }}">
-                                        {{ helper::imageDiv($image, 'full', ['class' => 'inner-content']) }}
+                            ?>
+                            <div class="col-sm-4">
+                                <div data-link="{{ get_permalink() }}" class="media grid-flex work-item ajax-load" data-appear-block data-row-index="{{ $postIndex }}">
+                                    
+                                    <div class="col-sm-12">
+                                        <?php $image = get_field('thumbnail_image') ? get_field('thumbnail_image') : get_field('main_image') ?>
+                                        <?php $case_image = get_field('hero_section_image') ? get_field('hero_section_image') : get_field('main_image') ?>
+                                        <div class="img-box" data-image="{{ helper::imageURL($case_image, 'full') }}">
+                                            {{ helper::imageDiv($image, 'full', ['class' => 'inner-content']) }}
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-12">
-                                    <div class="text-content">
-                                        <div class="grid-flex">
-                                            <div class="col-sm-12 title-col">
-                                                <h4>{{ get_field('brand_name') }}</h4   >
-                                            </div>
-                                            <?php
-                                            $term_obj_list = get_the_terms( get_the_ID(), 'service' );
-                                            ?>
-                                            @if(!empty($term_obj_list))
-                                                <?php
-                                                $services = array_chunk($term_obj_list, 3);
-                                                ?>
-                                                <div class="col-sm-12">
-                                                    @if(get_field('tagline') || get_field('tagline_short'))
-                                                        <h5>{{ (get_field('tagline_short')) ? get_field('tagline_short') : get_field('tagline') }}</h5>
-                                                    @endif
-                                                    <ul class="service-list">
-                                                        @foreach($term_obj_list as $item)
-                                                            <li>{{ $item->name }}</li>
-                                                        @endforeach
-                                                    </ul>
-                                                    
+                                    <div class="col-sm-12">
+                                        <div class="text-content">
+                                            <div class="grid-flex">
+                                                <div class="col-sm-12 title-col">
+                                                    <h4>{{ get_field('brand_name') }}</h4   >
                                                 </div>
-                                            @endif
+                                                <?php
+                                                $term_obj_list = get_the_terms( get_the_ID(), 'service' );
+                                                ?>
+                                                @if(!empty($term_obj_list))
+                                                    <?php
+                                                    $services = array_chunk($term_obj_list, 3);
+                                                    ?>
+                                                    <div class="col-sm-12">
+                                                        @if(get_field('tagline') || get_field('tagline_short'))
+                                                            <h5>{{ (get_field('tagline_short')) ? get_field('tagline_short') : get_field('tagline') }}</h5>
+                                                        @endif
+                                                        <ul class="service-list">
+                                                            @foreach($term_obj_list as $item)
+                                                                <li>{{ $item->name }}</li>
+                                                            @endforeach
+                                                        </ul>
+                                                        
+                                                    </div>
+                                                @endif
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <?php $postIndex ++ ?>
+                            <?php endwhile; wp_reset_postdata(); ?>
                         </div>
-                        <?php $postIndex ++ ?>
-                        <?php endwhile; wp_reset_postdata(); ?>
-                    </div>
                     @endif
+                    <div class="full-btn" data-loadmore-works>
+                        <div class="grid">
+                            <div class="col-sm-6 col-sm-offset-3" data-appear-text>
+                                <a href="#" class="link-more" data-load-more="work">View More Work</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -168,3 +182,19 @@
     </div>
 	<?php endwhile; ?>
 @endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    
