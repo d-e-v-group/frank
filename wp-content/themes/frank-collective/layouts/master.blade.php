@@ -58,3 +58,8 @@
 {{ wp_footer() }}
 </body>
 </html>
+
+git remote add staging git@git.wpengine.com:staging/fcollectivedev.git
+
+git remote add production git@git.wpengine.com:production/frankcollectiv.git
+
