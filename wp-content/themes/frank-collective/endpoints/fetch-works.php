@@ -72,8 +72,9 @@ function custom_fetch_works()
         $posts = $query->posts;
         if($posts){
             foreach($posts as $key => $post) {
-                $page .= '<div data-link="'. get_permalink($post->ID) .'" class="is-appeared media grid-flex work-item ajax-load" data-appear-block>';
-	            $page .= '<div class="col-sm-3">';
+                $page .= '<div class="col-sm-4">';
+                $page .= '<div data-link="'. get_permalink($post->ID) .'" class="media grid-flex work-item ajax-load is-appeared" data-appear-block>';
+	            $page .= '<div class="col-sm-12">';
 
                 $image = get_field('thumbnail_image', $post->ID) ? get_field('thumbnail_image', $post->ID) : get_field('main_image', $post->ID);
                 $case_image = get_field('hero_section_image', $post->ID) ? get_field('hero_section_image', $post->ID) : get_field('main_image', $post->ID);
@@ -82,24 +83,25 @@ function custom_fetch_works()
                 $page .= '<div class="inner-content" style="background-image:url('.wp_get_attachment_image_src($image, 'full')[0].')"></div>';
                 $page .= '</div>';
                 $page .= '</div>';
-                $page .= '<div class="col-sm-9">';
+                $page .= '<div class="col-sm-12">';
                 $page .= '<div class="text-content">';
                 $page .= '<div class="grid-flex">';
-                $page .= '<div class="col-sm-5 col-md-6 title-col">';
-                $page .= '<h3>'. get_field('brand_name', $post->ID) .'</h3>';
+                $page .= '<div class="col-sm-12 title-col">';
+                $page .= '<h4>'. get_field('brand_name', $post->ID) .'</h4>';
                 $page .= '</div>';
                 $term_obj_list = get_the_terms( $post->ID, 'service' );
                 if(!empty($term_obj_list)){
                     $services = array_chunk($term_obj_list, 3);
-                    $page .= '<div class="col-sm-7 col-md-6">';
-                    $page .= '<h5>What we did</h5>';
-                    $page .= '<div class="dl">';
+                    $page .= '<div class="col-sm-12">';
+                    $page .= '<h5>'. get_field('tagline_short', $post->ID) .'</h5>';
+                    $page .= '<ul class="service-list">';
                     foreach($term_obj_list as $item){
-                        $page .= '<span class="dt">'. $item->name .'</span>';
+                        $page .= '<li>'. $item->name .'</li>';
                     }
-                    $page .= '</div>';
+                    $page .= '</ul>';
                     $page .= '</div>';
                 }
+                $page .= '</div>';
                 $page .= '</div>';
                 $page .= '</div>';
                 $page .= '</div>';

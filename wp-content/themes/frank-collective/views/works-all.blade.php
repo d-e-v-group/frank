@@ -110,7 +110,7 @@
                         'post_status' => ['publish'],
                         'orderby' => 'menu_order',
                         'order' => 'ASC',
-                        'posts_per_page' => 20,
+                        'posts_per_page' => 21,
                         'has_password' => false,
                     );
                     $postIndex = 0;
@@ -182,3 +182,19 @@
     </div>
 	<?php endwhile; ?>
 @endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    
