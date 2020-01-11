@@ -11,6 +11,10 @@ frank.ani_culture_2_init = function (root) {
   }
 
   $(document).ready(function(){
+
+    var rellax = new Rellax('.rellax');
+
+    
     $('.culture-looper').each(function(){
       var container = $(this);
       var vid_holder = container.find('.vid-holder');

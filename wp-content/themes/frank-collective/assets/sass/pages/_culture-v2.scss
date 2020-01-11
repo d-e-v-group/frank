@@ -7,6 +7,7 @@ $imgArea: 400px;
     background-color: $black;
     color: white;
     text-align: center;
+    overflow: hidden;
     padding: 180px 40px 300px;
     @include media('<desktop') {
       padding-top: 80px;
@@ -60,6 +61,13 @@ $imgArea: 400px;
     }
     .jobs-link {
       color: $white;
+    }
+    .culture-images {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
     }
     .culture-image {
       position: absolute;

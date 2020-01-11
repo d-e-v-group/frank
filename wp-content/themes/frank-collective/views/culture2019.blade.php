@@ -1,5 +1,9 @@
 @layout('layouts/master')
-<?php /* Template Name: Culture 2019 */ ?>
+<?php /* Template Name: Culture 2019 
+
+https://dixonandmoe.com/rellax/
+https://bashooka.com/coding/parallax-animation-javascript-libraries-2019/
+*/ ?>
 @section('content')
 <?php while ( have_posts() ) : the_post(); ?>
 <div class="root" class="culutre-v2-page" data-page-id="Culture" data-namespace="culture" data-transition-in="culture_2_in" data-transition-out="culture_2_out" data-page-init="culture_2_init">
