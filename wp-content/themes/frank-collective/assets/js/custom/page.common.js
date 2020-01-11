@@ -49,6 +49,8 @@ frank.ani_archive_init = function (root) {
 frank.ani_archive_in = function (root) {
     var self = this;
     this.removeOverlay();
+    self.animations.initScrollNav();
+    self.animations.initScrollNavDark();
     this.cache.$header.removeClass('nav-hidden');
     new TimelineMax({
         onComplete: function () {
