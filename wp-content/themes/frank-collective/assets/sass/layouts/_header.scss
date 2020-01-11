@@ -270,25 +270,26 @@
 }
 
 .light-main{
-  @include media('>=tablet') {
-    .logo{
-      svg{
-        path{
-          fill: $white;
-        }
-      }
-    }
-    nav.nav-pannel{
-      li{
-        a{
-          color: $white;
-          &:after {
-            border-top: 1px solid $white;
-          }
-        }
-      }
-    }
-  }
+	.logo{
+		svg{
+			path{
+				fill: $white;
+			}
+		}
+	}
+	nav.nav-pannel{
+		li{
+			a{
+				color: $white;
+				&:after {
+					border-top: 1px solid $white;
+				}
+			}
+		}
+	}
+	.nav-opener:before, .nav-opener:after, .nav-opener span {
+		background: $white;
+	}
 }
 
 
