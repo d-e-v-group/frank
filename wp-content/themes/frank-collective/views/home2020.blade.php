@@ -7,12 +7,10 @@
     <div class="hp-slider">
         <div class="content" >
             <div class="container">
-            @if(get_field('slide_module'))
-                @foreach((array) get_field('slide_module') as $item)    
-                    @if($item['client_name'])
-                            <div>{{ $item['client_name'] }}</div>
-                    @endif
-                @endforeach
+            @if( have_rows('slide_module'))
+                while ( have_rows('slide_module') ) : the_row();    
+                    <div>client name: {{ get_sub_field('client_name') }}</div>
+                @endwhile
             @endif
             </div>
         </div>

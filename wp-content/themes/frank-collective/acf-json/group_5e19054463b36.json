@@ -4,8 +4,8 @@
     "fields": [
         {
             "key": "field_5e19054db6ef0",
-            "label": "Slide Module",
-            "name": "slide_module",
+            "label": "Slide",
+            "name": "slide",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -18,9 +18,33 @@
             "collapsed": "",
             "min": 0,
             "max": 0,
-            "layout": "block",
+            "layout": "table",
             "button_label": "",
             "sub_fields": [
+                {
+                    "key": "field_5e19169343802",
+                    "label": "Slide Image",
+                    "name": "slide_image",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
                 {
                     "key": "field_5e190567b6ef1",
                     "label": "Slide Image",
@@ -46,9 +70,47 @@
                     "mime_types": ""
                 },
                 {
+                    "key": "field_5e1916b343803",
+                    "label": "Client Name",
+                    "name": "client_name",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
                     "key": "field_5e190575b6ef2",
                     "label": "Client Name",
                     "name": "client_name",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5e1916c343804",
+                    "label": "Client Tagline",
+                    "name": "client_tagline",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -103,5 +165,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1578698312
+    "modified": 1578702543
 }
