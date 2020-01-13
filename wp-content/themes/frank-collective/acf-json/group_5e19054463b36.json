@@ -18,8 +18,8 @@
             "collapsed": "",
             "min": 0,
             "max": 0,
-            "layout": "table",
-            "button_label": "",
+            "layout": "row",
+            "button_label": "Add Slide",
             "sub_fields": [
                 {
                     "key": "field_5e19169343802",
@@ -46,50 +46,7 @@
                     "mime_types": ""
                 },
                 {
-                    "key": "field_5e190567b6ef1",
-                    "label": "Slide Image",
-                    "name": "slide_image",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "id",
-                    "preview_size": "thumbnail",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": ""
-                },
-                {
                     "key": "field_5e1916b343803",
-                    "label": "Client Name",
-                    "name": "client_name",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_5e190575b6ef2",
                     "label": "Client Name",
                     "name": "client_name",
                     "type": "text",
@@ -125,25 +82,6 @@
                     "prepend": "",
                     "append": "",
                     "maxlength": ""
-                },
-                {
-                    "key": "field_5e1905d6b6ef3",
-                    "label": "Tagline",
-                    "name": "tagline",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
                 }
             ]
         }
@@ -165,5 +103,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1578702543
+    "modified": 1578935454
 }
