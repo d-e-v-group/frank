@@ -57,6 +57,25 @@
             "maxlength": ""
         },
         {
+            "key": "field_5e18ce0672bd4",
+            "label": "Header Line Two",
+            "name": "team_header_line_two",
+            "type": "text",
+            "instructions": "Optional. Use as second line of header to break the line where wanted.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5de880803f35f",
             "label": "Subheader",
             "name": "team_subheader",
@@ -165,5 +184,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1575518386
+    "modified": 1578684052
 }
