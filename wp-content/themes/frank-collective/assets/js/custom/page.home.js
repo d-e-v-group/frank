@@ -30,4 +30,14 @@ frank.ani_homepage_out = function(root) {
     ;
 };
 
-$('.hp-slider').slick();
+$('.hp-slider').slick({
+    adaptiveHeight: true,
+    infinite: true,
+    slidesToShow: 1,
+    autoplay: false,
+    autoplaySpeed: 5000,
+    dots: true,
+    customPaging: function(slick, index) {
+        return '<span>' + (index + 1) + '</span>';
+    }
+});
