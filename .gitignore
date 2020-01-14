@@ -2,3 +2,4 @@ wp-content/uploads
 wp-config.php
 wordpress
 wp-content/themes/frank-collective/core/blade/storage/views
+.htaccess
