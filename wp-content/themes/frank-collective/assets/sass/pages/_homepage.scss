@@ -1,93 +1,79 @@
 // ---------------------------------------------------------===
 // Homepage styles
 // ---------------------------------------------------------===
-
 .nav-hero {
-	padding-top: 69px;
-	display: table;
-	width: 100%;
-	min-height: 640px;
-	height: 100vh;
-	position: relative;
-
-	@include media('<tablet') {
-		min-height: 340px;
-	}
-
-	&-content {
-		// padding: 0 15px 55px;
+    padding-top: 69px;
+    display: table;
+    width: 100%;
+    min-height: 640px;
+    height: 100vh;
+    position: relative;
+    @include media('<tablet') {
+        min-height: 340px;
+    }
+    &-content {
+        // padding: 0 15px 55px;
         padding: 30px 15px 55px;
-		display: table-cell;
-		vertical-align: middle;
-
+        display: table-cell;
+        vertical-align: middle;
         @include media('<tablet') {
             padding: 30px 15px;
         }
-
-		> .bg-stretch {
-			background-size: contain;
-			background-repeat: no-repeat;
-		}
-	}
-
-	.bg-stretch {
-		z-index: -2;
-	}
-
-	.nav-links {
-		display: inline-block;
-		vertical-align: middle;
-
-		.nav-link {
-			// font: 500 60px/1 $recife;
+        >.bg-stretch {
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    }
+    .bg-stretch {
+        z-index: -2;
+    }
+    .nav-links {
+        display: inline-block;
+        vertical-align: middle;
+        .nav-link {
+            // font: 500 60px/1 $recife;
             font: 500 96px/1 $recife;
-			margin: 0 0 10px;
-
+            margin: 0 0 10px;
             @include media('<tablet') {
                 font-size: 72px;
             }
-
-			&:hover {
-				a {
-					color: $blue;
-				}
-
-				.bg-stretch {
-					opacity: 1;
-					z-index: -1;
-					transition: opacity 0.3s ease;
-				}
-			}
-
-			a {
-				display: block;
-				color: $black;
+            &:hover {
+                a {
+                    color: $blue;
+                }
+                .bg-stretch {
+                    opacity: 1;
+                    z-index: -1;
+                    transition: opacity 0.3s ease;
+                }
+            }
+            a {
+                display: block;
+                color: $black;
                 will-change: transform;
-				transition: color 0.15s ease-out;
-				&:focus,
-				&:hover {
-					text-decoration: none;
-				}
-			}
-
-			.bg-stretch {
-				opacity: 0;
-				will-change: opacity;
-				transition: opacity 0.3s ease 0.2s;
-			}
-		}
-	}
+                transition: color 0.15s ease-out;
+                &:focus,
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+            .bg-stretch {
+                opacity: 0;
+                will-change: opacity;
+                transition: opacity 0.3s ease 0.2s;
+            }
+        }
+    }
 }
 
-.video-wrap{
+.video-wrap {
     position: absolute;
     left: 0;
     top: 0;
     bottom: 0;
     right: 0;
     overflow: hidden;
-
-    .video{
+    .video {
         /*position: absolute;
         top: 50%;
         left: 50%;
@@ -103,5 +89,55 @@
         overflow: hidden;
         width: 100%;
         height: 100%;
+    }
+}
+
+.hp-slider {
+    position: relative;
+    .hp-slide {
+        position: relative;
+        h2 {
+            font-size: 30px;
+        }
+        h3 {
+            font-size: 30px;
+            font-style: italic;
+        }
+        &>div {
+            position: absolute;
+            bottom: 0;
+            padding: 0 0 50px 50px;
+        }
+        &-text-white {
+            color: white;
+        }
+        &-text-shadow {
+            text-shadow: 0 1px 10px;
+        }
+        &.slick-slide {
+            img {
+                width: 100%;
+            }
+        }
+    }
+    .slick-dots {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 0 50px 50px 0;
+        width: auto;
+        &.white {
+            li span {
+                color: white;
+            }
+        }
+        li {
+            height: auto;
+            width: auto;
+            padding: 0 5px;
+            &.slick-active {
+                border-bottom: 1px solid white;
+            }
+        }
     }
 }
