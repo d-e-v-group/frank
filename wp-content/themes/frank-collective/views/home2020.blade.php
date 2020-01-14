@@ -14,6 +14,7 @@
         ?>
             <div class="hp-slide">
                 <img src="<?php echo $slideImg; ?>" />
+                <!-- TODO: ADD && TEXT COLOR == WHITE; ADD VPH -->
                 <div class="hp-slide-text-<?php echo $textColor; ?> <?php if ($textShadow == true)  echo 'hp-slide-text-shadow' ?>">
                     <h2><?php echo $client; ?> </h2>
                     <h3><?php echo $tagline; ?> </h3>

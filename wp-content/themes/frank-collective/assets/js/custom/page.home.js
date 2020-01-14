@@ -30,6 +30,7 @@ frank.ani_homepage_out = function(root) {
     ;
 };
 
+
 $('.hp-slider').slick({
     adaptiveHeight: true,
     infinite: true,
@@ -38,6 +39,21 @@ $('.hp-slider').slick({
     autoplaySpeed: 5000,
     dots: true,
     customPaging: function(slick, index) {
+        var currSlide = slick.$slides.get(index);
+        // add 'white' class to pagination when needed to match slide text choice; add numbers as pagination
+        for (var i = 0; i < currSlide.children.length; i++) {
+            if (currSlide.children[i].classList.contains('hp-slide-text-white')) {
+                $('.slick-dots').ready(function() {
+                    document.querySelector('.slick-dots').classList.add('white');
+                });
+            }
+        }
         return '<span>' + (index + 1) + '</span>';
     }
+
 });
+//change pagination color if necessary
+$('.hp-slider').on('afterChange', function(event, slick, currentSlide, nextSlide) {
+    console.log(currentSlide);
+    //document.querySelector('.slick-dots').classList.remove('white');
+})
