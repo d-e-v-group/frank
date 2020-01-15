@@ -1,18 +1,13 @@
 <footer id="footer">
     <div class="container">
         <div class="grid-flex">
-            <div class="col-xls-6 col-sm-3 foot-nav">
-	            <?php $args = [
-		            'theme_location' => 'footer_nav',
-		            'container' => false,
-		            'container_class' => false,
-		            'menu_class' => 'footer-nav',
-		            'menu_id' => false
-	            ]; ?>
-                {{ wp_nav_menu($args) }}
+            <div class="col-xs-6 col-sm-1 col foot-logo">
+                <a href="/" class="logo">
+                    @include('partials/image', ['image' => get_field('footer_logo', 'options')])
+                </a>
             </div>
             @if(get_field('sap_title', 'options') || get_field('sap_items', 'options'))
-            <div class="col-xls-6 col-sm-3 col foot-sap">
+            <div class="col-xs-6 col-sm-2 col foot-sap">
                 @if(get_field('sap_title', 'options'))
                 <h5>{{ get_field('sap_title', 'options') }}</h5>
                 @endif
@@ -21,7 +16,7 @@
                     @foreach((array) get_field('sap_items', 'options') as $item)
                     <li>
                         @if($item['type'] !== 'text')
-                        <a href="{{ $item['link'] }}" class="link-u {{ $item['type'] === 'email' ? 'email' : false }}" {{ $item['type'] === 'link' ? 'target="_blank"' : false }}>
+                        <a href="{{ $item['link'] }}" class="{{ $item['type'] === 'email' ? 'email' : false }}" {{ $item['type'] === 'link' ? 'target="_blank"' : false }}>
                         @endif
                             {{ $item['label'] }}
                         @if($item['type'] !== 'text')
@@ -61,7 +56,7 @@
                     </div>
                 @endforeach
             @endif
-            <div class="col-xs-12 col-sm-1 col-lg-offset-1 col foot-links">
+            <div class="col-xs-6 col-sm-1 col foot-links">
                 <?php $args = [
                     'theme_location' => 'footer_links',
                     'container' => false,
@@ -74,10 +69,6 @@
         </div>
 
         <div class="footer-bottom">
-            <a href="/" class="logo">
-                @include('partials/image', ['image' => get_field('footer_logo', 'options')])
-            </a>
-
             @if(get_field('footer_copyright', 'options'))
             <div class="copyright">{{ get_field('footer_copyright', 'options') }}</div>
             @endif

@@ -36,6 +36,7 @@
         }
     }
     .link-u {
+        font-size: 14px;
         @include media('<tablet') {
             font-size: 18px;
         }
@@ -126,6 +127,11 @@
         line-height: 2;
         padding-top: 0;
     }
+    .grid-flex {
+        @include media('>=tablet') {
+            justify-content: space-around;
+        }
+    }
     ul {
         @extend %listreset;
         a {
@@ -145,7 +151,7 @@
     h5 {
         font-size: 14px;
         font-weight: 900;
-        margin-bottom: 13px;
+        margin-bottom: 0;
         letter-spacing: -.3px;
         color: $black;
         @include media('<tablet') {
@@ -154,6 +160,9 @@
     }
     .links {
         li {
+            @include media('>=tablet') {
+                font-size: 14px;
+            }
             @include media('<tablet') {
                 margin-bottom: 2px;
             }
@@ -168,9 +177,6 @@
         .footer-links {
             font-size: 12px;
             line-height: 1.714;
-            @include media('>=tablet') {
-                padding-top: 43px;
-            }
             @include media('<tablet') {
                 font-size: 14px;
                 padding-right: 20px;
@@ -219,7 +225,6 @@
         }
     }
     .email {
-        @extend .ellipsis;
         display: block;
     }
     address {
@@ -241,17 +246,7 @@
         }
     }
     .logo {
-        width: 48px;
-        pointer-events: none;
-        position: absolute;
-        left: 0;
-        bottom: 16px;
-        @include media('<tablet') {
-            bottom: auto;
-            top: 20px;
-            left: 14px;
-            width: auto;
-        }
+        @include media('<tablet') {}
     }
     .copyright {
         font-size: 14px;
