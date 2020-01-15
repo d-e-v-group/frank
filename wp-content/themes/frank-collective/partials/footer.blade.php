@@ -1,7 +1,7 @@
 <footer id="footer">
     <div class="container">
         <div class="grid-flex">
-            <div class="col-xls-6 col-sm-3">
+            <div class="col-xls-6 col-sm-3 foot-nav">
 	            <?php $args = [
 		            'theme_location' => 'footer_nav',
 		            'container' => false,
@@ -12,7 +12,7 @@
                 {{ wp_nav_menu($args) }}
             </div>
             @if(get_field('sap_title', 'options') || get_field('sap_items', 'options'))
-            <div class="col-xls-6 col-sm-3 col">
+            <div class="col-xls-6 col-sm-3 col foot-sap">
                 @if(get_field('sap_title', 'options'))
                 <h5>{{ get_field('sap_title', 'options') }}</h5>
                 @endif
@@ -35,7 +35,7 @@
             @endif
             @if(get_field('footer_addresses', 'options'))
                 @foreach((array) get_field('footer_addresses', 'options') as $address)
-                    <div class="col-xs-6 col-sm-2 col">
+                    <div class="col-xs-6 col-sm-2 col foot-address">
                         @if($address['title'])
                         <h5>{{ $address['title'] }}</h5>
                         @endif
@@ -61,7 +61,7 @@
                     </div>
                 @endforeach
             @endif
-            <div class="col-xs-6 col-sm-1 col-lg-offset-1 col">
+            <div class="col-xs-12 col-sm-1 col-lg-offset-1 col foot-links">
                 <?php $args = [
                     'theme_location' => 'footer_links',
                     'container' => false,
