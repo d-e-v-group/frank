@@ -27,19 +27,27 @@ function initFilter($) {
             clearFiltersLink = $('.clear-filters'),
             featuredProjects = $('.featured-work')
         ;
-        function hideFilterLists() {
+        function clearFilters() {
             serviceList.hide();
             industryList.hide();
+            $('[data-filter-val]').removeClass('active');
+            updateFilter(1);
         }
+
+        clearFiltersLink.on('click', function (e) {
+            clearFilters()
+        });
         serviceToggle.on('click', function (e) {
             e.preventDefault();
             industryList.hide();
+            $(this).toggleClass('active');
             serviceList.slideToggle("slow");
         });
 
         industryToggle.on('click', function (e) {
             e.preventDefault();
             serviceList.hide();
+            $(this).toggleClass('active');
             industryList.slideToggle("slow");
         });
 
@@ -72,7 +80,6 @@ function initFilter($) {
         // });
 
         function updateFilter(_page) {
-            console.log('updating the filter');
             var selectedItems = [];
             var selectedFilterServices = [];
             var selectedFilterIndustry = [];
@@ -87,15 +94,15 @@ function initFilter($) {
                         selectedFilterServices.push($(this).data('filterVal'));
                     }
                 });
-                // filterSelect.text(selectedItems.join(", "));
-                // filterSelect.parent().addClass('filter-active');
+
                 featuredProjects.hide();
                 console.log('categeory selected', selected);
+                clearFiltersLink.show();
+
             } else {
                 featuredProjects.show();
+                clearFiltersLink.hide();
                 console.log('no category selected');
-                // filterSelect.text('All');
-                // filterSelect.parent().removeClass('filter-active');
             }
             var page = (typeof _page !== 'undefined' && _page > 0) ? _page : 1;
 

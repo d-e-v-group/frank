@@ -94,11 +94,13 @@ function custom_fetch_works()
                     $services = array_chunk($term_obj_list, 3);
                     $page .= '<div class="col-sm-12">';
                     $page .= '<h5>'. get_field('tagline_short', $post->ID) .'</h5>';
+                    /*
                     $page .= '<ul class="service-list">';
                     foreach($term_obj_list as $item){
                         $page .= '<li>'. $item->name .'</li>';
                     }
                     $page .= '</ul>';
+                    */
                     $page .= '</div>';
                 }
                 $page .= '</div>';

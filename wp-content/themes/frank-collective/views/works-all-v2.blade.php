@@ -10,10 +10,10 @@
 
                 <div class="container filter-drop" data-filter-work-drop>
                     <div class="grid">
-                        <div class="row">
+                        <div class="row filter-toggles">
                             <h5 class="col-xs-3 col filter-drop-industry">Industry</h5>
                             <h5 class="col-xs-3 col filter-drop-service">Service</h5>
-                            <div class="col-xs-3 col-xs-offset-3 col clear-filters">Clear Filters</div>
+                            <div class="col-xs-3 col-xs-offset-3 col clear-filters"  style="display:none;">Clear Filters</div>
                         </div>
                             @if(!empty(get_terms('industry')))
                             <div class="row filter-wrap-industry">
@@ -70,6 +70,7 @@
                 </div>
                  */?>
                 </section>
+                <section id="work-display">
                     <div class="work-list featured-work container">
                         <?php
                         $options = array(
@@ -195,6 +196,7 @@
                         </div>
                     </div>
                 </div>
+            </section>    
             </div>
 
         @include('partials/cta/contact')
