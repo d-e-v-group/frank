@@ -92,21 +92,92 @@
     }
 }
 
+header {
+    &.hp-white-text {
+        .nav-opener {
+            span,
+            &:after,
+            &:before {
+                background: $white;
+            }
+        }
+        svg {
+            fill: white;
+        }
+        nav.nav-pannel .nav li {
+            a {
+                color: white;
+                &:after {
+                    border-top-color: $white;
+                }
+            }
+        }
+    }
+}
+
 .hp-slider {
     position: relative;
+    height: 100vh;
+    .slick-next {
+        width: 25%;
+        height: 100vh;
+        right: 0;
+        z-index: 1;
+        top: 0;
+        &:hover {
+            cursor: url('https://fcollectivedev.wpengine.com/wp-content/uploads/2020/01/arrow-next.png'), auto;
+        }
+        &:before {
+            content: unset;
+        }
+        @include media('<tablet') {
+            display: none;
+        }
+    }
+    .slick-prev {
+        width: 25%;
+        height: 100vh;
+        left: 0;
+        z-index: 1;
+        top: 0;
+        &:hover {
+            cursor: url('https://fcollectivedev.wpengine.com/wp-content/uploads/2020/01/arrow-prev.png'), auto;
+        }
+        &:before {
+            content: unset;
+        }
+        @include media('<tablet') {
+            display: none;
+        }
+    }
     .hp-slide {
+        height: 100vh;
         position: relative;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
         h2 {
             font-size: 30px;
+            @include media('<tablet') {
+                margin-bottom: 10px;
+                font-size: 25px;
+            }
         }
         h3 {
             font-size: 30px;
             font-style: italic;
+            @include media('<tablet') {
+                margin-bottom: 10px;
+                font-size: 25px;
+            }
         }
         &>div {
             position: absolute;
             bottom: 0;
             padding: 0 0 50px 50px;
+            @include media('<tablet') {
+                padding: 0 0 70px 20px
+            }
         }
         &-text-white {
             color: white;
@@ -117,7 +188,14 @@
         &.slick-slide {
             img {
                 width: 100%;
+                object-fit: cover;
+                height: 100vh;
             }
+        }
+        video {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
         }
     }
     .slick-dots {
@@ -126,9 +204,21 @@
         right: 0;
         padding: 0 50px 50px 0;
         width: auto;
+        @include media('<tablet') {
+            width: 100%;
+            padding-right: 0;
+        }
+        span {
+            font-size: 12px;
+        }
         &.white {
-            li span {
-                color: white;
+            li {
+                &.slick-active {
+                    border-bottom-color: $white;
+                }
+                span {
+                    color: white;
+                }
             }
         }
         li {
@@ -136,7 +226,7 @@
             width: auto;
             padding: 0 5px;
             &.slick-active {
-                border-bottom: 1px solid white;
+                border-bottom: 1px solid $black;
             }
         }
     }
