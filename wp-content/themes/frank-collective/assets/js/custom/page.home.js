@@ -32,11 +32,12 @@ frank.ani_homepage_out = function(root) {
 
 
 $('.hp-slider').slick({
-    adaptiveHeight: true,
+    adaptiveHeight: false,
     infinite: true,
     slidesToShow: 1,
     autoplay: false,
     autoplaySpeed: 5000,
+    arrows: true,
     dots: true,
     customPaging: function(slick, index) {
         var currSlide = slick.$slides.get(index);
@@ -45,6 +46,7 @@ $('.hp-slider').slick({
             if (currSlide.children[i].classList.contains('hp-slide-text-white')) {
                 $('.slick-dots').ready(function() {
                     document.querySelector('.slick-dots').classList.add('white');
+                    document.querySelector('header').classList.add('hp-white-text');
                 });
             }
         }
@@ -52,8 +54,19 @@ $('.hp-slider').slick({
     }
 
 });
+
 //change pagination color if necessary
-$('.hp-slider').on('afterChange', function(event, slick, currentSlide, nextSlide) {
-    console.log(currentSlide);
-    //document.querySelector('.slick-dots').classList.remove('white');
+$('.hp-slider').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+    //use currentSlide (index) to get slide html element  
+    var nextSlide = slick.$slides.get(nextSlide);
+    for (var i = 0; i < nextSlide.children.length; i++) {
+        if (!nextSlide.children[i].classList.contains('hp-slide-text-white')) {
+            document.querySelector('.slick-dots').classList.remove('white');
+            document.querySelector('header').classList.remove('hp-white-text');
+
+        } else {
+            document.querySelector('.slick-dots').classList.add('white');
+            document.querySelector('header').classList.add('hp-white-text');
+        }
+    }
 })

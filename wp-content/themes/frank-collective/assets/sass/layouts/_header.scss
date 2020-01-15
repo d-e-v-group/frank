@@ -1,562 +1,489 @@
 // ---------------------------------------------------------===
 // Header styles
 // ---------------------------------------------------------===
-
 #header {
-	padding: 20px 0;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 9;
-
-	//@include media('>=tablet') {
-  @include media('>=tablet') {
-    transition: opacity 1.2s $easeAppearIn, transform 1s $easeAppearIn;
-    will-change: transform, opacity;
-  }
-		&.nav-hidden{
-			opacity: 0;
-			transform: translateY(-100%);
-		}
-
-		&.nav-fixed{
+    padding: 20px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    //@include media('>=tablet') {
+    @include media('>=tablet') {
+        transition: opacity 1.2s $easeAppearIn, transform 1s $easeAppearIn;
+        will-change: transform, opacity;
+    }
+    &.nav-hidden {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    &.nav-fixed {
         position: fixed;
-
         .page-homepage & {
-          position: absolute;
+            position: absolute;
         }
-		}
-
-    .header-sticky &{
-      transition: opacity 1.2s $easeAppearIn, transform 1s $easeAppearIn;
-      //position: fixed;
-      opacity: 0;
-      transform: translateY(-100%);
-
     }
-    .header-sticky.header-visible &{
-      transition: opacity 1.2s $easeAppearIn, transform 1s $easeAppearIn;
-      opacity: 1;
-      transform: none;
+    .header-sticky & {
+        transition: opacity 1.2s $easeAppearIn, transform 1s $easeAppearIn;
+        //position: fixed;
+        opacity: 0;
+        transform: translateY(-100%);
     }
-	//}
-
-	.page-homepage & {
-		opacity: 1 !important;
-	}
-
-	&.header-white {
-		a { color: $white; }
-
-		.logo {
-			svg { fill: $white; }
-		}
-
-		.nav-pannel .nav li a:after { border-top-color: $white; }
-
-		.nav-opener:before,
-		.nav-opener:after { background: $white; }
-	}
-
-	.container {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-
-		@include media('<tablet') {
-			display: block;
-		}
-	}
-
-	.logo {
-		width: 200px;
-		height: 23px;
-		display: block;
-
-		@include media('<tablet') {
-			width: 145px;
-			height: auto;
-		}
-
-		svg {
-			display: block;
-			max-width: 100%;
-		}
-	}
-
-	&.white {
-		background: linear-gradient(to bottom, rgba(0,0,0,0.40) 0%,rgba(0,0,0,0) 100%);
-
-		a {
-			color: $white;
-
-			@include media('<tablet') {
-				color: $black;
-			}
-		}
-
-		.nav-opener {
-			&:before,
-			&:after,
-			& span {
-				background: $white;
-			}
-		}
-	}
+    .header-sticky.header-visible & {
+        transition: opacity 1.2s $easeAppearIn, transform 1s $easeAppearIn;
+        opacity: 1;
+        transform: none;
+    }
+    //}
+    .page-homepage & {
+        opacity: 1 !important;
+    }
+    &.header-white {
+        a {
+            color: $white;
+        }
+        .logo {
+            svg {
+                fill: $white;
+            }
+        }
+        .nav-pannel .nav li a:after {
+            border-top-color: $white;
+        }
+        .nav-opener:before,
+        .nav-opener:after {
+            background: $white;
+        }
+    }
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include media('<tablet') {
+            display: block;
+        }
+    }
+    .logo {
+        width: 200px;
+        height: 23px;
+        display: block;
+        @include media('<tablet') {
+            width: 145px;
+            height: auto;
+        }
+        svg {
+            display: block;
+            max-width: 100%;
+        }
+    }
+    &.white {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0) 100%);
+        a {
+            color: $white;
+            @include media('<tablet') {
+                color: $black;
+            }
+        }
+        .nav-opener {
+            &:before,
+            &:after,
+            & span {
+                background: $white;
+            }
+        }
+    }
 }
 
 .nav-pannel {
-	flex: 1;
-	text-align: right;
-
-	/*.page-homepage &{
+    flex: 1;
+    text-align: right;
+    /*.page-homepage &{
 		@include media('<tablet') {
 			display: none;
 		}
 	}*/
-	.page-homepage &{
-		display: none;
-	}
-
-	@include media('<tablet') {
-		position: fixed;
-		left: 0;
-		right: 0;
-		top: 0;
-		bottom: 0;
-		overflow-y: auto;
-		background: $black;
-		//opacity: 0;
-		//visibility: hidden;
-    will-change: transform;
-    transition: transform .5s $easeAppearIn;
-    transform: translateX(100%);
-		.nav-active & {
-			//opacity: 1;
-			//visibility: visible;
-      transform: none;
-		}
-
-		.page-homepage &{
-			display: block;
-		}
-	}
-
-	&-inner {
-		@include media('<tablet') {
-			margin: 80px 0;
-			min-height: calc(100% - 160px);
-			display: flex;
-			align-items: center;
-		}
-
-		> div {
-			width: 100%;
-		}
-
-		.nav-logo {
-			text-align: center;
-		}
-	}
-
-	.nav {
-		@extend %listreset;
-		font-size: 20px;
-
-		@include media('<tablet') {
-			padding: 30px;
-			text-align: center;
-			font: 500 70px/.8 $recife;
-		}
-
-		li {
-			display: inline-block;
-			vertical-align: top;
-			padding-left: 124px;
-
-			@include media('<widescreen') {
-				padding-left: 80px;
-			}
-
-			@include media('<desktop') {
-				padding-left: 40px;
-			}
-
-			@include media('<tablet') {
-				padding-left: 0;
-				display: block;
-				margin-bottom: 30px;
-
-        transition: transform 0.7s $easeAppearIn, opacity 0.5s $easeAppearIn;
-        opacity: 0;
-        transform: translateX(50px);
-        will-change: transform, opacity;
-
-        &:nth-child(1){
-          transition-delay: 0.1s;
-        }
-        &:nth-child(2){
-          transition-delay: 0.15s;
-        }
-        &:nth-child(3){
-          transition-delay: 0.2s;
-        }
-        &:nth-child(4){
-          transition-delay: 0.25s;
-        }
-        &:nth-child(5){
-          transition-delay: 0.3s;
-        }
-        &:nth-child(6){
-          transition-delay: 0.35s;
-        }
-
+    .page-homepage & {
+        //display: none;
+    }
+    @include media('<tablet') {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        overflow-y: auto;
+        background: $black;
+        //opacity: 0;
+        //visibility: hidden;
+        will-change: transform;
+        transition: transform .5s $easeAppearIn;
+        transform: translateX(100%);
         .nav-active & {
-          transform: none;
-          opacity: 1;
+            //opacity: 1;
+            //visibility: visible;
+            transform: none;
         }
-			}
-
-			a {
-				text-decoration: none;
-				display: block;
-				position: relative;
-
-				@include media('<tablet') {
-					color: $white;
-				}
-
-				&:after {
-					content: '';
-					position: absolute;
-					left: 0;
-					width: 0;
-					border-top: 1px solid $black;
-					bottom: 0;
-					opacity: 0;
-					@include animate(opacity width);
-
-					@include media('>=tablet') {
-						bottom: -5px;
-					}
-				}
-
-				&:hover {
-					&:after {
-						@include media('>=tablet') {
-							width: 100%;
-							opacity: 1;
-						}
-					}
-				}
-			}
-
-			&.current-menu-item a {
-				&:after {
-					width: 100%;
-					opacity: 1;
-				}
-			}
-		}
-	}
-
-	.nav-logo {
-		@include media('>=tablet') {
-			display: none;
-		}
-	}
-
+        .page-homepage & {
+            display: block;
+        }
+    }
+    &-inner {
+        @include media('<tablet') {
+            margin: 80px 0;
+            min-height: calc(100% - 160px);
+            display: flex;
+            align-items: center;
+        }
+        >div {
+            width: 100%;
+        }
+        .nav-logo {
+            text-align: center;
+        }
+    }
+    .nav {
+        @extend %listreset;
+        font-size: 20px;
+        @include media('<tablet') {
+            padding: 30px;
+            text-align: center;
+            font: 500 70px/.8 $recife;
+        }
+        li {
+            display: inline-block;
+            vertical-align: top;
+            padding-left: 124px;
+            @include media('<widescreen') {
+                padding-left: 80px;
+            }
+            @include media('<desktop') {
+                padding-left: 40px;
+            }
+            @include media('<tablet') {
+                padding-left: 0;
+                display: block;
+                margin-bottom: 30px;
+                transition: transform 0.7s $easeAppearIn, opacity 0.5s $easeAppearIn;
+                opacity: 0;
+                transform: translateX(50px);
+                will-change: transform, opacity;
+                &:nth-child(1) {
+                    transition-delay: 0.1s;
+                }
+                &:nth-child(2) {
+                    transition-delay: 0.15s;
+                }
+                &:nth-child(3) {
+                    transition-delay: 0.2s;
+                }
+                &:nth-child(4) {
+                    transition-delay: 0.25s;
+                }
+                &:nth-child(5) {
+                    transition-delay: 0.3s;
+                }
+                &:nth-child(6) {
+                    transition-delay: 0.35s;
+                }
+                .nav-active & {
+                    transform: none;
+                    opacity: 1;
+                }
+            }
+            a {
+                text-decoration: none;
+                display: block;
+                position: relative;
+                @include media('<tablet') {
+                    color: $white;
+                }
+                &:after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    width: 0;
+                    border-top: 1px solid $black;
+                    bottom: 0;
+                    opacity: 0;
+                    @include animate(opacity width);
+                    @include media('>=tablet') {
+                        bottom: -5px;
+                    }
+                }
+                &:hover {
+                    &:after {
+                        @include media('>=tablet') {
+                            width: 100%;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+            &.current-menu-item a {
+                &:after {
+                    width: 100%;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    .nav-logo {
+        @include media('>=tablet') {
+            display: none;
+        }
+    }
 }
 
-.light-main{
-	.logo{
-		svg{
-			path{
-				fill: $white;
-			}
-		}
-	}
-	nav.nav-pannel{
-		li{
-			a{
-				color: $white;
-				&:after {
-					border-top: 1px solid $white;
-				}
-			}
-		}
-	}
-	.nav-opener:before, .nav-opener:after, .nav-opener span {
-		background: $white;
-	}
+.light-main {
+    .logo {
+        svg {
+            path {
+                fill: $white;
+            }
+        }
+    }
+    nav.nav-pannel {
+        li {
+            a {
+                color: $white;
+                &:after {
+                    border-top: 1px solid $white;
+                }
+            }
+        }
+    }
+    .nav-opener:before,
+    .nav-opener:after,
+    .nav-opener span {
+        background: $white;
+    }
 }
 
-
-.nav-opener{
-	width: 21px;
-	height: 16px;
-	position: absolute;
-	top: 23px;
-	right: 14px;
-	z-index: 3;
-	display: block;
-
-	@include media('>=tablet') {
-		display: none;
-	}
-
-	&:hover {
-		@include media('>=desktop') {
-			opacity: 0.6;
-		}
-	}
-
-	.page-homepage & {
-		display: none;
-	}
-
-	&:before,
-	&:after,
-	& span {
-		background: $black;
-		position: absolute;
-		top: 7px;
-		left: 0;
-		right: 0;
-		height: 2px;
-		transition: all .2s linear;
-
-		.header-case & ,
-		.nav-active & {
-			background: $white;
-		}
-	}
-
-	&:before,
-	&:after {
-		content: "";
-		top: 0;
-
-		.nav-active & {
-			transform: rotate(45deg);
-			top: 6px;
-			left: -3px;
-			right: -3px;
-		}
-	}
-
-	&:after {
-		top: auto;
-		bottom: 0px;
-
-		.nav-active & {
-			transform: rotate(-45deg);
-		}
-	}
-
-	span {
-		.nav-active & {
-			opacity: 0;
-		}
-	}
-
-	.nav-active & {
-		position: fixed;
-	}
+.nav-opener {
+    width: 21px;
+    height: 16px;
+    position: absolute;
+    top: 23px;
+    right: 14px;
+    z-index: 3;
+    display: block;
+    @include media('>=tablet') {
+        display: none;
+    }
+    &:hover {
+        @include media('>=desktop') {
+            opacity: 0.6;
+        }
+    }
+    .page-homepage & {
+        // display: none;
+    }
+    &:before,
+    &:after,
+    & span {
+        background: $black;
+        position: absolute;
+        top: 7px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        transition: all .2s linear;
+        .header-case &,
+        .nav-active & {
+            background: $white;
+        }
+    }
+    &:before,
+    &:after {
+        content: "";
+        top: 0;
+        .nav-active & {
+            transform: rotate(45deg);
+            top: 6px;
+            left: -3px;
+            right: -3px;
+        }
+    }
+    &:after {
+        top: auto;
+        bottom: 0px;
+        .nav-active & {
+            transform: rotate(-45deg);
+        }
+    }
+    span {
+        .nav-active & {
+            opacity: 0;
+        }
+    }
+    .nav-active & {
+        position: fixed;
+    }
 }
-
 
 .header-case {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
-  @extend %clearfix;
-  white-space: nowrap;
-  transition: opacity 1.2s $easeAppearIn, transform 1s $easeAppearIn;
-  will-change: transform, opacity;
-
-  @include media('<tablet') {
-    display: none;
-  }
-
-  @include media('>=tablet') {
-
-    .header-sticky.header-visible & {
-      opacity: 0;
-      transform: translateY(-100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    @extend %clearfix;
+    white-space: nowrap;
+    transition: opacity 1.2s $easeAppearIn, transform 1s $easeAppearIn;
+    will-change: transform, opacity;
+    @include media('<tablet') {
+        display: none;
     }
-
-    &.nav-hidden {
-      opacity: 0;
-      transform: translateY(-100%);
+    @include media('>=tablet') {
+        .header-sticky.header-visible & {
+            opacity: 0;
+            transform: translateY(-100%);
+        }
+        &.nav-hidden {
+            opacity: 0;
+            transform: translateY(-100%);
+        }
     }
-  }
-
-	path{
-		fill: $white;
-		transition: fill 0.3s $easeAppearIn;
-	}
-
-	.logo {
-		width: 40px;
-		margin: 15px 57px 0 19px;
-		float: left;
-
-		@include media('<widescreen') {
-			margin-right: 27px;
-			width: 28px;
-		}
-
-		@include media('<tablet') {
-			margin: 13px 52px 11px 19px;
-		}
-	}
-
-	.nav {
-		@extend %listreset;
-		font: 14px/1.2 $messina;
-		white-space: nowrap;
-
-		@include media('<tablet') {
-			padding: 21px 10px 16px;
-		}
-
-		&-pannel {
-			flex: none;
-			text-align: left;
-		}
-
-		li {
-			min-width: 220px;
-			display: inline-block;
-			vertical-align: top;
-			transition: all 0.3s $easeAppearIn;
-			//transition: max-width 0.3s $easeAppearIn, padding 0.3s $easeAppearIn, border-color 0.3s $easeAppearIn, color 0.3s $easeAppearIn;
-			//padding: 21px 20px 1px;
-      padding: 0;
-      overflow: hidden;
-
-			@include media('<widescreen') {
-				min-width: 174px;
-			}
-
-			&.page-title {
-				font-size: 20px;
-        padding: 21px 20px 1px;
-				padding-bottom: 10px;
-
-				@include media('>=tablet') {
-					color: $white;
-					padding: 20px 10px 0 0;
-				}
-
-				@include media('>=widescreen') {
-					padding-top: 31px;
-					max-width: 191px;
-				}
-			}
-      &.hide{
-
-        max-width: 20px;
-        min-width: 0;
-        a{
-          padding: 21px 20px 1px 10px;
-          opacity: 0;
+    path {
+        fill: $white;
+        transition: fill 0.3s $easeAppearIn;
+    }
+    .logo {
+        width: 40px;
+        margin: 15px 57px 0 19px;
+        float: left;
+        @include media('<widescreen') {
+            margin-right: 27px;
+            width: 28px;
         }
-      }
-			&.active {
-				border-left-color: $white;
-
-				a {
-					@include media('>=tablet') {
-						color: $white;
-            padding-top: 36px;
-					}
-
-					&:after {
-						@include media('<tablet') {
-							width: 100%;
-							opacity: 1;
-						}
-					}
-				}
-			}
-
-			+ li {
-				@include media('>=tablet') {
-					border-left: 1px solid rgba($white,.3);
-				}
-			}
-		}
-
-		a {
-			text-decoration: none;
-      padding: 21px 20px 1px;
-			@include media('>=tablet') {
-        transition: all 0.3s $easeAppearIn;
-				color: rgba($white,.3);
-
-				&:hover{
-					color: rgba($white,.6);
-				}
-			}
-
-			@include media('<tablet') {
-				padding: 7px 0;
-			}
-		}
-	}
-
-	&.dark,
-	&.black {
-		.nav-opener {
-			span,
-			&:after, &:before {
-				background: $black;
-			}
-		}
-
-		path {
-			fill: $black;
-		}
-
-		.nav {
-			li {
-				&.page-title {
-					@include media('>=tablet') {
-						color: $black;
-					}
-				}
-				&.active {
-					border-left-color: $black;
-					a {
-						@include media('>=tablet') {
-							color: $black;
-						}
-					}
-				}
-
-				+ li {
-					@include media('>=tablet') {
-						border-left: 1px solid rgba($black,.5);
-					}
-				}
-			}
-			a {
-        &:after{
-          content: none;
+        @include media('<tablet') {
+            margin: 13px 52px 11px 19px;
         }
-				@include media('>=tablet') {
-					color: rgba($black,.5);
-
-					&:hover {
-						color: rgba($black,.8);
-					}
-				}
-			}
-		}
-	}
+    }
+    .nav {
+        @extend %listreset;
+        font: 14px/1.2 $messina;
+        white-space: nowrap;
+        @include media('<tablet') {
+            padding: 21px 10px 16px;
+        }
+        &-pannel {
+            flex: none;
+            text-align: left;
+        }
+        li {
+            min-width: 220px;
+            display: inline-block;
+            vertical-align: top;
+            transition: all 0.3s $easeAppearIn;
+            //transition: max-width 0.3s $easeAppearIn, padding 0.3s $easeAppearIn, border-color 0.3s $easeAppearIn, color 0.3s $easeAppearIn;
+            //padding: 21px 20px 1px;
+            padding: 0;
+            overflow: hidden;
+            @include media('<widescreen') {
+                min-width: 174px;
+            }
+            &.page-title {
+                font-size: 20px;
+                padding: 21px 20px 1px;
+                padding-bottom: 10px;
+                @include media('>=tablet') {
+                    color: $white;
+                    padding: 20px 10px 0 0;
+                }
+                @include media('>=widescreen') {
+                    padding-top: 31px;
+                    max-width: 191px;
+                }
+            }
+            &.hide {
+                max-width: 20px;
+                min-width: 0;
+                a {
+                    padding: 21px 20px 1px 10px;
+                    opacity: 0;
+                }
+            }
+            &.active {
+                border-left-color: $white;
+                a {
+                    @include media('>=tablet') {
+                        color: $white;
+                        padding-top: 36px;
+                    }
+                    &:after {
+                        @include media('<tablet') {
+                            width: 100%;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+            +li {
+                @include media('>=tablet') {
+                    border-left: 1px solid rgba($white, .3);
+                }
+            }
+        }
+        a {
+            text-decoration: none;
+            padding: 21px 20px 1px;
+            @include media('>=tablet') {
+                transition: all 0.3s $easeAppearIn;
+                color: rgba($white, .3);
+                &:hover {
+                    color: rgba($white, .6);
+                }
+            }
+            @include media('<tablet') {
+                padding: 7px 0;
+            }
+        }
+    }
+    &.dark,
+    &.black {
+        .nav-opener {
+            span,
+            &:after,
+            &:before {
+                background: $black;
+            }
+        }
+        path {
+            fill: $black;
+        }
+        .nav {
+            li {
+                &.page-title {
+                    @include media('>=tablet') {
+                        color: $black;
+                    }
+                }
+                &.active {
+                    border-left-color: $black;
+                    a {
+                        @include media('>=tablet') {
+                            color: $black;
+                        }
+                    }
+                }
+                +li {
+                    @include media('>=tablet') {
+                        border-left: 1px solid rgba($black, .5);
+                    }
+                }
+            }
+            a {
+                &:after {
+                    content: none;
+                }
+                @include media('>=tablet') {
+                    color: rgba($black, .5);
+                    &:hover {
+                        color: rgba($black, .8);
+                    }
+                }
+            }
+        }
+    }
 }

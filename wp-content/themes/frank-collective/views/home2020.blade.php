@@ -7,15 +7,22 @@
     <div class="hp-slider">
         <?php while( have_rows('slide') ): the_row(); 
             $slideImg = get_sub_field('slide_image');
+            $slideVideo = get_sub_field('slide_video');
             $client = get_sub_field('client_name');
             $tagline = get_sub_field('client_tagline');
             $textColor = get_sub_field('text_color');
             $textShadow = get_sub_field('text_shadow');
         ?>
             <div class="hp-slide">
-                <img src="<?php echo $slideImg; ?>" />
-                <!-- TODO: ADD && TEXT COLOR == WHITE; ADD VPH -->
-                <div class="hp-slide-text-<?php echo $textColor; ?> <?php if ($textShadow == true)  echo 'hp-slide-text-shadow' ?>">
+                @if($slideImg)
+                    <img src={{$slideImg}} />
+                @endif
+                @if($slideVideo)
+                    <video id="home-page-video" autoplay playsinline muted loop class="video">
+                        <source src={{ $slideVideo }} type="video/mp4">
+                    </video>
+                @endif
+                <div class="hp-slide-text-{{$textColor}} <?php if ($textShadow == true)  echo 'hp-slide-text-shadow' ?>">
                     <h2><?php echo $client; ?> </h2>
                     <h3><?php echo $tagline; ?> </h3>
                 </div>
