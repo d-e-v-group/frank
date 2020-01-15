@@ -7,7 +7,7 @@
                 </a>
             </div>
             @if(get_field('sap_title', 'options') || get_field('sap_items', 'options'))
-            <div class="col-xs-6 col-sm-2 col foot-sap">
+            <div class="col-xs-12 col-sm-2 col foot-sap">
                 @if(get_field('sap_title', 'options'))
                 <h5>{{ get_field('sap_title', 'options') }}</h5>
                 @endif
