@@ -2,7 +2,6 @@
 
 jQuery(document).ready(function($){
     initMobileNav();
-    // initRetinaCover();
     initBannerImg();
     initLocationTab($);
     initFilter($);
@@ -14,10 +13,8 @@ jQuery(document).ready(function($){
 function initFilter($) {
     if($('[data-filter-work]').length){
         var
-            filterParent = $('[data-filter-work]'),
             filterContentList = $('[data-filter-works-list]'),
-            filterSelect = $('[data-filter-work-select]'), // THE INDICATOR
-            filterDroper = $('[data-filter-work-drop]'), // WRAPPER 
+            filterDroper = $('[data-filter-work-drop]'), 
             loadMoreContainer = $('[data-loadmore-works]'),
             loadMore = $('[data-loadmore-works] a')
             serviceToggle = $('.filter-drop-service'),
@@ -57,27 +54,13 @@ function initFilter($) {
             updateFilter(parseInt(currentPage) + 1);
         });
 
-        // filterSelect.on('click', function (e) {
-        //     e.preventDefault();
-        //     filterDroper.slideToggle("slow");
-        // });
-
         filterDroper.on('click', '[data-filter-val]', function (e) {
             e.preventDefault();
-            console.log('clicking on one');
             $('[data-filter-val]').not($(this)).removeClass('active');
             $(this).toggleClass('active');
             updateFilter(1);
-            //filterDroper.slideUp(400);
         });
 
-        // filterSelect.parent().find('.close').on('click', function (e) {
-        //     e.preventDefault();
-        //     filterSelect.parent().removeClass('filter-active');
-        //     $('[data-filter-val]').removeClass('active');
-        //     updateFilter(1);
-        //     filterDroper.slideUp(400);
-        // });
 
         function updateFilter(_page) {
             var selectedItems = [];
@@ -94,15 +77,11 @@ function initFilter($) {
                         selectedFilterServices.push($(this).data('filterVal'));
                     }
                 });
-
                 featuredProjects.hide();
-                console.log('categeory selected', selected);
                 clearFiltersLink.show();
-
             } else {
                 featuredProjects.show();
                 clearFiltersLink.hide();
-                console.log('no category selected');
             }
             var page = (typeof _page !== 'undefined' && _page > 0) ? _page : 1;
 
@@ -119,7 +98,7 @@ function initFilter($) {
                 request.industry = selectedFilterIndustry;
             }
 
-            $.get('/fc/frank/wordpress/wp-admin/admin-ajax.php',
+            $.get('/wp-admin/admin-ajax.php',
               request,
               function (response) {
                   if(response.status === 'success'){
