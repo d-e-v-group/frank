@@ -195,19 +195,15 @@ frank.animations.update = function() {
     }
 
     if(typeof frank.animations.navDark !== 'undefined'){
-        console.log(' we got nav dark in UPDATE')
         if(typeof frank.animations.navDark.sections !== 'undefined'){
             for(var i = 0; i < frank.animations.navDark.sections.length; i++){
-                console.log('got sections');
                 if(scrollTop >= frank.animations.navDark.sectionsBox[i].top && scrollTop <= frank.animations.navDark.sectionsBox[i].bottom){ // +30
                     frank.animations.navDark.nav.removeClass('dark')
-                    console.log('are we here?');
                     if(frank.animations.navDark.nav.data('navDark') === 'main'){
                         frank.animations.navDark.nav.addClass('light-main')
                     }
                     break;
                 } else {
-                    console.log('are we starting here?');
                     frank.animations.navDark.nav.addClass('dark')
                     if(frank.animations.navDark.nav.data('navDark') === 'main'){
                         frank.animations.navDark.nav.removeClass('light-main')
@@ -321,7 +317,7 @@ frank.preloadImages = function () {
 
 frank.onAjaxPageLoadClick = function (e) {
     e.preventDefault();
-
+    console.log('this is the page transition');
     if(frank.isPageTransition) {
         return false;
     }
@@ -333,10 +329,11 @@ frank.onAjaxPageLoadClick = function (e) {
         transitionIn = el.data('transitionIn'),
         transitionOut = el.data('transitionOut') ? el.data('transitionOut') : frank.cache.$rootContainer.find('.root').data('transitionOut'),
         link = el.attr('href') ? el.attr('href') : el.data('link');
-
+        console.log('out animation', transitionOut);
     if(typeof frank['ani_'+transitionOut] === 'function'){
         Promise.all([frank['ani_'+transitionOut](el), frank.ajaxPageLoad(link)]).then(function(){
             clearTimeout(frank.loadFallback);
+            console.log('animate the thing');
             window.scrollTo(0, 0);
             var
               $dom = $(frank.loadedDom),

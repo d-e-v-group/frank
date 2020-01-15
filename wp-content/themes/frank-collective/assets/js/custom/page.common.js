@@ -106,6 +106,7 @@ frank.ani_contact_cta_out = function (el) {
 };
 
 frank.ani_archive_out = function (item) {
+    console.log('ARCHIVE OUT');
     return new Promise(function(resolve, reject) {
         var
           el = item.find('.img-box'),

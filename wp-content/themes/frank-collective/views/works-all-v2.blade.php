@@ -7,45 +7,76 @@
 
             <div class="media-container" data-filter-work>
                 <section id="work-filter-section" data-nav-dark data-dark>
-                <div class="top-row container">
-                    <strong class="filter">
-                        Filter by <a href="#" class="link-u" data-filter-work-select>All</a>
-                        <a href="#" class="close"></a>
-                    </strong>
-                </div>                  
-                  <div class="filter-drop filter-drop-hidden" style="display:none;" data-filter-work-drop>
-                      <div class="container">
-                        <div class="grid">
+
+                <div class="container filter-drop" data-filter-work-drop>
+                    <div class="grid">
+                        <div class="row">
+                            <h5 class="col-xs-3 col filter-drop-industry">Industry</h5>
+                            <h5 class="col-xs-3 col filter-drop-service">Service</h5>
+                            <div class="col-xs-3 col-xs-offset-3 col clear-filters">Clear Filters</div>
+                        </div>
                             @if(!empty(get_terms('industry')))
-                                <div class="col-xs-6 col" data-filter-type="industry">
-                                    <h5>Industry</h5>
+                            <div class="row filter-wrap-industry">
+                                <div class="col-xs-9 col filter-list-industry" style="display:none;" data-filter-type="industry">
                                     <ul class="filter-list">
                                     @foreach(get_terms('industry') as $term)
                                         <li><a href="#" data-filter-type="industry" data-filter-val="{{$term->slug }}">{{ $term->name }}</a></li>
-                                    @endforeach
+                                    @endforeach                            
                                     </ul>
                                 </div>
+                            </div> 
                             @endif
                             @if(!empty(get_terms('service')))
-                                <div class="col-xs-6 col" data-filter-type="service">
-                                    <h5>Service</h5>
+                            <div class="row filter-wrap-service">
+                                <div class="col-xs-9 col-xs-offset-3 filter-list-service" style="display:none;" data-filter-type="service">
                                     <ul class="filter-list">
                                         @foreach(get_terms('service') as $term)
                                             <li><a href="#" data-filter-type="service" data-filter-val="{{$term->slug }}">{{ $term->name }}</a></li>
                                         @endforeach
                                     </ul>
                                 </div>
-                            @endif
-                        </div>
-                      </div>
-                  </div>
+                            </div>
+                            @endif                            
+                    </div>
+                </div>
+
+
+                <?php /*
+                <div class="filter-drop filter-drop-hidden" style="display:none;" data-filter-work-drop>
+                    <div class="container">
+                    <div class="grid">
+                        @if(!empty(get_terms('industry')))
+                            <div class="col-xs-6 col" data-filter-type="industry">
+                                <h5>Industry</h5>
+                                <ul class="filter-list">
+                                @foreach(get_terms('industry') as $term)
+                                    <li><a href="#" data-filter-type="industry" data-filter-val="{{$term->slug }}">{{ $term->name }}</a></li>
+                                @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        @if(!empty(get_terms('service')))
+                            <div class="col-xs-6 col" data-filter-type="service">
+                                <h5>Service</h5>
+                                <ul class="filter-list">
+                                    @foreach(get_terms('service') as $term)
+                                        <li><a href="#" data-filter-type="service" data-filter-val="{{$term->slug }}">{{ $term->name }}</a></li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                    </div>
+                    </div>
+                </div>
+                 */?>
                 </section>
-                    <div class="work-list container">
+                    <div class="work-list featured-work container">
                         <?php
                         $options = array(
                             'post_type' => 'work',
                             'orderby' => 'post__in',
-                            'post__in' => get_field('works', 8931)
+                            'post__in' => get_field('works', 8931),
+                            'posts_per_page'	=> 10,
                         );
                         $work_idx = 0;
                         $team = new WP_Query( $options );
@@ -53,7 +84,7 @@
                         ?>
                     <div class="work-wrap col-md-6">
                         <div class="work-item position-{{ ($work_idx % 2 === 0) ? 'left' : 'right' }}" data-background-color="{{ (get_field('theme_color')) ? get_field('theme_color') : '#ffffff' }}">
-                            <div class="work view-case-study ajax-load" data-position="{{ ($work_idx % 2 === 0) ? 'left' : 'right' }}" data-link="{{ get_permalink() }}" data-work-item data-appear-offset="0.2">
+                            <div class="work view-case-study" data-position="{{ ($work_idx % 2 === 0) ? 'left' : 'right' }}" data-link="{{ get_permalink() }}" data-work-item data-appear-offset="0.2">
 
                             @if(get_field('main_image') || get_field('hero_section_image') || get_field('featured_project_video'))
                                 @if(get_field('featured_project_video'))
@@ -111,7 +142,7 @@
                     'post_status' => ['publish'],
                     'orderby' => 'menu_order',
                     'order' => 'ASC',
-                    'posts_per_page' => 9,
+                    'posts_per_page' => 21,
                     'has_password' => false,
                 );
                 $postIndex = 0;
@@ -141,25 +172,13 @@
                                             <div class="col-sm-12 title-col">
                                                 <h4>{{ get_field('brand_name') }}</h4   >
                                             </div>
-                                            <?php
-                                            $term_obj_list = get_the_terms( get_the_ID(), 'service' );
-                                            ?>
-                                            @if(!empty($term_obj_list))
-                                                <?php
-                                                $services = array_chunk($term_obj_list, 3);
-                                                ?>
                                                 <div class="col-sm-12">
                                                     @if(get_field('tagline') || get_field('tagline_short'))
                                                         <h5>{{ (get_field('tagline_short')) ? get_field('tagline_short') : get_field('tagline') }}</h5>
                                                     @endif
-                                                    <ul class="service-list">
-                                                        @foreach($term_obj_list as $item)
-                                                            <li>{{ $item->name }}</li>
-                                                        @endforeach
-                                                    </ul>
+          
                                                     
                                                 </div>
-                                            @endif
                                         </div>
                                     </div>
                                 </div>

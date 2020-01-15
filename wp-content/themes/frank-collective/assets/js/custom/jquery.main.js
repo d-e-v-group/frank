@@ -16,11 +16,32 @@ function initFilter($) {
         var
             filterParent = $('[data-filter-work]'),
             filterContentList = $('[data-filter-works-list]'),
-            filterSelect = $('[data-filter-work-select]'),
-            filterDroper = $('[data-filter-work-drop]'),
+            filterSelect = $('[data-filter-work-select]'), // THE INDICATOR
+            filterDroper = $('[data-filter-work-drop]'), // WRAPPER 
             loadMoreContainer = $('[data-loadmore-works]'),
             loadMore = $('[data-loadmore-works] a')
+            serviceToggle = $('.filter-drop-service'),
+            industryToggle = $('.filter-drop-industry'),
+            serviceList = $('.filter-list-service'),
+            industryList = $('.filter-list-industry'),
+            clearFiltersLink = $('.clear-filters'),
+            featuredProjects = $('.featured-work')
         ;
+        function hideFilterLists() {
+            serviceList.hide();
+            industryList.hide();
+        }
+        serviceToggle.on('click', function (e) {
+            e.preventDefault();
+            industryList.hide();
+            serviceList.slideToggle("slow");
+        });
+
+        industryToggle.on('click', function (e) {
+            e.preventDefault();
+            serviceList.hide();
+            industryList.slideToggle("slow");
+        });
 
         loadMore.on('click', function (e) {
             e.preventDefault();
@@ -28,29 +49,30 @@ function initFilter($) {
             updateFilter(parseInt(currentPage) + 1);
         });
 
-        filterSelect.on('click', function (e) {
-            e.preventDefault();
-            filterDroper.slideToggle("slow");
-        });
+        // filterSelect.on('click', function (e) {
+        //     e.preventDefault();
+        //     filterDroper.slideToggle("slow");
+        // });
 
         filterDroper.on('click', '[data-filter-val]', function (e) {
             e.preventDefault();
+            console.log('clicking on one');
             $('[data-filter-val]').not($(this)).removeClass('active');
             $(this).toggleClass('active');
             updateFilter(1);
-            filterDroper.slideUp(400);
+            //filterDroper.slideUp(400);
         });
 
-        filterSelect.parent().find('.close').on('click', function (e) {
-            e.preventDefault();
-            filterSelect.parent().removeClass('filter-active');
-            $('[data-filter-val]').removeClass('active');
-            updateFilter(1);
-            filterDroper.slideUp(400);
-        });
+        // filterSelect.parent().find('.close').on('click', function (e) {
+        //     e.preventDefault();
+        //     filterSelect.parent().removeClass('filter-active');
+        //     $('[data-filter-val]').removeClass('active');
+        //     updateFilter(1);
+        //     filterDroper.slideUp(400);
+        // });
 
         function updateFilter(_page) {
-
+            console.log('updating the filter');
             var selectedItems = [];
             var selectedFilterServices = [];
             var selectedFilterIndustry = [];
@@ -65,11 +87,15 @@ function initFilter($) {
                         selectedFilterServices.push($(this).data('filterVal'));
                     }
                 });
-                filterSelect.text(selectedItems.join(", "));
-                filterSelect.parent().addClass('filter-active');
+                // filterSelect.text(selectedItems.join(", "));
+                // filterSelect.parent().addClass('filter-active');
+                featuredProjects.hide();
+                console.log('categeory selected', selected);
             } else {
-                filterSelect.text('All');
-                filterSelect.parent().removeClass('filter-active');
+                featuredProjects.show();
+                console.log('no category selected');
+                // filterSelect.text('All');
+                // filterSelect.parent().removeClass('filter-active');
             }
             var page = (typeof _page !== 'undefined' && _page > 0) ? _page : 1;
 
@@ -86,7 +112,7 @@ function initFilter($) {
                 request.industry = selectedFilterIndustry;
             }
 
-            $.get('/wp-admin/admin-ajax.php',
+            $.get('/fc/frank/wordpress/wp-admin/admin-ajax.php',
               request,
               function (response) {
                   if(response.status === 'success'){
