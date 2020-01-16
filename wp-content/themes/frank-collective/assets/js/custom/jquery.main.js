@@ -15,7 +15,7 @@ function initFilter($) {
             filterDroper = $('[data-filter-work-drop]'),
             loadMoreContainer = $('[data-loadmore-works]'),
             loadMore = $('[data-loadmore-works] a')
-        serviceToggle = $('.filter-drop-service'),
+            serviceToggle = $('.filter-drop-service'),
             industryToggle = $('.filter-drop-industry'),
             serviceList = $('.filter-list-service'),
             industryList = $('.filter-list-industry'),
@@ -25,6 +25,8 @@ function initFilter($) {
         function clearFilters() {
             serviceList.hide();
             industryList.hide();
+            industryToggle.removeClass('active');
+            serviceToggle.removeClass('active');            
             $('[data-filter-val]').removeClass('active');
             updateFilter(1);
         }
@@ -35,6 +37,7 @@ function initFilter($) {
         serviceToggle.on('click', function(e) {
             e.preventDefault();
             industryList.hide();
+            industryToggle.removeClass('active');
             $(this).toggleClass('active');
             serviceList.slideToggle("slow");
         });
@@ -42,6 +45,7 @@ function initFilter($) {
         industryToggle.on('click', function(e) {
             e.preventDefault();
             serviceList.hide();
+            serviceToggle.removeClass('active');
             $(this).toggleClass('active');
             industryList.slideToggle("slow");
         });
