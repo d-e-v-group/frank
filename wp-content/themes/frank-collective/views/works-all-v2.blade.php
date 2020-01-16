@@ -12,31 +12,31 @@
                     <div class="grid">
                         <div class="row filter-toggles">
                             <h5 class="col-xs-5 col-md-3 col-lg-3 col filter-drop-service">Service</h5>
-                            <h5 class="col-xs-5 col-md-3 col-lg-3 col filter-drop-industry">Industry</h5>
-                            <div class="col-xs-2 col clear-filters"  style="display:none;">Clear Filters</div>
+                            <h5 class="col-xs-5 col-md-3 col-lg-7 col filter-drop-industry">Industry</h5>
+                            <div class="col-xs-2 col clear-filters" style="display:none;"><span>Clear Filters</span></div>
                         </div>
-                            @if(!empty(get_terms('industry')))
-                            <div class="row filter-wrap-industry">
-                                <div class="col-xs-9 col filter-list-industry" style="display:none;" data-filter-type="industry">
-                                    <ul class="filter-list">
-                                    @foreach(get_terms('industry') as $term)
-                                        <li><a href="#" data-filter-type="industry" data-filter-val="{{$term->slug }}">{{ $term->name }}</a></li>
-                                    @endforeach                            
-                                    </ul>
-                                </div>
-                            </div> 
-                            @endif
-                            @if(!empty(get_terms('service')))
-                            <div class="row filter-wrap-service">
-                                <div class="col-xs-9 col-xs-offset-3 filter-list-service" style="display:none;" data-filter-type="service">
-                                    <ul class="filter-list">
-                                        @foreach(get_terms('service') as $term)
-                                            <li><a href="#" data-filter-type="service" data-filter-val="{{$term->slug }}">{{ $term->name }}</a></li>
-                                        @endforeach
-                                    </ul>
-                                </div>
+                        @if(!empty(get_terms('service')))
+                        <div class="row filter-wrap-service">
+                            <div class="col-xs-12 col-lg-9 filter-list-service" style="display:none;" data-filter-type="service">
+                                <ul class="filter-list">
+                                    @foreach(get_terms('service') as $term)
+                                        <li><a href="#" data-filter-type="service" data-filter-val="{{$term->slug }}">{{ $term->name }}</a></li>
+                                    @endforeach
+                                </ul>
                             </div>
-                            @endif                            
+                        </div>
+                        @endif 
+                        @if(!empty(get_terms('industry')))
+                        <div class="row filter-wrap-industry">
+                            <div class="col-xs-12 col-lg-9 col-lg-offset-3 col filter-list-industry" style="display:none;" data-filter-type="industry">
+                                <ul class="filter-list">
+                                @foreach(get_terms('industry') as $term)
+                                    <li><a href="#" data-filter-type="industry" data-filter-val="{{$term->slug }}">{{ $term->name }}</a></li>
+                                @endforeach                            
+                                </ul>
+                            </div>
+                        </div> 
+                        @endif                           
                     </div>
                 </div>
 

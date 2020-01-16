@@ -1,4 +1,4 @@
-$.fn.isInViewportWithOffset = function (scrollTop, scrollBottom, _offset, log) {
+$.fn.isInViewportWithOffset = function(scrollTop, scrollBottom, _offset, log) {
     var el = jQuery(this);
     var elementTop = el.offset().top;
     var elementBottom = elementTop + el.outerHeight();
@@ -27,16 +27,16 @@ frank = {
     pages: [],
     isPageTransition: false,
     mainController: new ScrollMagic.Controller(),
-    easeBezier: new Ease(BezierEasing(.215,.61,.355,1)),
+    easeBezier: new Ease(BezierEasing(.215, .61, .355, 1)),
     cache: {
-        $html   : $('html'),
-        $body   : $(document.body),
-        $window : $(window),
-        $main   : $('#main'),
-        $footer : $('#footer'),
-        $header : $('#header'),
+        $html: $('html'),
+        $body: $(document.body),
+        $window: $(window),
+        $main: $('#main'),
+        $footer: $('#footer'),
+        $header: $('#header'),
         $rootContainer: $('#main'),
-        $preloaderOverlay : $('#preloader_overlay')
+        $preloaderOverlay: $('#preloader_overlay')
     },
     animations: {
         latestKnownScrollY: 0,
@@ -47,28 +47,26 @@ frank = {
 };
 
 frank.animations.requestTick = function() {
-    if(!this.ticking) {
+    if (!this.ticking) {
         requestAnimationFrame(frank.animations.update);
     }
     this.ticking = true;
 };
-frank.animations.init = function () {
+frank.animations.init = function() {
     frank.cache.$window
-      // .off('scroll', this.onScroll)
-      .on('scroll', this.onScroll).scroll();
+        // .off('scroll', this.onScroll)
+        .on('scroll', this.onScroll).scroll();
 
     frank.cache.$window
-      // .off('resize', this.onResize)
-      .on('resize', this.onResize);
+        // .off('resize', this.onResize)
+        .on('resize', this.onResize);
 
 };
-frank.animations.initScrollNavDark = function () {
+frank.animations.initScrollNavDark = function() {
     console.log('initSrollNavDark');
     var progressNav = $('[data-nav-dark]'),
-      navSections = $('[data-dark]');
-      console.log(progressNav, navSections)
-    if (progressNav.length && navSections.length){
-        console.log('have it all');
+        navSections = $('[data-dark]');
+    if (progressNav.length && navSections.length) {
         this.navDark = {
             nav: progressNav,
             navItems: progressNav.find('li:not(.page-title)'),
@@ -76,12 +74,10 @@ frank.animations.initScrollNavDark = function () {
         };
         this.calcScrollNavDark();
     } else {
-        console.log('adding dark');
         progressNav.addClass('dark')
     }
 
-    if(progressNav.length){
-        console.log('progress nav');
+    if (progressNav.length) {
         this.navCase = {
             nav: progressNav,
             trigger: progressNav.next()
@@ -90,29 +86,29 @@ frank.animations.initScrollNavDark = function () {
     }
 };
 
-frank.animations.calcScrollNavDark = function () {
+frank.animations.calcScrollNavDark = function() {
     var self = this;
-    if(typeof this.navDark !== 'undefined'){
-        if(this.navDark.sections.length){
+    if (typeof this.navDark !== 'undefined') {
+        if (this.navDark.sections.length) {
             this.navDark.sectionsBox = [];
-            this.navDark.sections.each(function () {
+            this.navDark.sections.each(function() {
                 var el = $(this),
-                  box = {
-                      el: el,
-                      top: el.offset().top,
-                      height: el.outerHeight(),
-                      bottom: el.offset().top + el.outerHeight()
-                  };
+                    box = {
+                        el: el,
+                        top: el.offset().top,
+                        height: el.outerHeight(),
+                        bottom: el.offset().top + el.outerHeight()
+                    };
                 self.navDark.sectionsBox.push(box);
             });
         }
     }
 };
 
-frank.animations.initScrollNav = function () {
+frank.animations.initScrollNav = function() {
     var progressNav = $('[data-progress-nav]'),
-      navSections = $('[data-nav-section]');
-    if (progressNav.length && navSections.length){
+        navSections = $('[data-nav-section]');
+    if (progressNav.length && navSections.length) {
         this.progressNav = {
             nav: progressNav,
             navItems: progressNav.find('li:not(.page-title)'),
@@ -121,28 +117,28 @@ frank.animations.initScrollNav = function () {
         this.calcScrollNav();
     }
 };
-frank.animations.calcScrollNav = function () {
+frank.animations.calcScrollNav = function() {
     var self = this;
-    if(typeof this.progressNav !== 'undefined'){
-        if(this.progressNav.sections.length){
+    if (typeof this.progressNav !== 'undefined') {
+        if (this.progressNav.sections.length) {
             this.progressNav.sectionsBox = [];
-            this.progressNav.sections.each(function () {
+            this.progressNav.sections.each(function() {
                 var el = $(this),
-                  box = {
-                      el: el,
-                      top: el.offset().top,
-                      height: el.outerHeight(),
-                      bottom: el.offset().top + el.outerHeight()
-                  };
+                    box = {
+                        el: el,
+                        top: el.offset().top,
+                        height: el.outerHeight(),
+                        bottom: el.offset().top + el.outerHeight()
+                    };
                 self.progressNav.sectionsBox.push(box);
             });
         }
     }
 };
 
-frank.animations.calcScrollNavCase = function () {
-    if(typeof this.navCase !== 'undefined'){
-        if(this.navCase.trigger.length){
+frank.animations.calcScrollNavCase = function() {
+    if (typeof this.navCase !== 'undefined') {
+        if (this.navCase.trigger.length) {
             var box = {
                 el: this.navCase.trigger,
                 top: this.navCase.trigger.offset().top,
@@ -154,11 +150,11 @@ frank.animations.calcScrollNavCase = function () {
     }
 };
 
-frank.animations.onScroll = function () {
+frank.animations.onScroll = function() {
     frank.animations.latestKnownScrollY = frank.cache.$window.scrollTop();
     frank.animations.requestTick();
 };
-frank.animations.onResize = function () {
+frank.animations.onResize = function() {
     frank.animations.calcScrollNav();
     frank.animations.calcScrollNavDark();
     frank.animations.calcScrollNavCase();
@@ -168,18 +164,18 @@ frank.animations.update = function() {
     var scrollTop = frank.animations.latestKnownScrollY;
     var scrollBottom = frank.animations.latestKnownScrollY + frank.cache.clientHeight;
     var scrollMiddle = frank.animations.latestKnownScrollY + (frank.cache.clientHeight / 2);
-    if(typeof frank.animations.progressNav !== 'undefined'){
-        if(typeof frank.animations.progressNav.sections !== 'undefined'){
+    if (typeof frank.animations.progressNav !== 'undefined') {
+        if (typeof frank.animations.progressNav.sections !== 'undefined') {
             var currentSection = 0;
-            for(var i = 0; i < frank.animations.progressNav.sections.length; i++){
-                if(scrollMiddle > frank.animations.progressNav.sectionsBox[i].top){
+            for (var i = 0; i < frank.animations.progressNav.sections.length; i++) {
+                if (scrollMiddle > frank.animations.progressNav.sectionsBox[i].top) {
                     currentSection = i;
                 }
             }
-            frank.animations.progressNav.navItems.each(function (index) {
-                if(currentSection > 1){
+            frank.animations.progressNav.navItems.each(function(index) {
+                if (currentSection > 1) {
                     var curNav = $(this);
-                    if(index < currentSection - 1){
+                    if (index < currentSection - 1) {
                         curNav.addClass('hide');
                     } else {
                         curNav.removeClass('hide');
@@ -194,18 +190,18 @@ frank.animations.update = function() {
         }
     }
 
-    if(typeof frank.animations.navDark !== 'undefined'){
-        if(typeof frank.animations.navDark.sections !== 'undefined'){
-            for(var i = 0; i < frank.animations.navDark.sections.length; i++){
-                if(scrollTop >= frank.animations.navDark.sectionsBox[i].top && scrollTop <= frank.animations.navDark.sectionsBox[i].bottom){ // +30
+    if (typeof frank.animations.navDark !== 'undefined') {
+        if (typeof frank.animations.navDark.sections !== 'undefined') {
+            for (var i = 0; i < frank.animations.navDark.sections.length; i++) {
+                if (scrollTop >= frank.animations.navDark.sectionsBox[i].top && scrollTop <= frank.animations.navDark.sectionsBox[i].bottom) { // +30
                     frank.animations.navDark.nav.removeClass('dark')
-                    if(frank.animations.navDark.nav.data('navDark') === 'main'){
+                    if (frank.animations.navDark.nav.data('navDark') === 'main') {
                         frank.animations.navDark.nav.addClass('light-main')
                     }
                     break;
                 } else {
                     frank.animations.navDark.nav.addClass('dark')
-                    if(frank.animations.navDark.nav.data('navDark') === 'main'){
+                    if (frank.animations.navDark.nav.data('navDark') === 'main') {
                         frank.animations.navDark.nav.removeClass('light-main')
                     }
                 }
@@ -213,9 +209,9 @@ frank.animations.update = function() {
         }
     }
 
-    if(typeof frank.animations.navCase !== 'undefined'){
-        if(typeof frank.animations.navCase.triggerBox !== 'undefined'){
-            if(scrollTop >= frank.animations.navCase.triggerBox.bottom){
+    if (typeof frank.animations.navCase !== 'undefined') {
+        if (typeof frank.animations.navCase.triggerBox !== 'undefined') {
+            if (scrollTop >= frank.animations.navCase.triggerBox.bottom) {
                 frank.animations.navCase.nav.removeClass('nav-hidden');
                 frank.cache.$header.addClass('nav-hidden');
             } else {
@@ -226,11 +222,11 @@ frank.animations.update = function() {
     }
 
     /* Appearing Animations*/
-    if(!frank.isPageTransition) {
+    if (!frank.isPageTransition) {
         if (typeof frank.animations.appearingWork !== 'undefined' && frank.animations.appearingWork.length) {
-            frank.animations.appearingWork.not('.is-appeared').each(function (index, item) {
+            frank.animations.appearingWork.not('.is-appeared').each(function(index, item) {
                 var el = $(item),
-                  appearOffset = (typeof el.data('appearOffset') !== 'undefined') ? el.data('appearOffset') : 0.05;
+                    appearOffset = (typeof el.data('appearOffset') !== 'undefined') ? el.data('appearOffset') : 0.05;
 
                 if (el.isInViewportWithOffset(scrollTop, scrollBottom, appearOffset)) {
                     el.addClass('is-appeared');
@@ -239,11 +235,11 @@ frank.animations.update = function() {
         }
     }
 
-    if(!frank.animations.preventAppearingAnimation){
-        if(typeof frank.animations.appearingBlocks !== 'undefined' && frank.animations.appearingBlocks.length){
-            frank.animations.appearingBlocks.not('.is-appeared').each(function (index, item) {
+    if (!frank.animations.preventAppearingAnimation) {
+        if (typeof frank.animations.appearingBlocks !== 'undefined' && frank.animations.appearingBlocks.length) {
+            frank.animations.appearingBlocks.not('.is-appeared').each(function(index, item) {
                 var el = $(item),
-                  appearOffset = (typeof el.data('appearOffset') !== 'undefined') ? el.data('appearOffset') : 0.05;
+                    appearOffset = (typeof el.data('appearOffset') !== 'undefined') ? el.data('appearOffset') : 0.05;
 
                 if (el.isInViewportWithOffset(scrollTop, scrollBottom, appearOffset)) {
                     el.addClass('is-appeared');
@@ -251,10 +247,10 @@ frank.animations.update = function() {
             });
         }
 
-        if(typeof frank.animations.appearingGroups !== 'undefined' && frank.animations.appearingGroups.length){
-            frank.animations.appearingGroups.not('.is-appeared').each(function (index, item) {
+        if (typeof frank.animations.appearingGroups !== 'undefined' && frank.animations.appearingGroups.length) {
+            frank.animations.appearingGroups.not('.is-appeared').each(function(index, item) {
                 var el = $(item),
-                  appearOffset = (typeof el.data('appearOffset') !== 'undefined') ? el.data('appearOffset') : 0.05;
+                    appearOffset = (typeof el.data('appearOffset') !== 'undefined') ? el.data('appearOffset') : 0.05;
 
                 if (el.isInViewportWithOffset(scrollTop, scrollBottom, appearOffset)) {
                     el.addClass('is-appeared');
@@ -262,10 +258,10 @@ frank.animations.update = function() {
             });
         }
 
-        if(typeof frank.animations.appearingCommons !== 'undefined' && frank.animations.appearingCommons.length){
-            frank.animations.appearingCommons.not('.is-appeared').each(function (index, item) {
+        if (typeof frank.animations.appearingCommons !== 'undefined' && frank.animations.appearingCommons.length) {
+            frank.animations.appearingCommons.not('.is-appeared').each(function(index, item) {
                 var el = $(item),
-                  appearOffset = (typeof el.data('appearOffset') !== 'undefined') ? el.data('appearOffset') : 0.05;
+                    appearOffset = (typeof el.data('appearOffset') !== 'undefined') ? el.data('appearOffset') : 0.05;
                 if (el.isInViewportWithOffset(scrollTop, scrollBottom, appearOffset)) {
                     el.addClass('is-appeared');
                 }
@@ -275,7 +271,7 @@ frank.animations.update = function() {
     /* Appearing Animations END*/
 
     /* Sticky Header */
-    if(frank.animations.latestKnownScrollY > frank.animations.oldScrollY) {
+    if (frank.animations.latestKnownScrollY > frank.animations.oldScrollY) {
         if (frank.animations.latestKnownScrollY > 100) {
             frank.cache.$body.addClass('header-sticky');
             if (frank.cache.$body.hasClass('header-visible')) {
@@ -283,7 +279,7 @@ frank.animations.update = function() {
             }
         }
     } else {
-        if(frank.animations.latestKnownScrollY < frank.animations.oldScrollY){
+        if (frank.animations.latestKnownScrollY < frank.animations.oldScrollY) {
             frank.cache.$body.addClass('header-sticky').addClass('header-visible');
 
             if (frank.animations.latestKnownScrollY < 100) {
@@ -296,18 +292,18 @@ frank.animations.update = function() {
     frank.animations.oldScrollY = frank.animations.latestKnownScrollY;
 }
 
-frank.preloadImages = function () {
-    if($('[data-preload-image]').length > 0){
+frank.preloadImages = function() {
+    if ($('[data-preload-image]').length > 0) {
         var preloadImages = [];
-        $('[data-preload-image]').each(function () {
+        $('[data-preload-image]').each(function() {
             var imgUrl = $(this).data('preloadImage');
-            if(imgUrl !== ''){
+            if (imgUrl !== '') {
                 preloadImages.push(imgUrl);
             }
         });
-        if(preloadImages.length){
+        if (preloadImages.length) {
             for (var i = 0; i < preloadImages.length; i++) {
-                var item = $('<div class="preload-image" style="background-image: url('+preloadImages[i]+')"></div>');
+                var item = $('<div class="preload-image" style="background-image: url(' + preloadImages[i] + ')"></div>');
 
                 $('.section-culture').append(item);
             }
@@ -315,10 +311,10 @@ frank.preloadImages = function () {
     }
 };
 
-frank.onAjaxPageLoadClick = function (e) {
+frank.onAjaxPageLoadClick = function(e) {
     e.preventDefault();
     console.log('this is the page transition');
-    if(frank.isPageTransition) {
+    if (frank.isPageTransition) {
         return false;
     }
 
@@ -329,30 +325,30 @@ frank.onAjaxPageLoadClick = function (e) {
         transitionIn = el.data('transitionIn'),
         transitionOut = el.data('transitionOut') ? el.data('transitionOut') : frank.cache.$rootContainer.find('.root').data('transitionOut'),
         link = el.attr('href') ? el.attr('href') : el.data('link');
-        console.log('out animation', transitionOut);
-    if(typeof frank['ani_'+transitionOut] === 'function'){
-        Promise.all([frank['ani_'+transitionOut](el), frank.ajaxPageLoad(link)]).then(function(){
+    console.log('out animation', transitionOut);
+    if (typeof frank['ani_' + transitionOut] === 'function') {
+        Promise.all([frank['ani_' + transitionOut](el), frank.ajaxPageLoad(link)]).then(function() {
             clearTimeout(frank.loadFallback);
             console.log('animate the thing');
             window.scrollTo(0, 0);
             var
-              $dom = $(frank.loadedDom),
-              newContainer = $dom.find('.root'),
-              newTitle = $dom.find('title');
+                $dom = $(frank.loadedDom),
+                newContainer = $dom.find('.root'),
+                newTitle = $dom.find('title');
 
             newContainer
-              .css({
-                  'display': 'none'
-              })
-              .appendTo(frank.cache.$rootContainer);
+                .css({
+                    'display': 'none'
+                })
+                .appendTo(frank.cache.$rootContainer);
 
             var page_init = newContainer.data('pageInit'),
-              page_in = (transitionIn) ? transitionIn : newContainer.data('transitionIn');
+                page_in = (transitionIn) ? transitionIn : newContainer.data('transitionIn');
 
             // frank.currentPage = next_page_id;
 
-            if(typeof frank['ani_'+page_init] === 'function'){
-                frank['ani_'+page_init](newContainer);
+            if (typeof frank['ani_' + page_init] === 'function') {
+                frank['ani_' + page_init](newContainer);
             }
 
             oldContainer.css({
@@ -360,15 +356,15 @@ frank.onAjaxPageLoadClick = function (e) {
             });
 
             newContainer
-              .css({
-                  'display': 'block'
-              });
+                .css({
+                    'display': 'block'
+                });
 
             oldContainer.remove();
             frank.cache.$body.removeClass('is-loading');
 
-            if(typeof frank['ani_'+page_in] === 'function'){
-                frank['ani_'+page_in](newContainer);
+            if (typeof frank['ani_' + page_in] === 'function') {
+                frank['ani_' + page_in](newContainer);
             }
 
             frank.isPageTransition = false;
@@ -378,40 +374,40 @@ frank.onAjaxPageLoadClick = function (e) {
     }
 };
 
-frank.initAjaxPageLoad = function () {
+frank.initAjaxPageLoad = function() {
     $('#main')
-      .off('click', '.ajax-load', frank.onAjaxPageLoadClick)
-      .on('click', '.ajax-load', frank.onAjaxPageLoadClick);
+        .off('click', '.ajax-load', frank.onAjaxPageLoadClick)
+        .on('click', '.ajax-load', frank.onAjaxPageLoadClick);
 };
 
-frank.ajaxPageLoad = function (linkUrl) {
+frank.ajaxPageLoad = function(linkUrl) {
     return new Promise(function(resolve, reject) {
         jQuery.get(linkUrl, function(data) {
             frank.loadedDom = data;
             var assets = $(data).find('.ajax-preload-assets');
             var backgrounds = $(data).find('[data-ajax-preload-assets]');
 
-            frank.loadFallback = setTimeout(function () {
+            frank.loadFallback = setTimeout(function() {
                 window.location.href = linkUrl;
             }, 3000);
 
-            if(!assets.length && !backgrounds.length){
+            if (!assets.length && !backgrounds.length) {
                 console.log('resolve no assets')
                 resolve();
             }
-            if(assets.length){
-                assets.get()[0].addEventListener('loadeddata', function () {
+            if (assets.length) {
+                assets.get()[0].addEventListener('loadeddata', function() {
                     console.log('resolve video loaded')
                     resolve();
                 })
             }
-            if(backgrounds.length){
+            if (backgrounds.length) {
                 var image = new Image();
-                image.onload = function () {
+                image.onload = function() {
                     console.log('resolve image loaded')
                     resolve();
                 };
-                image.onerror = function () {
+                image.onerror = function() {
                     resolve();
                 };
                 image.src = assets.eq(0).data('ajax-preload-assets');
@@ -420,13 +416,13 @@ frank.ajaxPageLoad = function (linkUrl) {
     });
 };
 
-frank.init = function () {
+frank.init = function() {
     this.preloadImages();
     this.initResize();
     this.animations.init();
 };
 
-frank.initUI = function () {
+frank.initUI = function() {
     this.initAjaxPageLoad();
     this.initSliders();
     this.initBigHeader();
@@ -435,83 +431,83 @@ frank.initUI = function () {
     this.initMobileVideos();
 };
 
-frank.initMobileVideos = function () {
-    $('.video-has-mobile').each(function () {
+frank.initMobileVideos = function() {
+    $('.video-has-mobile').each(function() {
         var video = $(this);
-        if(frank.cache.mediaWidth < 767){
-            video.append('<source src="'+video.data('mobileVideoSrc')+'" type="video/mp4" >');
+        if (frank.cache.mediaWidth < 767) {
+            video.append('<source src="' + video.data('mobileVideoSrc') + '" type="video/mp4" >');
         } else {
-            video.append('<source src="'+video.data('videoSrc')+'" type="video/mp4" >');
+            video.append('<source src="' + video.data('videoSrc') + '" type="video/mp4" >');
         }
     })
 };
 
-frank.initResize = function () {
-    frank.cache.$window.on('resize', function () {
+frank.initResize = function() {
+    frank.cache.$window.on('resize', function() {
         frank.cache.mediaWidth = window.innerWidth;
         frank.cache.clientWidth = frank.cache.$window.width();
         frank.cache.clientHeight = frank.cache.$window.height();
     }).resize();
 };
 
-frank.initContactCTA = function () {
+frank.initContactCTA = function() {
     var self = this;
-    $('.cta.contact-cta').on('click', function (e) {
+    $('.cta.contact-cta').on('click', function(e) {
         e.preventDefault();
         var el = $(this),
-          link = el.attr('href'),
-          offset = el.offset(),
-          elOffsetTop = offset.top - $(document).scrollTop(),
-          elOffsetLeft = offset.left - $(document).scrollLeft(),
-          elWidth = el.width(),
-          elHeight = el.height(),
-          ctaCase = $('.case-cta'),
-          content = $('.default-content'),
-          desc = el.find('p, h2');
+            link = el.attr('href'),
+            offset = el.offset(),
+            elOffsetTop = offset.top - $(document).scrollTop(),
+            elOffsetLeft = offset.left - $(document).scrollLeft(),
+            elWidth = el.width(),
+            elHeight = el.height(),
+            ctaCase = $('.case-cta'),
+            content = $('.default-content'),
+            desc = el.find('p, h2');
 
         var linker = $('<div/>')
-          .addClass('work-temp')
-          .css({
-              left: elOffsetLeft,
-              top: elOffsetTop,
-              width: elWidth,
-              height: elHeight,
-              zIndex: 99,
-              backgroundColor: '#CBEEF4'
-          });
+            .addClass('work-temp')
+            .css({
+                left: elOffsetLeft,
+                top: elOffsetTop,
+                width: elWidth,
+                height: elHeight,
+                zIndex: 99,
+                backgroundColor: '#CBEEF4'
+            });
 
         $('.root').append(linker);
 
         frank.cache.$header.addClass('nav-hidden');
 
         el.css({
-            visibility:'hidden'
+            visibility: 'hidden'
         });
 
         new TimelineMax({
-            onComplete: function () {
-                window.location.href = link;
-            }
-        })
-          .to(frank.cache.$footer, 0.4, {opacity: 0, y: 20, ease: Power1.easeOut}, 0)
-          .to(content, 0.4, {opacity: 0, y: -50,  ease: Power1.easeOut}, 0)
-          .to(ctaCase, 0.4, {opacity: 0, x: 50,  ease: Power1.easeOut}, 0)
-          .to(desc, 0.3, {opacity: 0, x: 50,  ease: Power1.easeOut}, 0)
-          .to(linker, 0.7, {left: 0, top: 0, width: frank.cache.clientWidth, height: frank.cache.clientHeight, scale: 1.04, zIndex: 999, ease: Power0.easeNone}, 0);
+                onComplete: function() {
+                    window.location.href = link;
+                }
+            })
+            .to(frank.cache.$footer, 0.4, { opacity: 0, y: 20, ease: Power1.easeOut }, 0)
+            .to(content, 0.4, { opacity: 0, y: -50, ease: Power1.easeOut }, 0)
+            .to(ctaCase, 0.4, { opacity: 0, x: 50, ease: Power1.easeOut }, 0)
+            .to(desc, 0.3, { opacity: 0, x: 50, ease: Power1.easeOut }, 0)
+            .to(linker, 0.7, { left: 0, top: 0, width: frank.cache.clientWidth, height: frank.cache.clientHeight, scale: 1.04, zIndex: 999, ease: Power0.easeNone }, 0);
     });
 };
 
-frank.initBigHeader = function () {
+frank.initBigHeader = function() {
     var self = this;
-    $('[data-big-header]').each(function () {
+    $('[data-big-header]').each(function() {
         var el = $(this),
-          trigger = (parseFloat(el.data('offset')) >= 0) ? parseFloat(el.data('offset')) : 500,
+            trigger = (parseFloat(el.data('offset')) >= 0) ? parseFloat(el.data('offset')) : 500,
             delayAfter = (parseFloat(el.data('offset')) >= 0) ? parseFloat(el.data('offset')) : 300;
         frank.animations.preventAppearingAnimation = true;
-        setTimeout(function () {
+        setTimeout(function() {
             el.addClass('is-appeared');
 
-            setTimeout(function () {
+            setTimeout(function() {
                 frank.animations.preventAppearingAnimation = false;
                 frank.cache.$window.scroll();
             }, delayAfter);
@@ -519,7 +515,7 @@ frank.initBigHeader = function () {
     });
 };
 
-frank.initAppearAnimation = function () {
+frank.initAppearAnimation = function() {
     var self = this;
 
     frank.animations.appearingWork = $('[data-work-item]');
@@ -529,36 +525,36 @@ frank.initAppearAnimation = function () {
 
 
     if (frank.animations.appearingBlocks.length) {
-        frank.animations.appearingBlocks.each(function () {
+        frank.animations.appearingBlocks.each(function() {
             var el = $(this),
-            delay = (parseFloat(el.data('animationDelay')) >= 0) ? parseFloat(el.data('animationDelay')) : 0.15;
-            el.find('> *').each(function (index) {
+                delay = (parseFloat(el.data('animationDelay')) >= 0) ? parseFloat(el.data('animationDelay')) : 0.15;
+            el.find('> *').each(function(index) {
                 var item = $(this);
                 if (index > 0) {
                     item
-                      .attr('data-transition-delay', (index * delay) + 's')
-                      .css({
-                          '-webkit-transition-delay': (index * delay) + 's',
-                          'transition-delay': (index * delay) + 's'
-                      });
+                        .attr('data-transition-delay', (index * delay) + 's')
+                        .css({
+                            '-webkit-transition-delay': (index * delay) + 's',
+                            'transition-delay': (index * delay) + 's'
+                        });
                 }
             });
         });
     }
 
     if (frank.animations.appearingGroups.length) {
-        frank.animations.appearingGroups.each(function () {
+        frank.animations.appearingGroups.each(function() {
             var el = $(this),
-              initDelay = (parseFloat(el.data('animationInitDelay')) >= 0) ? parseFloat(el.data('animationInitDelay')) : 0,
-              delay = (parseFloat(el.data('animationDelay')) >= 0) ? parseFloat(el.data('animationDelay')) : 0.15;
-            el.find('[data-appear-group-item]').each(function (index) {
+                initDelay = (parseFloat(el.data('animationInitDelay')) >= 0) ? parseFloat(el.data('animationInitDelay')) : 0,
+                delay = (parseFloat(el.data('animationDelay')) >= 0) ? parseFloat(el.data('animationDelay')) : 0.15;
+            el.find('[data-appear-group-item]').each(function(index) {
                 var item = $(this),
-                  delayVal = ((index * delay) + initDelay) + 's';
+                    delayVal = ((index * delay) + initDelay) + 's';
                 item
-                  .attr('data-transition-delay', delayVal)
-                  .css({
-                      'transition-delay': delayVal
-                  });
+                    .attr('data-transition-delay', delayVal)
+                    .css({
+                        'transition-delay': delayVal
+                    });
             });
         });
     }
@@ -567,15 +563,15 @@ frank.initAppearAnimation = function () {
 };
 
 frank.initSliders = function() {
-    if($('.slideshow-wrapper').length){
-        $('.slideshow-wrapper').each(function () {
+    if ($('.slideshow-wrapper').length) {
+        $('.slideshow-wrapper').each(function() {
             var wrapper = $(this),
-              caption = wrapper.find('.slideshow-title'),
-              slider = wrapper.find('.slideshow');
+                caption = wrapper.find('.slideshow-title'),
+                slider = wrapper.find('.slideshow');
 
-            slider.on('afterChange', function (event, slick, currentSlide) {
+            slider.on('afterChange', function(event, slick, currentSlide) {
                 var title = $(slick.$slides[currentSlide]).data('title');
-                if(title){
+                if (title) {
                     caption.html(title)
                 }
             });
@@ -586,7 +582,7 @@ frank.initSliders = function() {
                 centerMode: false,
                 infinite: false,
                 dotsClass: 'custom-paging',
-                customPaging: function (slider, i) {
+                customPaging: function(slider, i) {
                     return (i + 1) + ' of ' + slider.slideCount;
                 }
             });
@@ -594,34 +590,34 @@ frank.initSliders = function() {
     }
 }
 
-frank.removeOverlay = function () {
+frank.removeOverlay = function() {
     this.cache.$preloaderOverlay.css({
         display: 'none'
     });
 };
 
-frank.initScrollTo = function () {
+frank.initScrollTo = function() {
     var self = this;
     this.mainController.scrollTo(function(target) {
         TweenMax.to(window, 0.5, {
-            scrollTo : {
-                y : target, // scroll position of the target along y axis
-                autoKill : true // allows user to kill scroll action smoothly
+            scrollTo: {
+                y: target, // scroll position of the target along y axis
+                autoKill: true // allows user to kill scroll action smoothly
             },
-            ease : Cubic.easeInOut
+            ease: Cubic.easeInOut
         });
     });
 
     $(document).on("click", "a[href^=\\#]", function(e) {
         var id = $(this).attr("href");
-        if($(id).length > 0) {
+        if ($(id).length > 0) {
             e.preventDefault();
             self.mainController.scrollTo(id);
         }
     });
 };
 
-jQuery(window).on('load', function ($) {
+jQuery(window).on('load', function($) {
     initLayout();
     initPages();
 });
@@ -634,26 +630,26 @@ function initLayout() {
 
 function action(action, container) {
     var operation = $(container).data(action);
-    if(typeof frank['ani_'+operation] === 'function'){
-        frank['ani_'+operation]($(container));
+    if (typeof frank['ani_' + operation] === 'function') {
+        frank['ani_' + operation]($(container));
     }
 }
 
 function initPages() {
     var page_root = $('.root'),
-      next_page_id = page_root.data('pageId'),
-      page_init = page_root.data('pageInit'),
-      page_in = page_root.data('transitionIn'),
-      page_out = page_root.data('transitionOut');
+        next_page_id = page_root.data('pageId'),
+        page_init = page_root.data('pageInit'),
+        page_in = page_root.data('transitionIn'),
+        page_out = page_root.data('transitionOut');
 
     frank.currentPage = next_page_id;
 
-    if(typeof frank['ani_'+page_init] === 'function'){
-        frank['ani_'+page_init](page_root);
+    if (typeof frank['ani_' + page_init] === 'function') {
+        frank['ani_' + page_init](page_root);
     }
 
-    if(typeof frank['ani_'+page_in] === 'function'){
-        frank['ani_'+page_in](page_root);
+    if (typeof frank['ani_' + page_in] === 'function') {
+        frank['ani_' + page_in](page_root);
     }
 
     initRetinaCover();

@@ -151,8 +151,7 @@
         }
         li {
             display: inline-block;
-            vertical-align: top;
-            padding-left: 124px;
+            padding-left: 50px;
             @include media('<widescreen') {
                 padding-left: 80px;
             }

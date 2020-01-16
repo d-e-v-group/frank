@@ -206,7 +206,7 @@ header {
         width: auto;
         @include media('<tablet') {
             width: 100%;
-            padding-right: 0;
+            padding: 0 0 20px 0;
         }
         span {
             font-size: 12px;
@@ -230,4 +230,9 @@ header {
             }
         }
     }
+}
+
+.mobile-img,
+.mobile-vid {
+    display: none;
 }

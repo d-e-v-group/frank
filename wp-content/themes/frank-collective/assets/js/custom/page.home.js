@@ -70,3 +70,9 @@ $('.hp-slider').on('beforeChange', function(event, slick, currentSlide, nextSlid
         }
     }
 })
+
+// if mobile, show mobile versions of slider img/video from CMS
+// show mobile img/vid div if .nav-opener display=block
+if ($('.nav-opener').css("display") == "block") {
+
+}

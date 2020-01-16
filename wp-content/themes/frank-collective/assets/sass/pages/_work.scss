@@ -557,7 +557,8 @@
     }
     .filter-list {
         @extend %listreset;
-        @include media('>=tablet') {
+        column-count: 3;
+        @include media('<tablet') {
             column-count: 2;
         }
         li {
