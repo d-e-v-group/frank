@@ -134,3 +134,19 @@ frank.ani_works_2_in = function(root) {
     ;
     this.initUI();
 };
+
+// Scroll to top
+$(window).scroll(function() {
+    var height = $(window).scrollTop();
+    if (height > 100) {
+        $('#scrollToTop').fadeIn();
+    } else {
+        $('#scrollToTop').fadeOut();
+    }
+});
+
+$("#scrollToTop").click(function(event) {
+    event.preventDefault();
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+    return false;
+});

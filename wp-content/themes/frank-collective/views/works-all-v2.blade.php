@@ -11,9 +11,9 @@
                 <div class="container filter-drop" data-filter-work-drop>
                     <div class="grid">
                         <div class="row filter-toggles">
-                            <h5 class="col-xs-3 col filter-drop-industry">Industry</h5>
-                            <h5 class="col-xs-3 col filter-drop-service">Service</h5>
-                            <div class="col-xs-3 col-xs-offset-3 col clear-filters"  style="display:none;">Clear Filters</div>
+                            <h5 class="col-xs-5 col-md-3 col-lg-3 col filter-drop-service">Service</h5>
+                            <h5 class="col-xs-5 col-md-3 col-lg-3 col filter-drop-industry">Industry</h5>
+                            <div class="col-xs-2 col clear-filters"  style="display:none;">Clear Filters</div>
                         </div>
                             @if(!empty(get_terms('industry')))
                             <div class="row filter-wrap-industry">
@@ -131,10 +131,6 @@
                 wp_reset_postdata();
                 ?>
             </div>
-                        
-                    
-                    
-                
 
                 <!-- ALL WORKS -->
                 <?php
@@ -157,34 +153,32 @@
                         <?php
                         while ( $query_works->have_posts() ) : $query_works->the_post();
                         ?>
-                        <div class="col-sm-4">
-                            <div data-link="{{ get_permalink() }}" class="media grid-flex work-item ajax-load" data-appear-block data-row-index="{{ $postIndex }}">
-                                
-                                <div class="col-sm-12">
-                                    <?php $image = get_field('thumbnail_image') ? get_field('thumbnail_image') : get_field('main_image') ?>
-                                    <?php $case_image = get_field('hero_section_image') ? get_field('hero_section_image') : get_field('main_image') ?>
-                                    <div class="img-box" data-image="{{ helper::imageURL($case_image, 'full') }}">
-                                        {{ helper::imageDiv($image, 'full', ['class' => 'inner-content']) }}
+                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                                <div data-link="{{ get_permalink() }}" class="media grid-flex work-item ajax-load" data-appear-block data-row-index="{{ $postIndex }}">
+                                    
+                                    <div class="col-sm-12">
+                                        <?php $image = get_field('thumbnail_image') ? get_field('thumbnail_image') : get_field('main_image') ?>
+                                        <?php $case_image = get_field('hero_section_image') ? get_field('hero_section_image') : get_field('main_image') ?>
+                                        <div class="img-box" data-image="{{ helper::imageURL($case_image, 'full') }}">
+                                            {{ helper::imageDiv($image, 'full', ['class' => 'inner-content']) }}
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-12">
-                                    <div class="text-content">
-                                        <div class="grid-flex">
-                                            <div class="col-sm-12 title-col">
-                                                <h4>{{ get_field('brand_name') }}</h4   >
-                                            </div>
-                                                <div class="col-sm-12">
-                                                    @if(get_field('tagline') || get_field('tagline_short'))
-                                                        <h5>{{ (get_field('tagline_short')) ? get_field('tagline_short') : get_field('tagline') }}</h5>
-                                                    @endif
-          
-                                                    
+                                    <div class="col-sm-12">
+                                        <div class="text-content">
+                                            <div class="grid-flex">
+                                                <div class="col-sm-12 title-col">
+                                                    <h4>{{ get_field('brand_name') }}</h4   >
                                                 </div>
+                                                    <div class="col-sm-12">
+                                                        @if(get_field('tagline') || get_field('tagline_short'))
+                                                            <h5>{{ (get_field('tagline_short')) ? get_field('tagline_short') : get_field('tagline') }}</h5>
+                                                        @endif
+                                                    </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         <?php $postIndex ++ ?>
                         <?php endwhile; wp_reset_postdata(); ?>
                     </div>
@@ -198,9 +192,12 @@
                 </div>
             </section>    
             </div>
+            <div class="container">
+                <div id="scrollToTop">Back to Top</div>    
+            </div>
+            @include('partials/cta/contact')
 
-        @include('partials/cta/contact')
-    </div>
+        </div>  
 	<?php endwhile; ?>
 @endsection
 
