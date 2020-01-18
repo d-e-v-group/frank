@@ -29,15 +29,12 @@
                 @if($slideDeskImg)
                     <img class="dt-asset" src="" data-desktop-asset={{ $slideDeskImg }} />
                 @elseif ($slideDeskVid)
-                    <video id="home-page-video" autoplay playsinline muted loop class="video">
-                        <source class="dt-asset" src="" data-desktop-asset={{ $slideDeskVid }} type="video/mp4">
-                    </video>    
+                    <video id="home-page-video" autoplay playsinline muted loop class="video dt-asset" src="" data-desktop-asset={{ $slideDeskVid }}></video>    
                 @endif
                 @if($slideMobileImg)
                     <img class="mob-asset" src="" data-mobile-asset={{ $slideMobileImg }} />
                 @elseif ($slideMobileVid)
-                    <video id="home-page-video" autoplay playsinline muted loop class="video">
-                        <source class="mob-asset" src="" data-mobile-asset={{ $slideMobileVid }} type="video/mp4">
+                    <video id="home-page-video" autoplay playsinline muted loop class="video mob-asset" src="" data-mobile-asset={{ $slideMobileVid }} >
                     </video>    
                 @endif
                 

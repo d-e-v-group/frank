@@ -78,33 +78,32 @@ $(document).ready(function() {
 // if mobile, show mobile versions of slider img/video from CMS
 // show mobile img/vid div if .nav-opener display=block
 function loadSlideAssets() {
+    console.log('load slide assets');
     var mAssets = document.querySelectorAll('.mob-asset');
     var dAssets = document.querySelectorAll('.dt-asset');
 
     if ($('.nav-opener').css('display') == 'block') {
+        dAssets.forEach(asset => {
+            //asset.style.display = 'none';
+            asset.setAttribute('src', '');
+        });
+
         mAssets.forEach(asset => {
             asset.setAttribute('src', asset.dataset.mobileAsset);
         });
 
-        // hide empty desktop asset containers
-        dAssets.forEach(asset => {
-            asset.style.display = 'none';
-            if (asset.parentElement.id == 'home-page-video') {
-                asset.parentElement.style.display = 'none';
-            }
-        });
     } else {
+
+        mAssets.forEach(asset => {
+            //asset.style.display = 'none';
+            asset.setAttribute('src', '');
+        });
+
         dAssets.forEach(asset => {
             asset.setAttribute('src', asset.dataset.desktopAsset);
         });
 
-        // hide empty mobile asset containers
-        mAssets.forEach(asset => {
-            asset.style.display = 'none';
-            if (asset.parentElement.id == 'home-page-video') {
-                asset.parentElement.style.display = 'none';
-            }
-        });
+
     }
 
     //TODO: on resize, remove all src first and redefine
