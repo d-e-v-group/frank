@@ -30,7 +30,6 @@
             color: $white;
             opacity: 0.5;
             border-bottom: 1px solid transparent;
-            font-size: 16px;
             &.active {
                 opacity: 1;
                 border-bottom: 1px solid white;
@@ -74,7 +73,7 @@
         }
     }
     .work-list {
-        margin-top: -100px;
+        margin-top: -150px;
         .work {
             .work-video-wrap {
                 max-width: unset;

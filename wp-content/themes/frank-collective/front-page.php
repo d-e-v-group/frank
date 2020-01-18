@@ -1,1 +1,1 @@
-@include('views/home')
+@include('views/home2020')

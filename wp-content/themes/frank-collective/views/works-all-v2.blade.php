@@ -105,23 +105,7 @@
                                 @if(get_field('tagline') || get_field('tagline_short'))
                                     <h5>{{ (get_field('tagline_short')) ? get_field('tagline_short') : get_field('tagline') }}</h5>
                                 @endif
-                                <?php
-                                $term_obj_list = get_the_terms( get_the_ID(), 'service' );
-                                ?>
-                                @if(!empty($term_obj_list))
-                                    <?php
-                                    $services = array_chunk($term_obj_list, 3);
-                                    ?>
-                                    <ul class="service-list">
-                                    @foreach($services as $items)
-                                        @foreach($items as $item)
-                                            <li>{{ $item->name }}</li>
-                                        @endforeach
-                                    @endforeach
-                                    </ul>
-                                @endif
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -200,19 +184,3 @@
         </div>  
 	<?php endwhile; ?>
 @endsection
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    

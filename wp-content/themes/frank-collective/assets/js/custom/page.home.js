@@ -31,6 +31,7 @@ frank.ani_homepage_out = function(root) {
 };
 
 
+
 $('.hp-slider').slick({
     adaptiveHeight: false,
     infinite: true,
@@ -52,7 +53,6 @@ $('.hp-slider').slick({
         }
         return '<span>' + (index + 1) + '</span>';
     }
-
 });
 
 //change pagination color if necessary
@@ -71,8 +71,41 @@ $('.hp-slider').on('beforeChange', function(event, slick, currentSlide, nextSlid
     }
 })
 
+$(document).ready(function() {
+    loadSlideAssets();
+});
+
 // if mobile, show mobile versions of slider img/video from CMS
 // show mobile img/vid div if .nav-opener display=block
-if ($('.nav-opener').css("display") == "block") {
+function loadSlideAssets() {
+    var mAssets = document.querySelectorAll('.mob-asset');
+    var dAssets = document.querySelectorAll('.dt-asset');
 
+    if ($('.nav-opener').css('display') == 'block') {
+        mAssets.forEach(asset => {
+            asset.setAttribute('src', asset.dataset.mobileAsset);
+        });
+
+        // hide empty desktop asset containers
+        dAssets.forEach(asset => {
+            asset.style.display = 'none';
+            if (asset.parentElement.id == 'home-page-video') {
+                asset.parentElement.style.display = 'none';
+            }
+        });
+    } else {
+        dAssets.forEach(asset => {
+            asset.setAttribute('src', asset.dataset.desktopAsset);
+        });
+
+        // hide empty mobile asset containers
+        mAssets.forEach(asset => {
+            asset.style.display = 'none';
+            if (asset.parentElement.id == 'home-page-video') {
+                asset.parentElement.style.display = 'none';
+            }
+        });
+    }
+
+    //TODO: on resize, remove all src first and redefine
 }
