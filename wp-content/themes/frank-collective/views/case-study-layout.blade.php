@@ -26,7 +26,6 @@
 ?>
 <?php while ( have_posts() ) : the_post(); ?>
 <div class="root barba-container" data-namespace="case_study" data-page-id="Case_study" data-transition-in="case_study_in" data-transition-out="case_study_out" data-page-init="case_study_init">
-    @include('partials/case-study/case-nav', $nav)
     @if(get_field('main_image') || get_field('hero_section_image') || get_field('hero_section_video'))
         @if(get_field('hero_section_video'))
             <div class="case-hero-banner video-banner"
