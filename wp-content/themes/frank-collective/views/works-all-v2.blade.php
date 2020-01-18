@@ -41,34 +41,7 @@
                 </div>
 
 
-                <?php /*
-                <div class="filter-drop filter-drop-hidden" style="display:none;" data-filter-work-drop>
-                    <div class="container">
-                    <div class="grid">
-                        @if(!empty(get_terms('industry')))
-                            <div class="col-xs-6 col" data-filter-type="industry">
-                                <h5>Industry</h5>
-                                <ul class="filter-list">
-                                @foreach(get_terms('industry') as $term)
-                                    <li><a href="#" data-filter-type="industry" data-filter-val="{{$term->slug }}">{{ $term->name }}</a></li>
-                                @endforeach
-                                </ul>
-                            </div>
-                        @endif
-                        @if(!empty(get_terms('service')))
-                            <div class="col-xs-6 col" data-filter-type="service">
-                                <h5>Service</h5>
-                                <ul class="filter-list">
-                                    @foreach(get_terms('service') as $term)
-                                        <li><a href="#" data-filter-type="service" data-filter-val="{{$term->slug }}">{{ $term->name }}</a></li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-                    </div>
-                    </div>
-                </div>
-                 */?>
+    
                 </section>
                 <section id="work-display">
                     <div class="work-list featured-work container">
@@ -84,9 +57,13 @@
                         while( $team->have_posts() ) : $team->the_post();
                         ?>
                     <div class="work-wrap col-md-6">
-                        <div class="work-item position-{{ ($work_idx % 2 === 0) ? 'left' : 'right' }}" data-background-color="{{ (get_field('theme_color')) ? get_field('theme_color') : '#ffffff' }}">
+                        <div class="work-item ajax-load position-{{ ($work_idx % 2 === 0) ? 'left' : 'right' }}" data-link="{{ get_permalink() }}" data-background-color="{{ (get_field('theme_color')) ? get_field('theme_color') : '#ffffff' }}">
                             <div class="work view-case-study" data-position="{{ ($work_idx % 2 === 0) ? 'left' : 'right' }}" data-link="{{ get_permalink() }}" data-work-item data-appear-offset="0.2">
-
+                            <?php $image = get_field('thumbnail_image') ? get_field('thumbnail_image') : get_field('main_image') ?>
+                            <?php $case_image = get_field('hero_section_image') ? get_field('hero_section_image') : get_field('main_image') ?>
+                            <div class="img-box" data-image="{{ helper::imageURL($case_image, 'full') }}">
+                                {{ helper::imageDiv($image, 'full', ['class' => 'inner-content']) }}
+                            </div>
                             @if(get_field('main_image') || get_field('hero_section_image') || get_field('featured_project_video'))
                                 @if(get_field('featured_project_video'))
                                     <div class="featured-project work-video-wrap ajax-preload-assets">
@@ -96,7 +73,7 @@
                                     </div>
                                 @else
                                     <div class="featured-project img" data-image="{{ helper::imageURL(get_field('main_image'), 'full') }}">
-                                        <div class="bg-img" style='background-image: url({{ helper::imageURL(get_field('main_image'), 'full') }});'></div>
+                                        <div class="bg-img" style='background-image: url({{ helper::imageURL(get_field("main_image"), "full") }});'></div>
                                     </div>
                                 @endif
                             @endif

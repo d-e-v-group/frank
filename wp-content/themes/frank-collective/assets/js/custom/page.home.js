@@ -78,7 +78,7 @@ $(document).ready(function() {
 // if mobile, show mobile versions of slider img/video from CMS
 // show mobile img/vid div if .nav-opener display=block
 function loadSlideAssets() {
-    console.log('load slide assets');
+
     var mAssets = document.querySelectorAll('.mob-asset');
     var dAssets = document.querySelectorAll('.dt-asset');
 
