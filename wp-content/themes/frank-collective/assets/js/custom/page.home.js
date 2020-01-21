@@ -84,7 +84,7 @@ function loadSlideAssets() {
 
     if ($('.nav-opener').css('display') == 'block') {
         dAssets.forEach(asset => {
-            //asset.style.display = 'none';
+            asset.style.display = 'none';
             asset.setAttribute('src', '');
         });
 
@@ -95,7 +95,7 @@ function loadSlideAssets() {
     } else {
 
         mAssets.forEach(asset => {
-            //asset.style.display = 'none';
+            asset.style.display = 'none';
             asset.setAttribute('src', '');
         });
 

@@ -42,6 +42,7 @@
         width: 50%;
         flex-direction: column;
         justify-content: flex-start;
+        margin-bottom: 50px;
         @include media('<=tablet') {
             width: 100%;
         }
@@ -55,14 +56,8 @@
         }
     }
     .work {
-        // display: flex;
-        padding-top: 20px;
-        @include media('<desktop') {
-            // align-items: center;
-        }
         @include media('<=tablet') {
             position: relative;
-            // flex-flow: column;
             padding-top: 0;
         }
         @include media('>tablet') {
@@ -84,8 +79,6 @@
             @include media('>tablet') {}
         }
         .desc {
-            // width: 330px;
-            // padding: 51px 20px 13px 0;
             order: 0;
             @include media('>tablet') {
                 display: flex;
@@ -128,10 +121,14 @@
                 &.work-cat {
                     font-weight: 800;
                     line-height: 1;
+                    @include media('<=tablet') {
+                        margin-bottom: 5px;
+                    }
                 }
                 @include media('<=tablet') {
                     font-size: 20px;
                     margin-bottom: 0;
+                    line-height: 1.1;
                 }
             }
             h2 {
@@ -226,7 +223,7 @@
             cursor: pointer;
             @include aspect-ratio-const(970, 580);
             @include media('<=tablet') {
-                margin: 0 0 34px;
+                margin-bottom: 10px;
                 order: 1;
             }
             &:before {
@@ -702,5 +699,5 @@
     cursor: pointer;
     text-decoration: underline;
     padding: 0 1rem;
-    font-size: 14px;
+    font-size: 18px;
 }

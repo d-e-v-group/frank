@@ -12,8 +12,8 @@
                     <div class="grid">
                         <div class="row filter-toggles">
                             <h5 class="col-xs-5 col-md-3 col-lg-3 col filter-drop-service">Service</h5>
-                            <h5 class="col-xs-5 col-md-3 col-lg-7 col filter-drop-industry">Industry</h5>
-                            <div class="col-xs-2 col clear-filters" style="display:none;"><span>Clear Filters</span></div>
+                            <h5 class="col-xs-5 col-md-3 col-lg-8 col filter-drop-industry">Industry</h5>
+                            <div class="col-xs-2 col-lg-1 col clear-filters" style="display:none;"><span>Clear Filters</span></div>
                         </div>
                         @if(!empty(get_terms('service')))
                         <div class="row filter-wrap-service">

@@ -36,10 +36,7 @@
         }
     }
     .link-u {
-        font-size: 14px;
-        @include media('<tablet') {
-            font-size: 18px;
-        }
+        font-size: 18px;
     }
     a {
         font-size: 20px;
@@ -61,10 +58,12 @@
         }
         .bg-img {
             position: relative;
-            padding-bottom: 50%;
-            background-position: 50% 50%;
-            right: auto;
-            bottom: auto;
+            margin-bottom: 15px;
+            cursor: pointer;
+            @include aspect-ratio-const(970, 580);
+            @include media('<=tablet') {
+                margin-bottom: 10px;
+            }
         }
         h2 {
             font: 400 36px/1 $messina;
@@ -77,6 +76,17 @@
             height: 100%;
             &:hover {
                 text-decoration: none;
+            }
+        }
+        .desc {
+            h5 {
+                color: $black;
+                margin: 0;
+                font-size: 20px;
+                &.work-cat {
+                    font-weight: 800;
+                    line-height: 1;
+                }
             }
         }
     }
@@ -246,7 +256,11 @@
         }
     }
     .logo {
-        @include media('<tablet') {}
+        @include media('<tablet') {
+            svg {
+                width: 80px;
+            }
+        }
     }
     .copyright {
         font-size: 14px;

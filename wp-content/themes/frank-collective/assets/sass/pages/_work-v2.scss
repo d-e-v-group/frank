@@ -1,11 +1,11 @@
 #all-work-v2 {
     #work-filter-section {
         background-color: $black;
-        padding: 150px 0 100px 0;
-        margin-bottom: 50px;
+        padding: 150px 0 130px 0;
+        margin-bottom: 10px;
         .filter-drop {
             @include media('>=tablet') {
-                padding: 0 2rem;
+                padding: 0 1rem;
             }
             @include media('<tablet') {
                 padding: 0 1.5rem;
@@ -30,6 +30,7 @@
             color: $white;
             opacity: 0.5;
             border-bottom: 1px solid transparent;
+            font-size: 18px;
             &.active {
                 opacity: 1;
                 border-bottom: 1px solid white;
@@ -42,7 +43,7 @@
     .clear-filters {
         color: $white;
         opacity: .5;
-        font-size: 15px;
+        font-size: 14px;
         cursor: pointer;
         span {
             @include media('<tablet') {
@@ -73,7 +74,7 @@
         }
     }
     .work-list {
-        margin-top: -150px;
+        margin-top: -110px;
         .work {
             .work-video-wrap {
                 max-width: unset;

@@ -72,7 +72,7 @@ function custom_fetch_works()
         $posts = $query->posts;
         if($posts){
             foreach($posts as $key => $post) {
-                $page .= '<div class="col-sm-4">';
+                $page .= '<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">';
                 $page .= '<div data-link="'. get_permalink($post->ID) .'" class="media grid-flex work-item ajax-load is-appeared" data-appear-block>';
 	            $page .= '<div class="col-sm-12">';
 
