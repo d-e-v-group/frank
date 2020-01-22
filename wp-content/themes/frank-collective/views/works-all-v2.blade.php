@@ -147,7 +147,7 @@
                 <div class="full-btn" data-loadmore-works>
                     <div class="grid">
                         <div class="col-sm-6 col-sm-offset-3" data-appear-text>
-                            <a href="#" class="link-more" data-load-more="work">View More Work</a>
+                            <a href="#" id="load-more-work" class="link-more" data-load-more="work">View More Work</a>
                         </div>
                     </div>
                 </div>

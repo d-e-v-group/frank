@@ -32,7 +32,7 @@ frank.ani_works_2_init = function(root) {
         works: root.find('.work-list .work-item'),
         worksLeft: root.find('.work-list .work-item.position-left'),
         worksRight: root.find('.work-list .work-item.position-right'),
-        controller: new ScrollMagic.Controller(),
+       // controller: new ScrollMagic.Controller(),
         workSection: root.find('.work-section'),
         animatedBackground: root.find('.work-animated-background'),
         onResize: function(e) {
