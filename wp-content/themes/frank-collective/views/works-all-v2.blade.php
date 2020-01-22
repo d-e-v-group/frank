@@ -61,22 +61,22 @@
                             <div class="work view-case-study" data-position="{{ ($work_idx % 2 === 0) ? 'left' : 'right' }}" data-link="{{ get_permalink() }}" data-work-item data-appear-offset="0.2">
                             <?php $image = get_field('thumbnail_image') ? get_field('thumbnail_image') : get_field('main_image') ?>
                             <?php $case_image = get_field('hero_section_image') ? get_field('hero_section_image') : get_field('main_image') ?>
-                            <div class="img-box" data-image="{{ helper::imageURL($case_image, 'full') }}">
-                                {{ helper::imageDiv($image, 'full', ['class' => 'inner-content']) }}
-                            </div>
-                            @if(get_field('main_image') || get_field('hero_section_image') || get_field('featured_project_video'))
-                                @if(get_field('featured_project_video'))
-                                    <div class="featured-project work-video-wrap ajax-preload-assets">
-                                        <video autoplay muted loop playsinline class="work-video">
-                                            <source src="{{ get_field('featured_project_video') }}" type="video/mp4">
-                                        </video>
-                                    </div>
-                                @else
-                                    <div class="featured-project img" data-image="{{ helper::imageURL(get_field('main_image'), 'full') }}">
-                                        <div class="bg-img" style='background-image: url({{ helper::imageURL(get_field("main_image"), "full") }});'></div>
-                                    </div>
+                            <div class="img-box inner-content" data-image="{{ helper::imageURL($case_image, 'full') }}">
+                            
+                                @if(get_field('main_image') || get_field('hero_section_image') || get_field('featured_project_video'))
+                                    @if(get_field('featured_project_video'))
+                                        <div class="featured-project work-video-wrap ajax-preload-assets">
+                                            <video autoplay muted loop playsinline class="work-video">
+                                                <source src="{{ get_field('featured_project_video') }}" type="video/mp4">
+                                            </video>
+                                        </div>
+                                    @else
+                                        <div class="featured-project img" data-image="{{ helper::imageURL(get_field('main_image'), 'full') }}">
+                                            <div class="bg-img" style='background-image: url({{ helper::imageURL(get_field("main_image"), "full") }});'></div>
+                                        </div>
+                                    @endif
                                 @endif
-                            @endif
+                            </div>
                             <div class="desc">
                                 <h5 class="work-cat">{{ get_field('brand_name') }}</h5>
                                 @if(get_field('tagline') || get_field('tagline_short'))
