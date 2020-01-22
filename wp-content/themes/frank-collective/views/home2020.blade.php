@@ -11,6 +11,7 @@
                 $tagline = get_sub_field('client_tagline');
                 $textColor = get_sub_field('text_color');
                 $textShadow = get_sub_field('text_shadow');
+                $clientLink = get_sub_field('link');
             ?>
             <?php while( have_rows('desktop_asset_type') ): the_row(); ?>
                 <?php
@@ -26,17 +27,19 @@
             <?php endwhile; ?>
             <div class="hp-slide">
                 <!-- Show video or image, on desktop or mobile, per CMS -->
-                @if($slideDeskImg)
-                    <img class="dt-asset" src="" data-desktop-asset={{ $slideDeskImg }} />
-                @elseif ($slideDeskVid)
-                    <video id="home-page-video" autoplay playsinline muted loop class="video dt-asset" src="" data-desktop-asset={{ $slideDeskVid }}></video>    
-                @endif
-                @if($slideMobileImg)
-                    <img class="mob-asset" src="" data-mobile-asset={{ $slideMobileImg }} />
-                @elseif ($slideMobileVid)
-                    <video id="home-page-video" autoplay playsinline muted loop class="video mob-asset" src="" data-mobile-asset={{ $slideMobileVid }} >
-                    </video>    
-                @endif
+                <a href="{{$clientLink}}">
+                    @if($slideDeskImg)
+                        <img class="dt-asset" src="" data-desktop-asset={{ $slideDeskImg }} />
+                    @elseif ($slideDeskVid)
+                        <video id="home-page-video" autoplay playsinline muted loop class="video dt-asset" src="" data-desktop-asset={{ $slideDeskVid }}></video>    
+                    @endif
+                    @if($slideMobileImg)
+                        <img class="mob-asset" src="" data-mobile-asset={{ $slideMobileImg }} />
+                    @elseif ($slideMobileVid)
+                        <video id="home-page-video" autoplay playsinline muted loop class="video mob-asset" src="" data-mobile-asset={{ $slideMobileVid }} >
+                        </video>    
+                    @endif
+                </a>                
                 
                 <div class="hp-slide-text-{{$textColor}} <?php if ($textShadow == true)  echo 'hp-slide-text-shadow' ?>">
                     <h2><?php echo $client; ?> </h2>

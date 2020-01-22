@@ -2,7 +2,10 @@
     #work-filter-section {
         background-color: $black;
         padding: 150px 0 130px 0;
-        margin-bottom: 10px;
+        margin-bottom: 70px;
+        @include media('<tablet') {
+            padding-bottom: 60px;
+        }
         .filter-drop {
             @include media('>=tablet') {
                 padding: 0 1rem;
@@ -39,6 +42,9 @@
     }
     #work-display {
         margin-top: -100px;
+        @include media('<tablet') {
+            margin-top: -70px;
+        }
     }
     .clear-filters {
         color: $white;

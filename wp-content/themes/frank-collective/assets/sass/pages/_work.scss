@@ -545,7 +545,7 @@
         }
     }
     h5 {
-        margin-bottom: 17px;
+        margin-bottom: 36px;
         text-transform: uppercase;
         letter-spacing: 1.8px;
         @include media('<tablet') {
@@ -559,7 +559,7 @@
             column-count: 2;
         }
         li {
-            margin-bottom: 8px;
+            margin-bottom: 13px;
             @include media('<tablet') {
                 margin-bottom: 12px;
             }

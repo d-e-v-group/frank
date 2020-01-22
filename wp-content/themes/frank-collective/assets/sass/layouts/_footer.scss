@@ -47,7 +47,7 @@
     &.case-cta {
         background: none;
         color: $white;
-        padding-top: 32px;
+        padding: 0;
         @include media('>=tablet') {
             padding-bottom: 20px;
         }
@@ -63,6 +63,12 @@
             @include aspect-ratio-const(970, 580);
             @include media('<=tablet') {
                 margin-bottom: 10px;
+            }
+            .image.inner-content {
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                z-index: -1;
             }
         }
         h2 {

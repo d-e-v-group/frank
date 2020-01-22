@@ -36,7 +36,7 @@ $('.hp-slider').slick({
     adaptiveHeight: false,
     infinite: true,
     slidesToShow: 1,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 5000,
     arrows: true,
     dots: true,
@@ -48,6 +48,8 @@ $('.hp-slider').slick({
                 $('.slick-dots').ready(function() {
                     document.querySelector('.slick-dots').classList.add('white');
                     document.querySelector('header').classList.add('hp-white-text');
+                    document.querySelector('.slick-next').classList.add('white');
+                    document.querySelector('.slick-prev').classList.add('white');
                 });
             }
         }
@@ -62,10 +64,14 @@ $('.hp-slider').on('beforeChange', function(event, slick, currentSlide, nextSlid
     for (var i = 0; i < nextSlide.children.length; i++) {
         if (!nextSlide.children[i].classList.contains('hp-slide-text-white')) {
             document.querySelector('.slick-dots').classList.remove('white');
+            document.querySelector('.slick-next').classList.remove('white');
+            document.querySelector('.slick-prev').classList.remove('white');
             document.querySelector('header').classList.remove('hp-white-text');
 
         } else {
             document.querySelector('.slick-dots').classList.add('white');
+            document.querySelector('.slick-next').classList.add('white');
+            document.querySelector('.slick-prev').classList.add('white');
             document.querySelector('header').classList.add('hp-white-text');
         }
     }
