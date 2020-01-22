@@ -83,9 +83,16 @@
                 color: $black;
                 margin: 0;
                 font-size: 20px;
+                line-height: 1.1;
+                @include media('<tablet') {
+                    font-size: 16px;
+                }
                 &.work-cat {
                     font-weight: 800;
                     line-height: 1;
+                    @include media('<tablet') {
+                        margin-bottom: 5px;
+                    }
                 }
             }
         }

@@ -6,7 +6,7 @@
         @if(get_field('next_case_study') || get_field('prev_case_study') )
             <div class="grid-flex"  data-appear-block>
                 @if(get_field('prev_case_study'))
-                <div class="work-wrap col-md-6 case-col">
+                <div class="work-wrap col-xs-6 col-md-6 case-col">
                     <div class="cta case-cta">
 	                    <?php
 	                    $options = array(
@@ -35,7 +35,7 @@
                 @endif
 
                 @if(get_field('next_case_study'))
-                    <div class="work-wrap col-md-6">
+                    <div class="work-wrap col-xs-6 col-md-6">
                         <div class="cta case-cta">
                             <?php
                             $options = array(
