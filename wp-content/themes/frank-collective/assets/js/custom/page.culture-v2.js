@@ -2,7 +2,7 @@ frank.ani_culture_2_init = function (root) {
   var self = this;
   this.pages['culture'] = {
       root: root,
-      controller: new ScrollMagic.Controller(),
+      // controller: new ScrollMagic.Controller(),
   };
 
 
@@ -12,8 +12,23 @@ frank.ani_culture_2_init = function (root) {
 
   $(document).ready(function(){
 
-    var rellax = new Rellax('.rellax');
+    // //var rellax = new Rellax('.rellax');
+    // var controller = new ScrollMagic.Controller();
+    // var scene = new ScrollMagic.Scene()
+    // .setTween(".culture-message", {y: "20%", ease: Linear.easeNone})      
+    // .addTo(controller);
 
+    var cultureMainHeight = $('.culture-images').height();
+    //$('.culture-image-data').css('height', cultureMainHeight);
+    $('.culture-image-data').clone().appendTo(".culture-images");
+
+    TweenMax.to( $(".culture-images"), 4, 
+        {
+         y: -( cultureMainHeight ), 
+         ease: Linear.easeNone,
+         repeat: -1
+        }
+    );    
     
     $('.culture-looper').each(function(){
       var container = $(this);

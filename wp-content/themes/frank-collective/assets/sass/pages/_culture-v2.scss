@@ -62,12 +62,25 @@ $imgArea: 400px;
     .jobs-link {
       color: $white;
     }
+    .culture-image-data {
+      position: relative;
+      width: 100%;
+      //height: 100vh;
+      //background-color: navy;
+      &:nth-of-type(2){
+        //background-color: purple;
+      }
+    }
     .culture-images {
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       width: 100%;
+    }
+    .culture-item {
+      max-width: 300px;
+      margin: 10% 20px;
     }
     .culture-image {
       position: absolute;
