@@ -65,11 +65,32 @@ $imgArea: 400px;
     .culture-image-data {
       position: relative;
       width: 100%;
-      //height: 100vh;
-      //background-color: navy;
-      &:nth-of-type(2){
-        //background-color: purple;
+
+      .column-1, .column-2 {
+        width: 50%;
+        float: left;
+        // background-color: purple;
+        .inner-col {
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: column;
+          &:nth-last-of-type(2) {
+            //background-color: seagreen;
+          }
+        }
       }
+      .column-2 {
+        //background-color: rebeccapurple;
+        text-align: right;
+        .inner-col {
+          flex-wrap: wrap-reverse;
+
+          &:nth-last-of-type(2) {
+            //background-color: orangered;
+          }
+        }        
+      }
+
     }
     .culture-images {
       position: absolute;
@@ -79,8 +100,11 @@ $imgArea: 400px;
       width: 100%;
     }
     .culture-item {
-      max-width: 300px;
+      max-height: 400px;
+      width: auto;
       margin: 10% 20px;
+      display: block;
+      align-self: baseline;
     }
     .culture-image {
       position: absolute;

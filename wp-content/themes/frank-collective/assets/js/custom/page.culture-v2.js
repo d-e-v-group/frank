@@ -12,24 +12,34 @@ frank.ani_culture_2_init = function (root) {
 
   $(document).ready(function(){
 
-    // //var rellax = new Rellax('.rellax');
-    // var controller = new ScrollMagic.Controller();
-    // var scene = new ScrollMagic.Scene()
-    // .setTween(".culture-message", {y: "20%", ease: Linear.easeNone})      
-    // .addTo(controller);
 
-    var cultureMainHeight = $('.culture-images').height();
-    //$('.culture-image-data').css('height', cultureMainHeight);
-    $('.culture-image-data').clone().appendTo(".culture-images");
+    var col1Height = $('.column-1').height();
+    var col2Height = $('.column-2').height();
 
-    TweenMax.to( $(".culture-images"), 4, 
+
+    $('.column-1-inner').clone().appendTo(".column-1");
+    TweenMax.to( $(".column-1"), 60, 
         {
-         y: -( cultureMainHeight ), 
+         y: -( col1Height ), 
          ease: Linear.easeNone,
          repeat: -1
         }
     );    
     
+
+
+    $('.column-2-inner').clone().appendTo(".column-2");
+    TweenMax.to( $(".column-2"), 100, 
+        {
+         y: -( col2Height ), 
+         ease: Linear.easeNone,
+         repeat: -1
+        }
+    );  
+
+
+
+
     $('.culture-looper').each(function(){
       var container = $(this);
       var vid_holder = container.find('.vid-holder');
