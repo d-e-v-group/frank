@@ -1,3 +1,6 @@
+
+
+
 jQuery(document).ready(function($) {
     initMobileNav();
     initBannerImg();
@@ -10,6 +13,20 @@ jQuery(document).ready(function($) {
 
 function initFilter($) {
     if ($('[data-filter-work]').length) {
+        var controller = new ScrollMagic.Controller();
+        var scene = new ScrollMagic.Scene({
+            triggerElement: '#load-more-work', // starting scene, when reaching this element
+            triggerHook: 'onEnter',
+            
+        })
+        .on('enter', function (event) {
+            if (event.scrollDirection == 'FORWARD') {
+                loadMoreWorks();
+            }
+        })        
+        .addTo(controller);
+
+
         var
             filterContentList = $('[data-filter-works-list]'),
             filterDroper = $('[data-filter-work-drop]'),
@@ -52,9 +69,13 @@ function initFilter($) {
 
         loadMore.on('click', function(e) {
             e.preventDefault();
-            var currentPage = filterContentList.attr('data-page') ? filterContentList.attr('data-page') : 1;
-            updateFilter(parseInt(currentPage) + 1);
+            loadMoreWorks();
+            console.log('click load more');
         });
+
+
+        
+
 
         filterDroper.on('click', '[data-filter-val]', function(e) {
             e.preventDefault();
@@ -63,7 +84,11 @@ function initFilter($) {
             updateFilter(1);
         });
 
-
+        function loadMoreWorks(){
+            var currentPage = filterContentList.attr('data-page') ? filterContentList.attr('data-page') : 1;
+            updateFilter(parseInt(currentPage) + 1);  
+            console.log('load more work');          
+        }
         function updateFilter(_page) {
             var selectedItems = [];
             var selectedFilterServices = [];

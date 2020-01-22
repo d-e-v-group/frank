@@ -160,10 +160,21 @@ frank.animations.onResize = function() {
     frank.animations.calcScrollNavCase();
 };
 frank.animations.update = function() {
+
     frank.animations.ticking = false;
     var scrollTop = frank.animations.latestKnownScrollY;
     var scrollBottom = frank.animations.latestKnownScrollY + frank.cache.clientHeight;
     var scrollMiddle = frank.animations.latestKnownScrollY + (frank.cache.clientHeight / 2);
+
+
+    if (scrollTop < 300) {
+        frank.cache.$header.addClass('on-top');
+    } else {
+        if (frank.cache.$header.hasClass('on-top')) {
+            frank.cache.$header.removeClass('on-top')
+        }
+    }
+
     if (typeof frank.animations.progressNav !== 'undefined') {
         if (typeof frank.animations.progressNav.sections !== 'undefined') {
             var currentSection = 0;
@@ -194,15 +205,18 @@ frank.animations.update = function() {
         if (typeof frank.animations.navDark.sections !== 'undefined') {
             for (var i = 0; i < frank.animations.navDark.sections.length; i++) {
                 if (scrollTop >= frank.animations.navDark.sectionsBox[i].top && scrollTop <= frank.animations.navDark.sectionsBox[i].bottom) { // +30
-                    frank.animations.navDark.nav.removeClass('dark')
+                    //frank.animations.navDark.nav.removeClass('dark')
+                    frank.cache.$header.removeClass('dark')
                     if (frank.animations.navDark.nav.data('navDark') === 'main') {
-                        frank.animations.navDark.nav.addClass('light-main')
+                        //frank.animations.navDark.nav.addClass('light-main')
+                        frank.cache.$header.addClass('light-main')
                     }
                     break;
                 } else {
                     frank.animations.navDark.nav.addClass('dark')
                     if (frank.animations.navDark.nav.data('navDark') === 'main') {
-                        frank.animations.navDark.nav.removeClass('light-main')
+                        //frank.animations.navDark.nav.removeClass('light-main')
+                        frank.cache.$header.removeClass('light-main')
                     }
                 }
             }

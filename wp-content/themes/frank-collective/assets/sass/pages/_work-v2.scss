@@ -17,6 +17,7 @@
     }
     .filter-toggles {
         h5 {
+            cursor: pointer;
             &:before {
                 content: '+';
             }
