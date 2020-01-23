@@ -574,7 +574,7 @@
         &-industry,
         &-service {
             margin-top: 40px;
-            margin-bottom: 55px;
+            margin-bottom: 10px;
         }
     }
 }
@@ -602,15 +602,17 @@
 
 .media-container .work-item.media {
     @include media('<tablet') {
-        margin-bottom: 30px;
+        margin-bottom: 20px;
         padding-bottom: 0;
     }
     &:before {
         content: unset;
     }
     .text-content {
+        flex-direction: column;
+        align-items: flex-start;
         @include media('<tablet') {
-            padding-top: 5px;
+            padding-top: 0;
             h5 {
                 font-size: 16px;
                 line-height: 1.3;
@@ -651,6 +653,12 @@
     .work-item {
         &.hidden {
             display: none;
+        }
+        &:hover {
+            .work-cat,
+            .tagline {
+                color: $blue;
+            }
         }
         &.media {
             .text-content {

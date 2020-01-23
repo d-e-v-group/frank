@@ -1,18 +1,12 @@
 #all-work-v2 {
     #work-filter-section {
         background-color: $black;
-        padding: 150px 0 130px 0;
-        margin-bottom: 70px;
+        padding: 150px 0 180px 0;
         @include media('<tablet') {
             padding-bottom: 60px;
         }
         .filter-drop {
-            @include media('>=tablet') {
-                padding: 0 2rem;
-            }
-            @include media('<tablet') {
-                padding: 0 1rem;
-            }
+            padding: 0 1rem;
         }
     }
     .filter-toggles {
@@ -45,7 +39,7 @@
         }
     }
     #work-display {
-        margin-top: -190px;
+        margin-top: -120px;
         @include media('<tablet') {
             margin-top: -70px;
         }
@@ -93,7 +87,7 @@
         }
         &.container {
             @include media('>=tablet') {
-                padding: 0 .5rem;
+                padding: 0;
             }
         }
     }
