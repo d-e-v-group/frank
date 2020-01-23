@@ -10,7 +10,7 @@
     z-index: 9;
     //@include media('>=tablet') {
     @include media('>=tablet') {
-        transition: opacity 1.2s $easeAppearIn, transform 1s $easeAppearIn, background .2s ease-out;
+        transition: opacity 1.2s $easeAppearIn, transform 1s $easeAppearIn;
         will-change: transform, opacity;
     }
     &.nav-hidden {
@@ -28,17 +28,18 @@
         //position: fixed;
         opacity: 0;
         transform: translateY(-100%);
-        background-color: $white;
+
+    }
+    .header-sticky.header-visible & {
+        transition: opacity 1.2s $easeAppearIn, transform 1s $easeAppearIn, background 0.0001;
+        opacity: 1;
+        transform: none;
         &:not(.on-top) {
+            background-color: $white;
             &.light-main {
                 background-color: $black;
             }
-        }
-    }
-    .header-sticky.header-visible & {
-        transition: opacity 1.2s $easeAppearIn, transform 1s $easeAppearIn, background .2s ease-out;
-        opacity: 1;
-        transform: none;
+        }        
     }
 
     //}

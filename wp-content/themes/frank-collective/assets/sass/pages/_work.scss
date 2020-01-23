@@ -692,12 +692,15 @@
 }
 
 #scrollToTop {
-    color: $blue;
-    display: flex;
-    justify-content: flex-end;
     width: 100%;
-    cursor: pointer;
-    text-decoration: underline;
     padding: 0 1rem;
     font-size: 18px;
+    position: fixed;
+    bottom: 40px;
+    text-align: right;
+    a {
+        color: $blue;
+        cursor: pointer;
+        text-decoration: underline;
+    }
 }

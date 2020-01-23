@@ -233,14 +233,14 @@ frank.animations.update = function() {
             }
         }
     }
-
+    console.log('support');
     /* Appearing Animations*/
     if (!frank.isPageTransition) {
         if (typeof frank.animations.appearingWork !== 'undefined' && frank.animations.appearingWork.length) {
             frank.animations.appearingWork.not('.is-appeared').each(function(index, item) {
                 var el = $(item),
                     appearOffset = (typeof el.data('appearOffset') !== 'undefined') ? el.data('appearOffset') : 0.05;
-
+                    console.log('work appear');
                 if (el.isInViewportWithOffset(scrollTop, scrollBottom, appearOffset)) {
                     el.addClass('is-appeared');
                 }

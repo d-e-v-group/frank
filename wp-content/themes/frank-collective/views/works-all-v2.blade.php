@@ -58,7 +58,7 @@
                         ?>
                     <div class="work-wrap col-md-6">
                         <div class="work-item ajax-load position-{{ ($work_idx % 2 === 0) ? 'left' : 'right' }}" data-link="{{ get_permalink() }}" data-background-color="{{ (get_field('theme_color')) ? get_field('theme_color') : '#ffffff' }}">
-                            <div class="work view-case-study" data-position="{{ ($work_idx % 2 === 0) ? 'left' : 'right' }}" data-link="{{ get_permalink() }}" data-work-item data-appear-offset="0.2">
+                            <div class="work view-case-study" data-position="{{ ($work_idx % 2 === 0) ? 'left' : 'right' }}" data-link="{{ get_permalink() }}" data-appear-block data-appear-offset="0.2">
                             <?php $image = get_field('thumbnail_image') ? get_field('thumbnail_image') : get_field('main_image') ?>
                             <?php $case_image = get_field('hero_section_image') ? get_field('hero_section_image') : get_field('main_image') ?>
                             <div class="img-box inner-content" data-image="{{ helper::imageURL($case_image, 'full') }}">
@@ -110,7 +110,7 @@
 
                 
 
-                    <div class="media-group works-all container" data-load-more-list="work" data-filter-works-list>
+                    <div class=" works-all container" data-filter-works-list>
                         <?php
                         while ( $query_works->have_posts() ) : $query_works->the_post();
                         ?>
@@ -147,14 +147,18 @@
                 <div class="full-btn" data-loadmore-works>
                     <div class="grid">
                         <div class="col-sm-6 col-sm-offset-3" data-appear-text>
-                            <a href="#" id="load-more-work" class="link-more" data-load-more="work">View More Work</a>
+                            <a href="#" id="load-more-work" class="link-more" data-load-more="work"></a>
                         </div>
                     </div>
                 </div>
             </section>    
             </div>
-            <div class="container">
-                <div id="scrollToTop">Back to Top</div>    
+
+                <div id="scrollToTop">
+                    <div class="container">
+                        <a>Back to Top</a>
+                    </div>
+                </div> 
             </div>
             @include('partials/cta/contact')
 
