@@ -88,21 +88,9 @@ function custom_fetch_works()
                 $page .= '<div class="grid-flex">';
                 $page .= '<div class="col-sm-12 title-col">';
                 $page .= '<h4>'. get_field('brand_name', $post->ID) .'</h4>';
+                $page .= '<h5>'. get_field('tagline_short', $post->ID) .'</h5>';
                 $page .= '</div>';
-                $term_obj_list = get_the_terms( $post->ID, 'service' );
-                if(!empty($term_obj_list)){
-                    $services = array_chunk($term_obj_list, 3);
-                    $page .= '<div class="col-sm-12">';
-                    $page .= '<h5>'. get_field('tagline_short', $post->ID) .'</h5>';
-                    /*
-                    $page .= '<ul class="service-list">';
-                    foreach($term_obj_list as $item){
-                        $page .= '<li>'. $item->name .'</li>';
-                    }
-                    $page .= '</ul>';
-                    */
-                    $page .= '</div>';
-                }
+
                 $page .= '</div>';
                 $page .= '</div>';
                 $page .= '</div>';
