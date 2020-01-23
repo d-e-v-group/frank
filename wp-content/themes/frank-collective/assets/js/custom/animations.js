@@ -233,14 +233,13 @@ frank.animations.update = function() {
             }
         }
     }
-    console.log('support');
+
     /* Appearing Animations*/
     if (!frank.isPageTransition) {
         if (typeof frank.animations.appearingWork !== 'undefined' && frank.animations.appearingWork.length) {
             frank.animations.appearingWork.not('.is-appeared').each(function(index, item) {
                 var el = $(item),
                     appearOffset = (typeof el.data('appearOffset') !== 'undefined') ? el.data('appearOffset') : 0.05;
-                    console.log('work appear');
                 if (el.isInViewportWithOffset(scrollTop, scrollBottom, appearOffset)) {
                     el.addClass('is-appeared');
                 }
@@ -326,7 +325,6 @@ frank.preloadImages = function() {
 
 frank.onAjaxPageLoadClick = function(e) {
     e.preventDefault();
-    console.log('this is the page transition');
     if (frank.isPageTransition) {
         return false;
     }
@@ -342,7 +340,6 @@ frank.onAjaxPageLoadClick = function(e) {
     if (typeof frank['ani_' + transitionOut] === 'function') {
         Promise.all([frank['ani_' + transitionOut](el), frank.ajaxPageLoad(link)]).then(function() {
             clearTimeout(frank.loadFallback);
-            console.log('animate the thing');
             window.scrollTo(0, 0);
             var
                 $dom = $(frank.loadedDom),
