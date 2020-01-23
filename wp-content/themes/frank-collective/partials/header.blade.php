@@ -1,4 +1,4 @@
-<header id="header" class="nav-fixed {{ (isset($headerCaseStudy)) ? 'nav-hidden' : false }}">
+<header id="header" class="nav-fixed on-top {{ (isset($headerCaseStudy)) ? 'nav-hidden' : false }}">
     <div class="container" data-nav-dark="main">
         <a href="/" class="logo">
             <svg width="200" height="22" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 200 22" style="enable-background:new 0 0 200 22;" xml:space="preserve">

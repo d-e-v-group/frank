@@ -29,10 +29,11 @@
         opacity: 0;
         transform: translateY(-100%);
         background-color: $white;
-        &.light-main {
-            background-color: $black;
+        &:not(.on-top) {
+            &.light-main {
+                background-color: $black;
+            }
         }
-
     }
     .header-sticky.header-visible & {
         transition: opacity 1.2s $easeAppearIn, transform 1s $easeAppearIn, background .2s ease-out;

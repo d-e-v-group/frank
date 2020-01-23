@@ -166,8 +166,7 @@ frank.animations.update = function() {
     var scrollBottom = frank.animations.latestKnownScrollY + frank.cache.clientHeight;
     var scrollMiddle = frank.animations.latestKnownScrollY + (frank.cache.clientHeight / 2);
 
-
-    if (scrollTop < 300) {
+    if (scrollTop < $(window).height()) {
         frank.cache.$header.addClass('on-top');
     } else {
         if (frank.cache.$header.hasClass('on-top')) {

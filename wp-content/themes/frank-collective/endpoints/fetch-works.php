@@ -13,7 +13,7 @@ add_action( 'wp_ajax_nopriv_' . $action_param, 'custom_fetch_works' );
 function custom_fetch_works()
 {   
     $page = 1;
-    $post_per_page = 10;
+    $post_per_page = 9;
 
 	if( $_REQUEST['industry'] ) {
 		$industry_terms = array();
