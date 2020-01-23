@@ -27,13 +27,13 @@
         transition: opacity 1.2s $easeAppearIn, transform 1s $easeAppearIn, background .2s ease-out;
         //position: fixed;
         opacity: 0;
-        transform: translateY(-100%);
+        transform: translateY(-100%), translateZ(0);
 
     }
     .header-sticky.header-visible & {
         transition: opacity 1.2s $easeAppearIn, transform 1s $easeAppearIn, background 0.0001;
         opacity: 1;
-        transform: none;
+        transform: translateY(0), translateZ(0);
         &:not(.on-top) {
             background-color: $white;
             &.light-main {
@@ -59,7 +59,7 @@
             }
         }
         .nav-pannel .nav li a:after {
-            border-top-color: $white;
+            // border-top-color: $white;
         }
         .nav-opener:before,
         .nav-opener:after {
@@ -154,7 +154,7 @@
     }
     .nav {
         @extend %listreset;
-        font-size: 20px;
+        font-size: 18px;
         @include media('<tablet') {
             padding: 30px;
             text-align: center;
@@ -257,7 +257,7 @@
             a {
                 color: $white;
                 &:after {
-                    border-top: 1px solid $white;
+                    //border-top: 1px solid $white;
                 }
             }
         }
