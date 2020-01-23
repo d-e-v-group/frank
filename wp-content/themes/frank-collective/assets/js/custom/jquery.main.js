@@ -125,7 +125,7 @@ function initFilter($) {
                 request.industry = selectedFilterIndustry;
             }
 
-            $.get('http://localhost:8888/fc/frank/wordpress/wp-admin/admin-ajax.php',
+            $.get('/wp-admin/admin-ajax.php',
                 request,
                 function(response) {
                     if (response.status === 'success') {
