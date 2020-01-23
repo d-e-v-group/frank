@@ -548,7 +548,7 @@
     }
     .col {
         @include media('<tablet') {
-            margin: 0 0 40px;
+            margin: 0 0 30px;
         }
     }
     h5 {
@@ -575,6 +575,9 @@
         &-service {
             margin-top: 40px;
             margin-bottom: 10px;
+            @include media('<tablet') {
+                margin-top: 10px;
+            }
         }
     }
 }
@@ -607,6 +610,12 @@
     }
     &:before {
         content: unset;
+    }
+    &:hover {
+        .work-cat,
+        .tagline {
+            color: $blue;
+        }
     }
     .text-content {
         flex-direction: column;
@@ -663,6 +672,8 @@
         &.media {
             .text-content {
                 border-top: 0;
+                flex-direction: column;
+                align-items: flex-start;
                 h4 {
                     margin: 0;
                     line-height: 1.2;
