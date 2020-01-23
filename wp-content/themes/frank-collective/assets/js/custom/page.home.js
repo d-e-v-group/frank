@@ -40,6 +40,7 @@ $('.hp-slider').slick({
     autoplaySpeed: 5000,
     arrows: true,
     dots: true,
+    pauseOnHover: false,
     customPaging: function(slick, index) {
         var currSlide = slick.$slides.get(index);
         // add 'white' class to pagination when needed to match slide text choice; add numbers as pagination

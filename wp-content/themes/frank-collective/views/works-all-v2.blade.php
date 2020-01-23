@@ -80,7 +80,7 @@
                             <div class="desc">
                                 <h5 class="work-cat">{{ get_field('brand_name') }}</h5>
                                 @if(get_field('tagline') || get_field('tagline_short'))
-                                    <h5>{{ (get_field('tagline_short')) ? get_field('tagline_short') : get_field('tagline') }}</h5>
+                                    <h5 class="tagline">{{ (get_field('tagline_short')) ? get_field('tagline_short') : get_field('tagline') }}</h5>
                                 @endif
                             </div>
                         </div>
@@ -126,16 +126,10 @@
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="text-content">
-                                            <div class="grid-flex">
-                                                <div class="col-sm-12 title-col">
-                                                    <h4>{{ get_field('brand_name') }}</h4   >
-                                                </div>
-                                                    <div class="col-sm-12">
-                                                        @if(get_field('tagline') || get_field('tagline_short'))
-                                                            <h5>{{ (get_field('tagline_short')) ? get_field('tagline_short') : get_field('tagline') }}</h5>
-                                                        @endif
-                                                    </div>
-                                            </div>
+                                            <h4>{{ get_field('brand_name') }}</h4>
+                                            @if(get_field('tagline') || get_field('tagline_short'))
+                                                <h5 class="tagline">{{ (get_field('tagline_short')) ? get_field('tagline_short') : get_field('tagline') }}</h5>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

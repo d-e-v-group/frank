@@ -39,9 +39,8 @@
             &.light-main {
                 background-color: $black;
             }
-        }        
+        }
     }
-
     //}
     .page-homepage & {
         opacity: 1 !important;
@@ -70,8 +69,10 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 0 2rem;
         @include media('<tablet') {
             display: block;
+            padding: 0 1rem;
         }
     }
     .logo {
@@ -274,7 +275,7 @@
     height: 16px;
     position: absolute;
     top: 23px;
-    right: 14px;
+    right: 20px;
     z-index: 3;
     display: block;
     @include media('>=tablet') {
