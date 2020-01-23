@@ -638,9 +638,7 @@
         float: none !important;
     }
     &.container {
-        @include media('<tablet') {
-            padding: 0;
-        }
+        padding: 0;
     }
     .img-box {
         position: relative;
