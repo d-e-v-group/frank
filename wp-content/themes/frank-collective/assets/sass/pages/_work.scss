@@ -34,7 +34,7 @@
     display: flex;
     flex-wrap: wrap;
     @include media('<=tablet') {
-        padding: 0;
+        padding: 0 .5rem;
     }
     .work-wrap {
         position: relative;
@@ -45,6 +45,7 @@
         margin-bottom: 50px;
         @include media('<=tablet') {
             width: 100%;
+            margin-bottom: 30px;
         }
     }
     .work-item {
@@ -53,6 +54,12 @@
         }
         @include media('<=tablet') {
             height: auto !important;
+        }
+        &:hover {
+            .work-cat,
+            .tagline {
+                color: $blue;
+            }
         }
     }
     .work {
@@ -204,7 +211,7 @@
             margin-bottom: 20px;
             @include media('<=tablet') {
                 order: 1;
-                margin: 0 0 10px;
+                margin: 0 0 12px;
                 min-width: unset;
             }
             .work-video {
@@ -545,7 +552,7 @@
         }
     }
     h5 {
-        margin-bottom: 36px;
+        margin-bottom: 0;
         text-transform: uppercase;
         letter-spacing: 1.8px;
         @include media('<tablet') {
@@ -563,6 +570,11 @@
             @include media('<tablet') {
                 margin-bottom: 12px;
             }
+        }
+        &-industry,
+        &-service {
+            margin-top: 40px;
+            margin-bottom: 55px;
         }
     }
 }
@@ -623,6 +635,9 @@
         position: relative;
         width: 100%;
         @include aspect-ratio(310, 207);
+        @include media('<tablet') {
+            margin-bottom: 10px;
+        }
         &:before {
             @include media('<tablet') {
                 padding-top: 69.612903%;

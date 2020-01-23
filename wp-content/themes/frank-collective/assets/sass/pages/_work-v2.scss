@@ -8,10 +8,10 @@
         }
         .filter-drop {
             @include media('>=tablet') {
-                padding: 0 1rem;
+                padding: 0 2rem;
             }
             @include media('<tablet') {
-                padding: 0 1.5rem;
+                padding: 0 1rem;
             }
         }
     }
@@ -26,6 +26,9 @@
                 &:before {
                     content: '-';
                 }
+            }
+            @include media('<tablet') {
+                padding: 0 .5rem;
             }
         }
     }
@@ -42,7 +45,7 @@
         }
     }
     #work-display {
-        margin-top: -100px;
+        margin-top: -190px;
         @include media('<tablet') {
             margin-top: -70px;
         }
@@ -50,7 +53,7 @@
     .clear-filters {
         color: $white;
         opacity: .5;
-        font-size: 14px;
+        font-size: 13px;
         cursor: pointer;
         span {
             @include media('<tablet') {
@@ -65,9 +68,9 @@
             padding: 6px 6px 7px;
             margin: 0;
             position: absolute;
-            left: -25px;
+            left: -17px;
             font-size: 14px;
-            bottom: 0;
+            bottom: -1px;
             @include media('<tablet') {
                 left: 30px;
                 bottom: -20px;
@@ -86,6 +89,11 @@
             .work-video-wrap {
                 max-width: unset;
                 min-width: unset;
+            }
+        }
+        &.container {
+            @include media('>=tablet') {
+                padding: 0 .5rem;
             }
         }
     }

@@ -332,9 +332,9 @@
     .subtitle {
         font-size: 14px;
         color: #9b9b9b;
-        margin-bottom: 20px;
+        margin-bottom: 60px;
         @include media('<tablet') {
-            margin-bottom: 23px;
+            margin-bottom: 40px;
         }
         a {
             color: #9b9b9b;
