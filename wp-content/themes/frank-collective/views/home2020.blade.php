@@ -15,38 +15,48 @@
             ?>
             <?php while( have_rows('desktop_asset_type') ): the_row(); ?>
                 <?php
+                    $slideDeskAssetType = get_sub_field('desktop_asset');
                     $slideDeskImg = get_sub_field('desktop_slide_image');
                     $slideDeskVid = get_sub_field('desktop_slide_video');
                 ?>
+                
             <?php endwhile; ?>
             <?php while( have_rows('mobile_asset_type') ): the_row(); ?>
                 <?php
+                    $slideMobileAssetType = get_sub_field('mobile_asset');
                     $slideMobileImg = get_sub_field('mobile_slide_image');
                     $slideMobileVid = get_sub_field('mobile_slide_video');
                 ?>
             <?php endwhile; ?>
             <div class="hp-slide">
                 <!-- Show video or image, on desktop or mobile, per CMS -->
+                
                 <a href="{{$clientLink}}">
-                    @if($slideDeskImg)
+                    
+                    @if($slideDeskAssetType == 'image') 
                         <img class="dt-asset" src="" data-desktop-asset={{ $slideDeskImg }} />
-                    @elseif ($slideDeskVid)
+                    @elseif ($slideDeskAssetType == 'video')
                         <video id="home-page-video" autoplay playsinline muted loop class="video dt-asset" src="" data-desktop-asset={{ $slideDeskVid }}></video>    
                     @endif
-                    @if($slideMobileImg)
+
+                    @if($slideMobileAssetType == 'image') 
                         <img class="mob-asset" src="" data-mobile-asset={{ $slideMobileImg }} />
-                    @elseif ($slideMobileVid)
+                    @elseif ($slideMobileAssetType == 'video') 
                         <video id="home-page-video" autoplay playsinline muted loop class="video mob-asset" src="" data-mobile-asset={{ $slideMobileVid }} >
                         </video>    
                     @endif
-                </a>                
-                
-                <div class="hp-slide-text-{{$textColor}} <?php if ($textShadow == true)  echo 'hp-slide-text-shadow' ?>">
-                    <h2><?php echo $client; ?> </h2>
-                    <h3><?php echo $tagline; ?> </h3>
+                </a>
+                <div class="container hp-slide-text-{{$textColor}} <?php if ($textShadow == true)  echo 'hp-slide-text-shadow' ?>">
+                    <div class="hp-slide-client-info">    
+                        <h2>{{ $client }}</h2>
+                        <h3>{{ $tagline }}</h3>
+                    </div>
+                    <div class="pag-contain"></div>  
                 </div>
+                
             </div>
-        <?php endwhile; ?>                
+        <?php endwhile; ?>  
+                    
     </div>
 </div>
 <?php endwhile; ?>
