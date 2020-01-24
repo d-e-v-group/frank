@@ -34,7 +34,7 @@
     display: flex;
     flex-wrap: wrap;
     @include media('<=tablet') {
-        padding: 0 .5rem;
+        padding: 0 .4rem;
     }
     .work-wrap {
         position: relative;
@@ -45,7 +45,7 @@
         margin-bottom: 50px;
         @include media('<=tablet') {
             width: 100%;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
     }
     .work-item {
@@ -57,6 +57,7 @@
         }
         &:hover {
             .work-cat,
+            .work-title,
             .tagline {
                 color: $blue;
             }
@@ -640,13 +641,16 @@
     }
     &.container {
         padding: 0;
+        @include media('<tablet') {
+            padding: 0 5px;
+        }
     }
     .img-box {
         position: relative;
         width: 100%;
         @include aspect-ratio(310, 207);
         @include media('<tablet') {
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
         &:before {
             @include media('<tablet') {
@@ -664,6 +668,7 @@
         }
         &:hover {
             .work-cat,
+            .work-title,
             .tagline {
                 color: $blue;
             }
@@ -674,7 +679,6 @@
                 // flex-direction: column;
                 // align-items: flex-start;
                 display: block;
-
                 h4 {
                     margin: 0;
                     line-height: 1.2;

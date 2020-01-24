@@ -135,7 +135,7 @@ header {
     }
     .slick-prev {
         width: 25%;
-        height: 100vh;
+        height: 150vh;
         left: 0;
         z-index: 1;
         top: 0;
@@ -231,6 +231,7 @@ header {
             align-items: flex-end;
             @include media('<tablet') {
                 margin-top: -24vh;
+                padding: 0 1rem;
             }
         }
         &-text-white {
