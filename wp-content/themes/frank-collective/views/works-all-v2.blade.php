@@ -78,7 +78,7 @@
                                 @endif
                             </div>
                             <div class="desc">
-                                <h5 class="work-cat">{{ get_field('brand_name') }}</h5>
+                                <h5 class="work-title">{{ get_field('brand_name') }}</h5>
                                 @if(get_field('tagline') || get_field('tagline_short'))
                                     <h5 class="tagline">{{ (get_field('tagline_short')) ? get_field('tagline_short') : get_field('tagline') }}</h5>
                                 @endif
@@ -126,7 +126,8 @@
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="text-content">
-                                            <h4 class="work-cat">{{ get_field('brand_name') }}</h4>
+s
+                                            <h4 class="work-title">{{ get_field('brand_name') }}</h4>
                                             @if(get_field('tagline') || get_field('tagline_short'))
                                                 <h5 class="tagline">{{ (get_field('tagline_short')) ? get_field('tagline_short') : get_field('tagline') }}</h5>
                                             @endif
@@ -148,11 +149,7 @@
             </section>    
             </div>
 
-                <div id="scrollToTop">
-                    <div class="container">
-                        <a>Back to Top</a>
-                    </div>
-                </div> 
+               
             </div>
             @include('partials/cta/contact')
 

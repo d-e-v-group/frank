@@ -87,8 +87,12 @@ function custom_fetch_works()
                 $page .= '<div class="text-content">';
                 $page .= '<div class="grid-flex">';
                 $page .= '<div class="col-sm-12 title-col">';
+
+                $tag = get_field('tagline_short', $post->ID) ? get_field('tagline_short', $post->ID) : get_field('tagline', $post->ID);
+
                 $page .= '<h4>'. get_field('brand_name', $post->ID) .'</h4>';
-                $page .= '<h5>'. get_field('tagline_short', $post->ID) .'</h5>';
+                $page .= '<h5>'. $tag .'</h5>';
+
                 $page .= '</div>';
 
                 $page .= '</div>';
