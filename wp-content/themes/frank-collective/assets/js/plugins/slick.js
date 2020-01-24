@@ -495,7 +495,7 @@
             }
 
             _.$dots = dot.appendTo(_.options.appendDots);
-            console.log(_.$dots.find('li').first());
+
             _.$dots.find('li').first().addClass('slick-active');
 
         }

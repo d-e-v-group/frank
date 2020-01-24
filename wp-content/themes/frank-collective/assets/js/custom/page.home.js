@@ -38,7 +38,7 @@ $('.hp-slider').slick({
     autoplaySpeed: 5000,
     arrows: true,
     dots: true,
-    appendDots: $('.pag-contain'),
+    // appendDots: $('.pag-contain'),
     pauseOnHover: false,
     customPaging: function(slick, index) {
         var currSlide = slick.$slides.get(index);

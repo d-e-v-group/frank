@@ -56,12 +56,9 @@
                         <h2>{{ $client }}</h2>
                         <h3>{{ $tagline }}</h3>
                     </div>
-                    <div class="pag-contain"></div>  
                 </div>
-                
             </div>
         <?php endwhile; ?>  
-                    
     </div>
 </div>
 <?php endwhile; ?>
