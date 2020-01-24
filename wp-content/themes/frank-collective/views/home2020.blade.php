@@ -12,6 +12,11 @@
                 $textColor = get_sub_field('text_color');
                 $textShadow = get_sub_field('text_shadow');
                 $clientLink = get_sub_field('link');
+
+                $slideDeskImg = null;
+                $slideDeskVid = null;
+                $slideMobileImg = null;
+                $slideMobileVid = null;
             ?>
             <?php while( have_rows('desktop_asset_type') ): the_row(); ?>
                 <?php
