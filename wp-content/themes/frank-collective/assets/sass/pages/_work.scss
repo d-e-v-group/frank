@@ -640,13 +640,16 @@
     }
     &.container {
         padding: 0;
+        @include media('<tablet') {
+            padding: 0 5px;
+        }
     }
     .img-box {
         position: relative;
         width: 100%;
         @include aspect-ratio(310, 207);
         @include media('<tablet') {
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
         &:before {
             @include media('<tablet') {

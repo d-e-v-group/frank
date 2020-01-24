@@ -277,6 +277,9 @@
     @include media('>=tablet') {
         display: none;
     }
+    @include media('<tablet') {
+        right: 17px;
+    }
     &:hover {
         @include media('>=desktop') {
             opacity: 0.6;

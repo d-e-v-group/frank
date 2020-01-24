@@ -231,6 +231,7 @@ header {
             align-items: flex-end;
             @include media('<tablet') {
                 margin-top: -24vh;
+                padding: 0 1rem;
             }
         }
         &-text-white {
