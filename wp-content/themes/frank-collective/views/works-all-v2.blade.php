@@ -156,7 +156,11 @@
             </section>    
             </div>
 
-               
+                <div id="scrollToTop">	
+                    <div class="container">	
+                        <a>Back to Top</a>	
+                    </div>	
+                </div>                
             </div>
             @include('partials/cta/contact')
 

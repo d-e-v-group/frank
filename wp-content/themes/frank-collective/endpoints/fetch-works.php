@@ -90,8 +90,8 @@ function custom_fetch_works()
 
                 $tag = get_field('tagline_short', $post->ID) ? get_field('tagline_short', $post->ID) : get_field('tagline', $post->ID);
 
-                $page .= '<h4>'. get_field('brand_name', $post->ID) .'</h4>';
-                $page .= '<h5>'. $tag .'</h5>';
+                $page .= '<h4 class="work-title">'. get_field('brand_name', $post->ID) .'</h4>';
+                $page .= '<h5 class="tagline">'. $tag .'</h5>';
 
                 $page .= '</div>';
 
