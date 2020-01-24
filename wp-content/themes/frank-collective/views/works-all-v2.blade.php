@@ -49,7 +49,7 @@
                         $options = array(
                             'post_type' => 'work',
                             'orderby' => 'post__in',
-                            'post__in' => get_field('works', 8931),
+                            'post__in' => get_field('works', 33),
                             'posts_per_page'	=> 10,
                         );
                         $work_idx = 0;
