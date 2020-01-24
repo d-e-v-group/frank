@@ -164,6 +164,15 @@ header {
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        .pag-contain {
+            position: unset;
+            flex: 1;
+        }
+        .hp-slide-client-info {
+            flex: 1;
+        }
         h2 {
             font-size: 30px;
             margin-bottom: 10px;
@@ -181,10 +190,13 @@ header {
                 font-size: 25px;
             }
         }
-        &>div {
-            position: absolute;
-            bottom: 0;
-            padding: 0 0 50px 1rem;
+        .container {
+            width: 100%;
+            margin-top: -20vh;
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
             @include media('<tablet') {
                 padding: 0 0 70px 1rem;
             }
@@ -209,11 +221,12 @@ header {
         }
     }
     .slick-dots {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        padding: 0 1rem 50px 0;
+        position: unset;
+        bottom: unset;
+        right: unset;
+        padding: 0;
         width: auto;
+        text-align: right;
         @include media('<tablet') {
             width: 100%;
             padding: 0 0 20px 0;
