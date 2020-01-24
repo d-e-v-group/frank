@@ -126,7 +126,6 @@
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="text-content">
-s
                                             <h4 class="work-title">{{ get_field('brand_name') }}</h4>
                                             @if(get_field('tagline') || get_field('tagline_short'))
                                                 <h5 class="tagline">{{ (get_field('tagline_short')) ? get_field('tagline_short') : get_field('tagline') }}</h5>
