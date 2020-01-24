@@ -12,8 +12,16 @@
                     <div class="grid">
                         <div class="row filter-toggles">
                             <h5 class="col-xs-5 col-md-3 col-lg-3 col filter-drop-service">Service</h5>
-                            <h5 class="col-xs-5 col-md-3 col-lg-8 col filter-drop-industry">Industry</h5>
-                            <div class="col-xs-2 col-lg-1 col clear-filters" style="display:none;"><span>Clear Filters</span></div>
+                            <h5 class="col-xs-5 col-md-3 col-lg-7 col filter-drop-industry">Industry</h5>
+                            <div class="col-xs-2 col-lg-2 col clear-filters" style="display:none;">
+                                
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M11 21C16.5228 21 21 16.5228 21 11C21 5.47715 16.5228 1 11 1C5.47715 1 1 5.47715 1 11C1 16.5228 5.47715 21 11 21Z" stroke="white"/>
+                                    <path d="M13.1211 8.87874L8.87845 13.1214" stroke="#979797" stroke-linecap="square"/>
+                                    <path d="M8.87849 8.87866L13.1211 13.1213" stroke="#979797" stroke-linecap="square"/>
+                                </svg>
+                                <span>Clear Filters</span>
+                            </div>
                         </div>
                         @if(!empty(get_terms('service')))
                         <div class="row filter-wrap-service">

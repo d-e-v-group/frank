@@ -3,10 +3,13 @@
         background-color: $black;
         padding: 150px 0 180px 0;
         @include media('<tablet') {
-            padding: 90px 0 65px 0;
+            padding: 90px 0 110px 0;
         }
         .filter-drop {
-            padding: 0 1rem;
+            padding: 0 .6rem;
+            @include media('<tablet') {
+                padding: 0 1rem;
+            }
         }
     }
     .filter-toggles {
@@ -49,25 +52,13 @@
         opacity: .5;
         font-size: 13px;
         cursor: pointer;
+        display: flex;
+        justify-content: flex-end;
         span {
+            line-height: 1.7;
+            padding-left: 7px;
             @include media('<tablet') {
                 display: none;
-            }
-        }
-        &:before {
-            content: 'x';
-            border: 1px solid $white;
-            border-radius: 11px;
-            line-height: 0.5;
-            padding: 6px 6px 7px;
-            margin: 0;
-            position: absolute;
-            left: -17px;
-            font-size: 14px;
-            bottom: -1px;
-            @include media('<tablet') {
-                left: 30px;
-                bottom: -20px;
             }
         }
     }
