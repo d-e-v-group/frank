@@ -62,9 +62,8 @@ $('.hp-slider').on('beforeChange', function(event, slick, currentSlide, nextSlid
     var nextSlide = slick.$slides.get(nextSlide);
     if (nextSlide.querySelector('video')) {
         nextSlide.querySelector('video').pause();
-        // nextSlide.querySelector('video').play();
     }
-    // $('#home-page-video').get(0).pause();
+
     for (var i = 0; i < nextSlide.children.length; i++) {
         if (!nextSlide.children[i].classList.contains('hp-slide-text-white')) {
             document.querySelector('.slick-dots').classList.remove('white');
@@ -83,11 +82,8 @@ $('.hp-slider').on('beforeChange', function(event, slick, currentSlide, nextSlid
 //if video, play afterChange
 $('.hp-slider').on('afterChange', function(event, slick, currentSlide, nextSlide) {
     //use currentSlide (index) to get slide html element  
-    console.log();
     var currSlide = slick.$slides.get(currentSlide);
-    console.log('curr: ' + currSlide);
     if (currSlide.querySelector('video')) {
-        // currSlide.querySelector('video').pause();
         currSlide.querySelector('video').play();
     }
 
