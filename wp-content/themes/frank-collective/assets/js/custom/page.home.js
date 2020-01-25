@@ -61,6 +61,8 @@ $('.hp-slider').on('beforeChange', function(event, slick, currentSlide, nextSlid
     //use currentSlide (index) to get slide html element  
     var nextSlide = slick.$slides.get(nextSlide);
     if (nextSlide.querySelector('video')) {
+        // nextSlide.querySelector('video').pause();
+        nextSlide.querySelector('video').currentTime = 0;
         nextSlide.querySelector('video').pause();
     }
 
@@ -86,7 +88,6 @@ $('.hp-slider').on('afterChange', function(event, slick, currentSlide, nextSlide
     if (currSlide.querySelector('video')) {
         currSlide.querySelector('video').play();
     }
-
 });
 
 $(document).ready(function() {
