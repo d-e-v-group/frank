@@ -1,2 +1,0 @@
-<?php // /home/forge/frank-collective.approvemyviews.com/wordpress/wp-content/themes/frank-collective/archive-press.php ?>
-<?php echo view('views/press')->with(get_defined_vars())->render(); ?>

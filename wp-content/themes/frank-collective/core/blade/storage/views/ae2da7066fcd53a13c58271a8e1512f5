@@ -1,2 +1,0 @@
-<?php // /nas/content/live/frankcollectiv/wp-content/themes/frank-collective/single-team.php ?>
-<?php echo view('views/bio')->with(get_defined_vars())->render(); ?>

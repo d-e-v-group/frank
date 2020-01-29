@@ -1,2 +1,0 @@
-<?php // /nas/content/live/frankcollectiv/wp-content/themes/frank-collective/single-career.php ?>
-<?php echo view('views/career')->with(get_defined_vars())->render(); ?>

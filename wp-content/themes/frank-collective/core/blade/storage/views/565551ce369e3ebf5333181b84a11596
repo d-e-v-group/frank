@@ -1,2 +1,0 @@
-<?php // /nas/content/live/frankcollectiv/wp-content/themes/frank-collective/single-press.php ?>
-<?php echo view('views/press-single')->with(get_defined_vars())->render(); ?>

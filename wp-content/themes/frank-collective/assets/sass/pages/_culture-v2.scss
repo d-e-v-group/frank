@@ -98,6 +98,9 @@ $imgArea: 400px;
       left: 0;
       right: 0;
       width: 100%;
+      @include media('<desktop') {
+        display: none;
+      }        
     }
     .culture-item {
       max-height: 400px;
@@ -105,6 +108,9 @@ $imgArea: 400px;
       margin: 10% 20px;
       display: block;
       align-self: baseline;
+      @include media('<desktop') {
+        display: none;
+      }        
     }
     .culture-image {
       position: absolute;

@@ -1,2 +1,0 @@
-<?php // /Users/aaronpedersen/Documents/Dev/wp-frank-collective-live/wp-content/themes/frank-collective/front-page.php ?>
-<?php echo view('views/home')->with(get_defined_vars())->render(); ?>
