@@ -8,13 +8,8 @@ frank.ani_culture_2_init = function (root) {
   let desktopInitialized = false;
 
   function init_culture_desktop_bg() {
-    console.log('init');
     if ($(window).width() > 1023) {
-      console.log('big enough');
-
       if (!desktopInitialized) {
-        console.log('lets init');
-
         $('.culture-item').each(function(){
           var src = $(this).data('src');
           $(this).attr('src', src);
