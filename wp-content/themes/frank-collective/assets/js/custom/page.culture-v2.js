@@ -5,14 +5,27 @@ frank.ani_culture_2_init = function (root) {
       // controller: new ScrollMagic.Controller(),
   };
 
+  let desktopInitialized = false;
 
-  function get_url_extension( url ) {
-    return url.split(/\#|\?/)[0].split('.').pop().trim();
+  function init_culture_desktop_bg() {
+    console.log('init');
+    if ($(window).width() > 1023) {
+      console.log('big enough');
+
+      if (!desktopInitialized) {
+        console.log('lets init');
+
+        $('.culture-item').each(function(){
+          var src = $(this).data('src');
+          $(this).attr('src', src);
+        });
+        desktopInitialized = true;
+        animate_culture_desktop_bg();      
+      }    
+    }
   }
 
-  $(document).ready(function(){
-
-
+  function animate_culture_desktop_bg() {
     var col1Height = $('.column-1').height();
     var col2Height = $('.column-2').height();
 
@@ -35,9 +48,22 @@ frank.ani_culture_2_init = function (root) {
          ease: Linear.easeNone,
          repeat: -1
         }
-    );  
-    
+    );      
+  }
+  
+  $(document).ready(function(){
+    init_culture_desktop_bg();
   })
+
+  $(window).resize(function(){
+    init_culture_desktop_bg();
+  })
+
+
+
+
+
+
 };
 
 frank.ani_culture_2_in = function (root) {
