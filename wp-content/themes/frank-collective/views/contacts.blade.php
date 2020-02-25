@@ -14,9 +14,8 @@
                                     <h1>{{ get_field('hero_header') }}</h1>
                                 </div>
                             @endif
-                        
-                            <div class="contact-form"  data-appear-text>
-                                {{ gravity_form( 1, false, false, false, '', false ) }}
+                            <div class="contact-info"  data-appear-text>
+                                <a target="_blank" href="mailto:newproject@frankcollective.com">newproject@frankcollective.com</a>
                             </div>
                         </div>
                     </div>

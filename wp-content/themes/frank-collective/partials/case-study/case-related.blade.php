@@ -1,7 +1,7 @@
 <div class="case-related">
     <div class="container">
         <div class="back">
-            <a href="/all-work-v2/"><i class="icon-left-arrow"></i>Back to Work</a>
+            <a href="<?php echo get_permalink('33') ?>"><i class="icon-left-arrow"></i>Back to Work</a>
         </div>
         @if(get_field('next_case_study') || get_field('prev_case_study') )
             <div class="grid-flex"  data-appear-block>

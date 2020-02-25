@@ -2,7 +2,6 @@
 // Contact Page styles
 // ---------------------------------------------------------===
 
-
 // contact section
 .contact-section {
     margin-bottom: 160px;
@@ -25,7 +24,7 @@
 
         h1 {
             margin-bottom: 0;
-
+            max-width: 500px;
             @include media('<tablet') {
                 line-height: 1;
             }
@@ -38,6 +37,15 @@ label {
     vertical-align: top;
 }
 
+.contact-info {
+    font-size: 32px;
+    @include media('<tablet') {
+        font-size: 20px;
+    }
+    a {
+        color: $blue;
+    }
+}
 // contact form
 .contact-form {
 
