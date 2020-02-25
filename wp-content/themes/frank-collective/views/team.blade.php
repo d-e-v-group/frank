@@ -40,7 +40,6 @@
                     $options = array(
                         'post_type' => 'team',
                         'orderby' => 'post__in',
-                        'post__in' => get_field('team_top'),
                         'posts_per_page' => -1
                     );
                     $team = new WP_Query( $options );
