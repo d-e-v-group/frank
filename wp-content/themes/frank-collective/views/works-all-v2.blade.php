@@ -53,7 +53,7 @@
                         'post_type' => 'work',
                         'orderby' => 'post__in',
                         'post__in' => get_field('works', 33),
-                        'posts_per_page'	=> 10,
+                        'posts_per_page'	=> 20,
                     );
                     $work_idx = 0;
                     $team = new WP_Query( $options );
