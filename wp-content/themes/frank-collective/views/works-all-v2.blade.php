@@ -56,8 +56,10 @@
                         'posts_per_page'	=> 20,
                     );
                     $work_idx = 0;
-                    $team = new WP_Query( $options );
-                    while( $team->have_posts() ) : $team->the_post();
+                    
+                    $feat = new WP_Query( $options );
+                    while( $feat->have_posts() ) : $feat->the_post();
+                    
                     ?>
                     <div class="work-wrap col-md-6">
                         <div class="work-item ajax-load position-{{ ($work_idx % 2 === 0) ? 'left' : 'right' }}" data-link="{{ get_permalink() }}" data-background-color="{{ (get_field('theme_color')) ? get_field('theme_color') : '#ffffff' }}">
@@ -87,8 +89,6 @@
                                         <h5 class="tagline">{{ (get_field('tagline_short')) ? get_field('tagline_short') : get_field('tagline') }}</h5>
                                     @endif
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
@@ -101,9 +101,11 @@
 
                 <!-- ALL WORKS -->
                 <?php
+                $exclude_ids = $options[post__in];
                 $args = array(
                     'post_type' => ['work'],
                     'post_status' => ['publish'],
+                    'post__not_in' => $exclude_ids,
                     'orderby' => 'menu_order',
                     'order' => 'ASC',
                     'posts_per_page' => 21,
@@ -113,8 +115,6 @@
                 $query_works = new WP_Query( $args );
                 ?>
                 @if($query_works->have_posts())
-
-                
 
                     <div class=" works-all container" data-filter-works-list>
                         <?php

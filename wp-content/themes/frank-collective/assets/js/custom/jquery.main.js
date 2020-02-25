@@ -1,6 +1,3 @@
-
-
-
 jQuery(document).ready(function($) {
     initMobileNav();
     initBannerImg();
@@ -15,16 +12,16 @@ function initFilter($) {
     if ($('[data-filter-work]').length) {
         var controller = new ScrollMagic.Controller();
         var scene = new ScrollMagic.Scene({
-            triggerElement: '#load-more-work', // starting scene, when reaching this element
-            triggerHook: 'onEnter',
-            
-        })
-        .on('enter', function (event) {
-            if (event.scrollDirection == 'FORWARD') {
-                loadMoreWorks();
-            }
-        })        
-        .addTo(controller);
+                triggerElement: '#load-more-work', // starting scene, when reaching this element
+                triggerHook: 'onEnter',
+
+            })
+            .on('enter', function(event) {
+                if (event.scrollDirection == 'FORWARD') {
+                    loadMoreWorks();
+                }
+            })
+            .addTo(controller);
 
 
         var
@@ -32,7 +29,7 @@ function initFilter($) {
             filterDroper = $('[data-filter-work-drop]'),
             loadMoreContainer = $('[data-loadmore-works]'),
             loadMore = $('[data-loadmore-works] a')
-            serviceToggle = $('.filter-drop-service'),
+        serviceToggle = $('.filter-drop-service'),
             industryToggle = $('.filter-drop-industry'),
             serviceList = $('.filter-list-service'),
             industryList = $('.filter-list-industry'),
@@ -43,13 +40,13 @@ function initFilter($) {
             serviceList.hide();
             industryList.hide();
             industryToggle.removeClass('active');
-            serviceToggle.removeClass('active');            
+            serviceToggle.removeClass('active');
             $('[data-filter-val]').removeClass('active');
             updateFilter(1);
         }
 
         clearFiltersLink.on('click', function(e) {
-            clearFilters()
+            clearFilters();
         });
         serviceToggle.on('click', function(e) {
             e.preventDefault();
@@ -74,9 +71,6 @@ function initFilter($) {
         });
 
 
-        
-
-
         filterDroper.on('click', '[data-filter-val]', function(e) {
             e.preventDefault();
             $('[data-filter-val]').not($(this)).removeClass('active');
@@ -84,11 +78,12 @@ function initFilter($) {
             updateFilter(1);
         });
 
-        function loadMoreWorks(){
+        function loadMoreWorks() {
             var currentPage = filterContentList.attr('data-page') ? filterContentList.attr('data-page') : 1;
-            updateFilter(parseInt(currentPage) + 1);  
-            console.log('load more work');          
+            updateFilter(parseInt(currentPage) + 1);
+            console.log('load more work');
         }
+
         function updateFilter(_page) {
             var selectedItems = [];
             var selectedFilterServices = [];

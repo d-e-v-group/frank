@@ -62,8 +62,16 @@ function custom_fetch_works()
     if(!empty($tax_query)){
         $tax_query['relation'] = 'AND';
         $args['tax_query'] = $tax_query;
+    } else {
+        //exclude featured works
+        $options = array(
+            'post_type' => 'work',
+            'orderby' => 'post__in',
+            'post__in' => get_field('works', 33),
+        );
+        $exclude_ids = $options[post__in];
+        $args['post__not_in'] = $exclude_ids;
     }
-
     $query = new WP_Query($args);
     $loadMore = $query->found_posts > $query->post_count;
     $page = '';
