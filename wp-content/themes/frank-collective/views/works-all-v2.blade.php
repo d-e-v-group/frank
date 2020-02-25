@@ -1,6 +1,9 @@
 @layout('layouts/master')
 <?php /* Template Name: Work All v2 */ ?>
 @section('content')
+<?php 
+$featured_ids = get_field('works', 33);
+?>
 
     <?php while ( have_posts() ) : the_post(); ?>
     <div id="all-work-v2" class="root barba-container" data-namespace="archive" data-page-id="Archive" data-transition-in="archive_in" data-transition-out="archive_out" data-page-init="archive_init">
@@ -52,7 +55,7 @@
                     $options = array(
                         'post_type' => 'work',
                         'orderby' => 'post__in',
-                        'post__in' => get_field('works', 33),
+                        'post__in' => $featured_ids,
                         'posts_per_page'	=> 20,
                     );
                     $work_idx = 0;
@@ -101,11 +104,10 @@
 
                 <!-- ALL WORKS -->
                 <?php
-                $exclude_ids = $options[post__in];
                 $args = array(
                     'post_type' => ['work'],
                     'post_status' => ['publish'],
-                    'post__not_in' => $exclude_ids,
+                    'post__not_in' => $featured_ids,
                     'orderby' => 'menu_order',
                     'order' => 'ASC',
                     'posts_per_page' => 21,
