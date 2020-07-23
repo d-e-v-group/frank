@@ -197,7 +197,23 @@ class Theme extends base_theme_class {
 		    'plural'   => 'Careers',
 		    'slug'     => 'career'
 
-	    ) );
+        ) );
+        
+	    register_extended_post_type( 'blog', array(
+
+		    # Add the post type to the site's main RSS feed:
+		    'show_in_feed' => true,
+		    'archive' => false,
+		    'admin_cols' => false,
+		    'has_archive' => false
+	    ), array(
+
+		    # Override the base names used for labels:
+		    'singular' => 'Blog',
+		    'plural'   => 'Blog',
+		    'slug'     => 'blog'
+
+	    ) );        
 
     }
 
