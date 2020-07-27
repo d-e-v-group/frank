@@ -24,7 +24,12 @@
                         @else
                         {{ the_content() }}
                         @endif
+                        @if(get_post_type() == 'blog')
+                        <a href="/blog" class="link-u">Back to Blog</a>
+                        @else
                         <a href="/articles" class="link-u">Back to Articles</a>
+                        @endif
+
                     </div>
                 </div>
             </div>
