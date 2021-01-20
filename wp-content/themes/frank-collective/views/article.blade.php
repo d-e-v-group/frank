@@ -5,13 +5,13 @@
     <div class="main default-content">
         <section class="general-content-block container">
             <div class="grid">
-                <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
+                <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-0">
                     @if(get_field('image'))
-                        <div class="featured-image" >
+                        <div class="featured-image-" style="margin-bottom: 2em;" >
                             {{ helper::image(get_field('image'), 'full') }}
                         </div>
                     @elseif(has_post_thumbnail())
-                    <div class="featured-image" >
+                    <div class="featured-image-" style="margin-bottom: 2em;" >
                             {{ helper::image(get_post_thumbnail_id(), 'full') }}
                         </div>
                     @endif
