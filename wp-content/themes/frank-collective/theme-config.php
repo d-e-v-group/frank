@@ -211,7 +211,7 @@ class Theme extends base_theme_class {
 		    # Override the base names used for labels:
 		    'singular' => 'Blog',
 		    'plural'   => 'Blog',
-		    'slug'     => 'blog'
+		    'slug'     => 'brand-addict'
 
 	    ) );        
 
