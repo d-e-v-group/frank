@@ -1,6 +1,5 @@
 vendor
 node_modules
-assets/compiled
 *.log
 core/blade/storage/views
 core/blade/storage
