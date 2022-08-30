@@ -46,25 +46,25 @@ class WP_Blade_Main_Model {
 		if ( ! file_exists( $pathToCompiled ) or Laravel\Blade::expired( $view->view, $view->path ) )
 			file_put_contents( $pathToCompiled, "<?php // $template ?>\n".Laravel\Blade::compile( $view ) );
 
-		$view->path = $pathToCompiled;
+$view->path = $pathToCompiled;
 
-		if ( $error = error_get_last() ) {
-		    //var_dump($error);
-		    //exit;
-		}
+if ( $error = error_get_last() ) {
+//var_dump($error);
+//exit;
+}
 
-		return $this->bladedTemplate = $view->path;
+return $this->bladedTemplate = $view->path;
 
-	}
+}
 
-	/**
-	* Return a call of templateinclude blade passing template path.
-	* @param { str }
-	* @return { str } path of the compiled view
-	*/
-	function get_query_template( $template ) {
+/**
+* Return a call of templateinclude blade passing template path.
+* @param { str }
+* @return { str } path of the compiled view
+*/
+function get_query_template( $template ) {
 
-		return $this->template_include_blade( $template );
-	}
+return $this->template_include_blade( $template );
+}
 
 }

@@ -21,15 +21,15 @@ function view($view, $data = array()){
  * @param  string|array  $needle
  * @return bool
  */
-function str_contains($haystack, $needle)
-{
-	foreach ((array) $needle as $n)
-	{
-		if (strpos($haystack, $n) !== false) return true;
-	}
+// function str_contains($haystack, $needle)
+// {
+// 	foreach ((array) $needle as $n)
+// 	{
+// 		if (strpos($haystack, $n) !== false) return true;
+// 	}
 
-	return false;
-}
+// 	return false;
+// }
 
 
 function queryToArray($args = array()){
